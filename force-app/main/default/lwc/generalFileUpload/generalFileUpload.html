@@ -1,0 +1,53 @@
+<!--
+  @description       : 
+  @author            : 
+  @group             : 
+  @last modified on  : 03-14-2024
+  @last modified by  : 
+-->
+<template>
+    <div class="slds-m-around_medium backgroundColor">
+        <template if:true={sections}>
+            <template for:each={sections} for:item="section" for:index="index">
+                <div key={section.key} class="slds-m-around_medium">
+                    <template for:each={section.rows} for:item="row" for:index="index">
+                        <div key={row.key} class="slds-grid slds-wrap">
+                            <!-- First Row - Display varcolumn.label and Upload file -->
+                            <template for:each={row.columns} for:item="varColumn" for:index="index">
+                                <div key={varColumn.key}
+                                    class="slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-3 slds-p-around_medium">
+                                    <template if:true={varColumn.isInput}>
+                                        <p style="margin-top: 25px; margin-left:20px;">{varColumn.label}</p>
+                                    </template>
+                                    <div class="fileUpload">
+                                        <template if:true={varColumn.isFileUpload}>
+                                            <lightning-file-upload name="UploadFile" accept={acceptedFormats}
+                                                record-id={surveyRecord} onuploadfinished={handleUploadFinished}
+                                                multiple file-field-name="Guest_Record_fileupload__c"
+                                                file-field-value={varColumn.sufix} data-sufix={varColumn.sufix}>
+                                            </lightning-file-upload>
+                                        </template>
+                                    </div>
+                                </div>
+                            </template>
+                            <!-- Second Row - Display Thumbnails -->
+                            <div class="slds-size_1-of-1 slds-small-size_1-of-1 slds-grid slds-wrap thumbnailCard">
+                                <template for:each={row.filesData} for:item="file">
+                                    <c-preview-file-thumbnail-card key={file.Id} file={file} record-id={recordId}
+                                        thumbnail={file.thumbnailFileCard}>
+                                    </c-preview-file-thumbnail-card>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </template>
+        <div if:true={successMessage} class="custom-toast success">{successMessage}</div>
+        <div if:true={errorMessage} class="custom-toast error">{errorMessage}</div>
+        <template if:true={isImageLoading}>
+            <p>Image is loading.</p>
+            <lightning-spinner alternative-text="Loading..." variant="brand"></lightning-spinner>
+        </template>
+    </div>
+</template>

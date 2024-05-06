@@ -1,0 +1,150 @@
+<!--
+  @description       : 
+  @author            : 
+  @group             : 
+  @last modified on  : 03-12-2024
+  @last modified by  : 
+-->
+<template>
+    <lightning-accordion allow-multiple-sections-open class="accordionClass">
+        <lightning-accordion-section name="assetsDebts" label="PLUMBING">
+            <div class="backgroundColor">
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress106">Is Existing Condensate Drain
+                                Accessible
+                            </label>
+                            <lightning-combobox id="IsExistCDA" name="progress" label="Box Issues: Sagging Ceiling"
+                                value={surveyRecord.Is_ECDA_General__c} placeholder="Select Value" options={genOptions}
+                                onchange={handleInputChange} data-field="Is_ECDA_General__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress106">Is Existing Condensate Drain
+                                Reusable
+                            </label>
+                            <lightning-combobox id="IsExistCDR" name="progress" label="Box Issues: Sagging Ceiling"
+                                value={surveyRecord.Is_ECDR_General__c} placeholder="Select Value" options={genOptions}
+                                onchange={handleInputChange} data-field="Is_ECDR_General__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                    <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                        <lightning-button variant="neutral" label="Save & Draft"
+                            onclick={updateSurveyRecord}></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="assetsDebts" label="FLOOR CONDITION">
+            <div class="backgroundColor">
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress106">In front of case, if floor issues
+                                are existing survey team to provide pictures for documentation purposes. Floor Rating:
+                            </label>
+                            <lightning-combobox name="progress" label="Box Issues: Sagging Ceiling"
+                                value={surveyRecord.In_front_of_case_General__c} placeholder="Select Value"
+                                options={viOptions} onchange={handleInputChange}
+                                data-field="In_front_of_case_General__c" variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1067">General Sales & Stock Room
+                            </label>
+                            <lightning-combobox id="progress1067" name="progress"
+                                value={surveyRecord.General_Sales_Stock_Room__c} placeholder="Select Value"
+                                options={genSalesOptions} onchange={handleInputChange}
+                                data-field="General_Sales_Stock_Room__c"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress10678">Cooler Floor
+                            </label>
+                            <lightning-combobox id="progress10678" name="progress" value={surveyRecord.Cooler_Floor__c}
+                                placeholder="Select Value" options={genSalesOptions} onchange={handleInputChange}
+                                data-field="Cooler_Floor__c"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress106789">Freezer Floor
+                            </label>
+                            <lightning-combobox id="progress106789" name="progress" label="Box Issues: Sagging Ceiling"
+                                value={surveyRecord.Freezer_Floor__c} placeholder="Select Value"
+                                options={genSalesOptions} onchange={handleInputChange} data-field="Freezer_Floor__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <label class="slds-form-element__label" for="additionNoteMedTemp">Surveyor Observations</label>
+                        <lightning-textarea id="additionNoteMedTemp" class="textAreaBody"
+                            value={surveyRecord.Surveyor_Observations__c} data-field="Surveyor_Observations__c"
+                            onchange={handleInputChange} variant="label-hidden"></lightning-textarea>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <label class="slds-form-element__label" for="additionNoteMedTemp">List low or medium temperature
+                            and
+                            system numbers for any condensing units which do not have curbs or have curbs that can not
+                            be
+                            reused due to general condition. </label>
+                        <lightning-textarea id="additionNoteMedTemp1" class="textAreaBody"
+                            value={surveyRecord.ListLowMedTemp__c} data-field="ListLowMedTemp__c"
+                            onchange={handleInputChange} variant="label-hidden"></lightning-textarea>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                    <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                        <lightning-button variant="neutral" label="Save & Draft"
+                            onclick={updateSurveyRecord}></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </lightning-accordion-section>
+    </lightning-accordion>
+    <template if:true={isPopupVisible}>
+        <div class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium slds-hyphenate">Add Note for {fieldName}</h2>
+                    <button class="slds-button slds-button_icon slds-modal__close" title="Close" onclick={closePopup}>
+                        <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <!-- Add your input box for adding a note -->
+                    <textarea class="slds-textarea" placeholder="Enter note here..."
+                        onchange={handleNoteInput}>{noteBody}</textarea>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand" onclick={handleSave}>Save</button>
+                    <button class="slds-button slds-button_neutral" onclick={closePopup}>Cancel</button>
+                </footer>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

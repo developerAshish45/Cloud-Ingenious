@@ -1,0 +1,48 @@
+<template>
+    <div cz-shortcut-listen="true" style={backgroundImage} class="heading">
+        <div style="padding: 10px;">
+            <div style="border-bottom: 1px solid white;">
+                <div style="display: flex; justify-content: space-between;">
+                    <div><img src={rsgLogoUrl} alt="" style="max-width: 200px;"></div>
+                    <div class="flex-container">
+                        <ul>
+                            <li><a href={setBaseUrlHome} if:true={setBaseUrlHome}><img src={homeActionUrl} alt="Home" class="img-fluid"><span>Home</span></a></li>
+                            <li><a href={setBaseUrlDataTable} if:true={setBaseUrlDataTable}><img src={siteActionUrl} alt="Site Data Table" class="img-fluid"><span>Sites</span></a></li>
+                        </ul>       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div style="font-size: 50px;">
+                <h1 style="color: white;margin-bottom: 0;">RSG</h1>
+                <h1 style="color: #3FAFFF;margin-top:0 ;">Installation Portal</h1>
+            </div>
+            <div class="content">
+                <template if:true={pvcCustomer}>
+                    <div class="item">
+                        <a href={setBaseUrl1} if:true={setBaseUrl1}><div><button class="button-26">CLEANING &amp; MAINTENANCE</button></div></a>
+                    </div>
+                    <div class="item">
+                        <div><button class="button-26">OTHERS</button></div>
+                    </div>
+                </template>
+                <template if:false={pvcCustomer}>
+                    <div class="item">
+                        <a href={setBaseUrl} if:true={setBaseUrl}><div><button class="button-26">INSTALLATION</button></div></a>
+                    </div>
+                    <div class="item">
+                        <div><button class="button-26">FEEDBACK</button></div>
+                    </div>
+                    <div class="item">
+                        <div><button class="button-26">CLEANING & MAINTENANCE</button></div>
+                    </div>
+                    <div class="item">
+                        <div><button class="button-26">OTHERS</button></div>
+                    </div>
+                </template>
+            </div>     
+        </div>
+            <c-install-footer-component></c-install-footer-component>
+    </div>
+</template>

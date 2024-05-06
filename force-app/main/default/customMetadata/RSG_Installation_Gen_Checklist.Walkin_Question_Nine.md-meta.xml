@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Walkin Question Nine</label>
+    <protected>false</protected>
+    <values>
+        <field>Checklist_Name__c</field>
+        <value xsi:type="xsd:string">Walk-In</value>
+    </values>
+    <values>
+        <field>Question__c</field>
+        <value xsi:type="xsd:string">Are there any gaps identified between wall panels following engagement of the lock
+and strike? The panel gasket must be in contact with the metal edges of both panels.</value>
+    </values>
+    <values>
+        <field>SF_ApiName__c</field>
+        <value xsi:type="xsd:string">Walkin_Genquestion_nine__c</value>
+    </values>
+    <values>
+        <field>Sr_Num__c</field>
+        <value xsi:type="xsd:double">9.0</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,119 @@
+.backgroundImg{
+    background-position: center;
+}
+
+.rsg{
+    font-size: 4rem;
+    font-weight: 700;
+    margin-left: 4rem;
+    margin-top: 1rem;
+    color: floralwhite;
+}
+.appName{
+    font-weight: bolder;
+    color: white;
+    margin-top: 10px;
+    font-size: 20px;
+    margin-left: -2rem
+}
+
+h1{
+    font-weight: inherit;
+    font-size: 3rem;
+    color: deepskyblue;
+    font-family: sans-serif;
+    margin-left: 4rem;
+}
+
+.content{
+    font-size: large;
+    font-weight: 500;
+    margin: 1.5rem;
+    
+}
+
+.btn-2{
+    margin-top: 2rem;
+    margin-left: 2rem;
+    width: 8rem;
+    background-color: transparent;
+    border-radius: 1rem;
+    border-color: blanchedalmond;
+    color: whitesmoke;
+}
+
+.btn-1{
+    margin-top: 2rem;
+    margin-left: 3rem;
+    width: 8rem;
+    background-color: transparent;
+    border-radius: 1rem;
+    border-color: blanchedalmond;
+    color: whitesmoke;
+}
+
+/* .btn-1,.btn-2:hover{
+    background-color: whitesmoke;
+    color: lightslategray;
+} */
+
+hr{
+    background-color: black;
+    height: 1.5px;
+    border: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .slds-col {
+        width: 100%; 
+    }
+
+    .rsg {
+        margin-left: 2rem; 
+        font-size: 2rem;
+        font-weight: 500;
+        margin-top: 1rem;
+        color: floralwhite;
+    }
+
+    h1{
+    font-weight: inherit;
+    font-size: 1.5rem;
+    color: deepskyblue;
+    font-family: sans-serif;
+    margin-left: 2rem;
+
+    }
+
+    .content {
+        font-size: medium;
+        font-weight: 400;
+        margin-top: 1.5rem;
+    }
+
+    .btn-1{
+        margin-left: 3rem;
+        width: 8rem;
+        background-color: transparent;
+        border-radius: 1rem;
+        border-color: blanchedalmond;
+        color: whitesmoke;
+    }
+
+    .btn-2{
+        width: 8rem;
+        background-color: transparent;
+        border-radius: 1rem;
+        border-color: blanchedalmond;
+        color: whitesmoke;
+    }
+
+    hr{
+        width: 80%;
+        background-color: black;
+        border: 0;
+        height: 1.5px;
+        margin-left: 2rem;
+    }
+    
+}

@@ -1,0 +1,68 @@
+<template>
+    <div class="slds-card" style="height:570px">
+        <div>
+            <img usemap={mapName1} src={imageUrl1} style="border: 0;" alt="Image map 1" />
+            <map name={mapName1}>
+                <template for:each={areas1} for:item="area">
+                    <area key={area.id} href={area.href} shape={area.shape} coords={area.coords} alt={area.alt} />
+                </template>
+            </map>
+        </div>
+        <div>
+        <div class="slds-grid slds-box_xx-small slds-theme_shade slds-m-top_medium">
+            <div class="slds-col slds-size_12-of-12 ">
+               <span class="slds-text-heading_small slds-m-left_medium slds-align_absolute-center" title="Referral Information"><b>Installation Details</b></span>
+            </div>
+         </div>
+        <div class="demo-only demo-only--sizing slds-grid slds-wrap slds-card ">
+            <div class="slds-size_6-of-12 slds-var-m-vertical_x-small">
+                <!-- <lightning-input class="slds-var-m-horizontal_x-small" type="text" name="InstallationNumber" label="Installation Number" disabled="true" value={InstallationNumber} onchange={handleChange}></lightning-input> -->
+                <lightning-input class="slds-var-m-horizontal_x-small" type="text"  name="ProjectName" label="Project Name" disabled="true" value={projectName}></lightning-input>
+                <lightning-input class="slds-var-m-horizontal_x-small" type="text"  name="InstallerName" label="Installer Name" disabled="true" value={InstallerName}></lightning-input>
+                <lightning-input class="slds-var-m-horizontal_x-small" type="date"  name="InstallationDate" label="Installation Date" value={defaultDate} onchange={handleChange}></lightning-input>
+            </div>
+            <div  class="slds-size_6-of-12 slds-m-vertical_x-small">
+                <lightning-input   name="InstallSONum" type="text" label="Install SO#" onchange={handleChange}></lightning-input>
+                <lightning-combobox label="Installation Status" value={value} placeholder="Select Status" name="Status" onchange={handleChange} options={options}></lightning-combobox>
+            </div>
+        </div>
+        <div class="slds-grid slds-box_xx-small slds-theme_shade">
+            <div class="slds-col slds-size_12-of-12 ">
+                <span class="slds-text-heading_small slds-m-left_medium slds-align_absolute-center" title="Checklist Information"><b>Installation Checklist</b></span>
+             </div>
+        </div>
+        <div class="demo-only demo-only--sizing slds-grid slds-wrap slds-card ">
+            <div class="slds-size_4-of-12 slds-m-vertical_x-small slds-align_absolute-center">
+                <lightning-input type="checkbox"  name="Checklist 1" label="Checklist 1"></lightning-input>
+                <lightning-input type="checkbox"  name="Checklist 2" label="Checklist 2"></lightning-input>
+            </div>
+            <div  class="slds-size_4-of-12 slds-m-vertical_x-small slds-align_absolute-center">
+                <lightning-input  name="Checklist 3" type="checkbox" label="Checklist 3"></lightning-input>
+                <lightning-input  name="Checklist 4" type="checkbox" label="Checklist 4"></lightning-input>
+            </div>
+            <div  class="slds-size_4-of-12 slds-m-vertical_x-small slds-align_absolute-center">
+                <lightning-input  name="Checklist 5" type="checkbox" label="Checklist 5"></lightning-input>
+                <lightning-input  name="Checklist 6" type="checkbox" label="Checklist 6"></lightning-input>
+            </div>
+        </div>
+        <div class="slds-align_absolute-center slds-theme_shade">
+            <div class="slds-grid slds-box_xx-small">
+                 <button class="slds-button slds-button_brand" onclick={clickhandler}>Submit</button>
+                <!-- <a class="slds-button slds-button_brand" href={thankBaseUrl} if:true={thankBaseUrl} onclick={clickhandler}>
+                    Submit
+                </a> -->
+                <!-- <button class="slds-button slds-button_brand" onclick={cancelhandler}>Cancel</button> -->
+                <a class="slds-button slds-button_brand" href={setBaseUrl} if:true={setBaseUrl}>
+                    Cancel
+                </a>
+           </div>
+        </div>
+    </div>
+        <!-- this code is for display the message that record is created-->
+        <div>
+            <template if:true={show}>
+              <p style="color:green; font-size:25px;text-align:center">Your Record Is Successfully Inserted!</p>
+          </template>
+        </div>
+    </div>
+</template>

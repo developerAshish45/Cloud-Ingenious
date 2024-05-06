@@ -1,0 +1,152 @@
+<template>
+    <div class="div" style={backgroundImage}>
+      <div style="padding: 10px;">
+        <div style="border-bottom: 1px solid white;">
+            <div style="display: flex; justify-content: space-between;">
+                <div><img src={rsgLogoUrl} alt="" style="max-width: 200px;"></div>
+                <div class="flex-container">
+                    <ul>
+                        <li><a href={setBaseUrlHome} if:true={setBaseUrlHome}><img src={homeActionUrl} alt="Home" style="width: 30px; height: 30px;"></a></li>
+                        <li><a href={setBaseUrlData} if:true={setBaseUrlData}><img src={siteActionUrl} alt="Site Data Table" style="width: 30px; height: 30px;"></a></li>
+                        <li><a href={setBaseUrlList} if:true={setBaseUrlList}><img src={actionActionUrl} alt="Action Buttons" style="width: 30px; height: 30px;"></a></li>
+                    </ul>       
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="responsive">
+            <div style="font-size: 30px; text-align: left;">
+                <h1 style="color: white;margin-bottom: 0;">RSG</h1>
+                <h1 style="color: #3FAFFF;margin-top:0 ;">Cleaning & Maintenance</h1>
+            </div>
+        </div>
+        <lightning-card>
+            <lightning-progress-indicator current-step={currentStep} variant="base" type="path" class="slds-m-left_medium">
+                <lightning-progress-step label="Details" value="1" onclick={handleStepClick}></lightning-progress-step>
+                <lightning-progress-step label="Cleaning" value="2" onclick={handleStepClick}></lightning-progress-step>
+                <lightning-progress-step label="Maintenance" value="3" onclick={handleStepClick}></lightning-progress-step>
+                <lightning-progress-step if:true={showIndicator} class="slds-hide" label="Step 3" value="4"></lightning-progress-step>
+            </lightning-progress-indicator>
+        
+            <template if:true ={isStepOne}>
+                <div class="slds-align_absolute-center slds-grid slds-wrap">
+                    <div class="slds-size_4-of-12 slds-var-m-vertical_x-small">
+                        <lightning-input class="slds-var-m-horizontal_x-small" name="CleanAndManintName" type="text" 
+                            label="Cleaning & Maintenance Vendor Name" disabled="true" value={cleanAndMaintName}></lightning-input>
+                            <lightning-input class="slds-var-m-horizontal_x-small" 
+                            label="Customer Name" type="text" value={customerName} disabled="true" name="CustomerName"></lightning-input>
+                            <lightning-input class="slds-var-m-horizontal_x-small" type="text" name="ProjectName" label="Project Name" 
+                        disabled="true" value={projectName}></lightning-input>
+                    </div>
+
+                    <div class="slds-size_4-of-12">
+                        <lightning-input class="slds-var-m-horizontal_x-small" type="date"  name="pastDueDate" label="Past Due Date" 
+                        value={defaultDate} onchange={handleChange}></lightning-input>
+                        <lightning-combobox class="slds-var-m-horizontal_x-small" label="Past Due Y/N" value={value} placeholder="Select Status" name="pastDuey/n" 
+                        onchange={handleChange} options={options}></lightning-combobox>
+                        <lightning-combobox class="slds-var-m-horizontal_x-small" label="WG Sign Off Received" value={value} placeholder="Select Status" name="wgSign" 
+                        onchange={handleChange} options={options}></lightning-combobox>
+                    </div>
+                </div>
+            </template>
+            <template if:true ={isStepTwo}>
+                <div class="slds-align_absolute-center slds-grid slds-wrap">
+                    <div class="slds-size_4-of-12 slds-var-m-vertical_x-small">
+                        <lightning-input class="slds-var-m-horizontal_x-small" type="date"  name="cleaningPerformed" label="Cleaning Performed" 
+                        value={defaultDate} onchange={handleChange}></lightning-input>
+                        <lightning-input class="slds-var-m-horizontal_x-small" type="date"  name="cleaningPicturesReceived" label="Cleaning Pictures Received" 
+                        value={defaultDate} onchange={handleChange}></lightning-input>
+                    </div>
+                    <div class="slds-size_4-of-12">
+                        <lightning-input class="slds-var-m-horizontal_x-small" type="date"  name="cleaningPicturesUploaded" label="Cleaning Pictures Uploaded" 
+                        value={defaultDate} onchange={handleChange}></lightning-input>
+                        <!-- <lightning-file-upload class="slds-var-m-horizontal_x-small" label="Upload Pictures" name="fileUploader" accept={acceptedFormats} record-id={cleanRecordId}
+                        onuploadfinished={handleUploadFinished}
+                        multiple>
+                      </lightning-file-upload> -->
+                          <div class="slds-col">
+                            <lightning-input type="file" 
+                            accept=".xlsx, .xls, .csv, .png, .doc, .docx, .pdf"
+                            label="Upload Pictures" onchange={openfileUpload} class="slds-m-left_x-small"></lightning-input>
+                            <lightning-button variant="base" label="Submit Pictures" title="Submit" onclick={handleClick} class="slds-m-top_medium"></lightning-button>
+                          </div>
+                        <template if:true={fileData}>
+                            <p>{fileData.filename}</p>
+                        </template>
+                      <div
+                        class="
+                          slds-page-header__row
+                          slds-var-m-top_x-small
+                          slds-var-m-left_medium
+                          slds-grid slds-wrap
+                        "
+                      >
+                        <ul class="slds-grid slds-wrap slds-gutters">
+                          <template if:true={loaded}>
+                            <template for:each={files} for:item="file">
+                              <c-preview-file-thumbnail-card
+                                key={file.Id}
+                                file={file}
+                                record-id={recordId}
+                                thumbnail={file.thumbnailFileCard}
+                              ></c-preview-file-thumbnail-card>
+                            </template>
+                          </template>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+            </template>
+            <template if:true ={isStepThree}>
+                <div class="slds-align_absolute-center slds-grid slds-wrap">
+                    <div class="slds-size_4-of-12 slds-var-m-vertical_x-small">
+                        <lightning-input class="slds-var-m-horizontal_x-small" type="date"  name="maintenancePerformed" label="Maintenance Performed" 
+                        value={defaultDate} onchange={handleChange}></lightning-input>
+                        <lightning-input class="slds-var-m-horizontal_x-small" type="date"  name="maintenancePicturesReceived" label="Maintenance Pictures Received" 
+                        value={defaultDate} onchange={handleChange}></lightning-input>
+                    </div>
+                    <div class="slds-size_4-of-12">
+                        <lightning-input class="slds-var-m-horizontal_x-small" type="date"  name="maintenancePicturesUploaded" label="Maintenance Pictures Uploaded" 
+                        value={defaultDate} onchange={handleChange}></lightning-input>
+                        <!-- <lightning-file-upload class="slds-var-m-horizontal_x-small" label="Upload Pictures" name="fileUploader" accept={acceptedFormats} record-id={surveyRecordId}
+                        onuploadfinished={handleUploadFinished}
+                        multiple></lightning-file-upload> -->
+                        <div class="slds-col">
+                            <lightning-input type="file" 
+                            accept=".xlsx, .xls, .csv, .png, .doc, .docx, .pdf"
+                            label="Upload Pictures" onchange={openfileUpload} class="slds-m-left_x-small"></lightning-input>
+                            <lightning-button variant="base" label="Submit Pictures" title="Submit" onclick={handleClick} class="slds-m-top_medium"></lightning-button>
+                          </div>
+                        <template if:true={fileData}>
+                            <p>{fileData.filename}</p>
+                        </template>
+                      <div
+                        class="
+                          slds-page-header__row
+                          slds-var-m-top_x-small
+                          slds-var-m-left_medium
+                          slds-grid slds-wrap
+                        "
+                      >
+                        <ul class="slds-grid slds-wrap slds-gutters">
+                          <template if:true={loaded}>
+                            <template for:each={files} for:item="file">
+                              <c-preview-file-thumbnail-card
+                                key={file.Id}
+                                file={file}
+                                record-id={recordId}
+                                thumbnail={file.thumbnailFileCard}
+                              ></c-preview-file-thumbnail-card>
+                            </template>
+                          </template>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+            </template>
+            <template if:true={isEnableFinish}>
+                <lightning-button label="Submit" onclick={handleFinish} variant="brand" class="slds-align_absolute-center"></lightning-button>
+            </template>
+        </lightning-card>
+        </div>
+</template>

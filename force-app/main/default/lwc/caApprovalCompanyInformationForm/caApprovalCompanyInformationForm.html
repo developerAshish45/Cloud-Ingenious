@@ -1,0 +1,181 @@
+<template>
+    <!-- <lightning-card>         -->
+        <template if:true={companyInformation}>
+        <div class="slds-m-around_medium" style="border: 4px solid rgb(8, 102, 171);">
+        <!-- <lightning-card> -->
+            <div class="termSection" style="background:#dddddd;font-weight:bolder;font-size: medium;padding: 5px;">
+                <h1>Company Information</h1>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2 slds-p-around_medium">
+                    <div class="section">
+                        <h1></h1>
+                    </div>
+                    <label style="color: white;font-weight:bold"><span style="color: red;">*</span>Business Name/(DBA)</label>
+                    <lightning-input label="Business Name/(DBA)" variant="label-hidden" type="text" name="businessName" value={businessName} onchange={handleChange} required disabled={checkStatus}></lightning-input>
+                    <label style="color: white;font-weight:bold">Year started</label>
+                    <lightning-input label="Year started" variant="label-hidden" type="text" name="yearStarted" value={yearStarted} onchange={handleChange} placeholder="Enter date (dd/yyyy)" disabled={checkStatus}></lightning-input>
+                    <div class="error-message" if:true={errorMessage} style="color: red;">{errorMessage}</div>
+                    <label style="color: white;font-weight:bold">Parent Company:</label>
+                    <lightning-input label="Parent Company:" variant="label-hidden" type="text" name="parentCompany" value={parentCompany} onchange={handleChange} disabled={checkStatus}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-p-around_medium">
+                    <div class="slds-m-top_medium">
+                        <!-- <label>Are you a Buying Group member?</label> -->
+                        <!-- <lightning-radio-group options={buyingGroupOptions} value={buyingGroupValue} name="radioGroup" onchange={handleChange} disabled={checkStatus}></lightning-radio-group> -->
+                        <label style="color: white;font-weight:bold"><span style="color: red;">*</span>Are you a Buying Group member?</label>
+                        <lightning-combobox label="Are you a Buying Group member?" variant="label-hidden" options={buyingGroupOptions} value={buyingGroup} name="buyingGroup" onchange={handleChange} disabled={checkStatus} required></lightning-combobox>
+                    </div>
+                    <template if:true={buyingGroupName}>
+                        <label style="color: white;font-weight:bold"><span style="color: red;">*</span>If Yes, please note group:</label>
+                        <lightning-input label="If Yes, please note group:" variant="label-hidden" type="text" name="groupName" value={groupName} onchange={handleChange} required={whenBuyingGroupYes} disabled={checkStatus}></lightning-input>
+                    </template>
+                    <label style="color: white;font-weight:bold"><span style="color: red;">*</span>Phone</label>
+                    <lightning-input label="Phone" type="tel" name="phone" variant="label-hidden" value={phone} onchange={handleChange} required disabled={checkStatus}></lightning-input>
+                </div>
+            </div>
+        <!-- </lightning-card> -->
+    
+        <!-- <lightning-card> -->
+            <div class="termSection" style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:30px;">
+                <h1>Address Information</h1>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                    <label class="inputLabel">Physical address</label>
+                    <lightning-textarea label="Physical address" variant="label-hidden" name="physicalAddress" value={physicalAddress} onchange={handleChange} disabled={checkStatus}></lightning-textarea>
+                    <label class="inputLabel"><span class="red">*</span>City</label>
+                    <lightning-input label="City" variant="label-hidden" type="text" name="physicalCity" value={physicalCity} onchange={handleChange} disabled={checkStatus}></lightning-input>
+                    <label class="inputLabel">State</label>
+                    <lightning-input label="State" variant="label-hidden" type="text" name="physicalState" value={physicalState} onchange={handleChange} disabled={checkStatus}></lightning-input>
+                    <label class="inputLabel">Country</label>
+                    <lightning-input label="Country" variant="label-hidden" type="text" name="physicalCountry" value={physicalCountry} onchange={handleChange} disabled={checkStatus}></lightning-input>
+                    <label class="inputLabel">Zip</label>
+                    <lightning-input label="Zip" variant="label-hidden" type="text" name="physicalZip" value={physicalZip} onchange={handleChange} disabled={checkStatus}></lightning-input>
+                </div>                
+                <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                    <label for="mailingAddress" class="inputLabel"><span class="red">*</span>Mailing address</label>
+                    <lightning-textarea id="mailingAddress" variant="label-hidden" label="Mailing address" name="mailingAddress" value={mailingAddress} onchange={handleChange} required disabled={checkStatus}></lightning-textarea>
+                    
+                    <label for="mailingCity" class="inputLabel"><span class="red">*</span>City</label>
+                    <lightning-input id="mailingCity" label="City" variant="label-hidden" type="text" name="mailingCity" value={mailingCity} onchange={handleChange} required disabled={checkStatus}></lightning-input>
+                    
+                    <label for="mailingState" class="inputLabel"><span class="red">*</span>State</label>
+                    <lightning-input id="mailingState" label="State" variant="label-hidden" type="text" name="mailingState" value={mailingState} onchange={handleChange} required disabled={checkStatus}></lightning-input>
+
+                    <label for="mailingCountry" class="inputLabel"><span class="red">*</span>Country</label>
+                    <lightning-input id="mailingCountry" label="Country" variant="label-hidden" type="text" name="mailingCountry" value={mailingCountry} onchange={handleChange} required disabled={checkStatus}></lightning-input>
+
+                    <label for="mailingZip" class="inputLabel"><span class="red">*</span>Zip</label>
+                    <lightning-input id="mailingZip" label="Zip" variant="label-hidden" type="text" name="mailingZip" value={mailingZip} onchange={handleChange} required disabled={checkStatus}></lightning-input>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-3 slds-p-around_medium">
+                    <label for="billingAddress" class="inputLabel"><span class="red">*</span>Billing address</label>
+                    <lightning-textarea id="billingAddress" variant="label-hidden" name="billingAddress" value={billingAddress} onchange={handleChange} required disabled={checkStatus}></lightning-textarea>
+                
+                    <label for="billingCity" class="inputLabel"><span class="red">*</span>City</label>
+                    <lightning-input id="billingCity" variant="label-hidden" type="text" name="billingCity" value={billingCity} onchange={handleChange} required disabled={checkStatus}></lightning-input>
+                
+                    <label for="billingState" class="inputLabel"><span class="red">*</span>State</label>
+                    <lightning-input id="billingState" variant="label-hidden" type="text" name="billingState" value={billingState} onchange={handleChange} required disabled={checkStatus}></lightning-input>
+
+                    <label for="billingCountry" class="inputLabel"><span class="red">*</span>Country</label>
+                    <lightning-input id="billingCountry" variant="label-hidden" type="text" name="billingCountry" value={billingCountry} onchange={handleChange} required disabled={checkStatus}></lightning-input>
+                
+                    <label for="billingZip" class="inputLabel"><span class="red">*</span>Zip</label>
+                    <lightning-input id="billingZip" variant="label-hidden" type="text" name="billingZip" value={billingZip} onchange={handleChange} required disabled={checkStatus}></lightning-input>
+                </div>
+                
+            </div>
+        <!-- </lightning-card> -->
+    
+        <!-- <lightning-card> -->
+            <div class="termSection" style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:30px;">
+                <h1>Additional Information</h1>
+            </div> 
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2 slds-p-around_medium">
+                    <label for="apName" class="inputLabel">AP Name/Title</label>
+                    <lightning-input id="apName" label="AP Name/Title" variant="label-hidden" type="text" name="apName" value={apName} onchange={handleChange} disabled={checkStatus}></lightning-input>
+                    
+                    <label for="contact" class="inputLabel"><span class="red">*</span>Phone</label>
+                    <lightning-input id="contact" label="Phone" variant="label-hidden" type="tel" name="Contact" value={Contact} onchange={handleChange} required disabled={checkStatus}></lightning-input>
+                    
+                    <label for="email" class="inputLabel"><span class="red">*</span>Email</label>
+                    <lightning-input id="email" label="Email" variant="label-hidden" type="email" name="email" value={email} onchange={handleChange} required disabled={checkStatus}></lightning-input>
+                    
+                    <label for="invoiceEmail" class="inputLabel">Dedicated Invoice Email</label>
+                    <lightning-input id="invoiceEmail" label="Dedicated Invoice Email" variant="label-hidden" type="email" name="invoiceEmail" value={invoiceEmail} onchange={handleChange} disabled={checkStatus}></lightning-input>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-2 slds-p-around_medium">
+                    <label for="orderEmail" class="inputLabel">Order Acknowledgment Email:</label>
+                    <lightning-input id="orderEmail" label="Order Acknowledgment Email:" variant="label-hidden" type="email" name="orderEmail" value={orderEmail} onchange={handleChange} disabled={checkStatus}></lightning-input>
+                    
+                    <label for="timeZone" class="inputLabel"><span class="red">*</span>Time Zone</label>
+                    <lightning-combobox id="timeZone" label="Time Zone" variant="label-hidden" options={timeZoneOptions} name="timeZone" value={timeZone} onchange={handleChange} required disabled={checkStatus}></lightning-combobox>
+                    
+                    <label for="resaleNumber" class="inputLabel">State Resale Number(s)</label>
+                    <lightning-input id="resaleNumber" label="State Resale Number(s)" variant="label-hidden" type="text" name="resaleNumber" value={resaleNumber} onchange={handleChange} disabled={checkStatus}></lightning-input>
+                    
+                    <label for="duns" class="inputLabel">DUNS</label>
+                    <lightning-input id="duns" label="DUNS" type="number" variant="label-hidden" name="duns" value={duns} onchange={handleChange} disabled={checkStatus}></lightning-input>
+                    
+                    <label for="website" class="inputLabel">Website</label>
+                    <lightning-input id="website" label="Website" variant="label-hidden" type="text" name="website" value={website} onchange={handleChange} disabled={checkStatus}></lightning-input>
+                </div>
+                
+            </div>
+        <!-- </lightning-card> -->
+
+                    <!-- <lightning-card> -->
+                        <div class="termSection" style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:30px;">
+                            <h1>Contact Information</h1>
+                        </div> 
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                                <div class="slds-col slds-size_1-of-2 slds-m-around_medium">
+                                    <label for="firstNameValue" class="inputLabel"><span class="red">*</span>First Name</label>
+                                    <lightning-input id="firstNameValue" variant="label-hidden" type="text" value={firstNameValue} onchange={handleInputChangeFirstName} required disabled={checkStatus}></lightning-input>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 slds-m-around_medium">
+                                    <label for="contactLogInEmail" class="inputLabel">Email</label>
+                                    <lightning-input id="contactLogInEmail" variant="label-hidden" type="email" value={contactLogInEmail} disabled></lightning-input>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 slds-m-around_medium">
+                                    <label for="titleValue" class="inputLabel">Title</label>
+                                    <lightning-input id="titleValue" variant="label-hidden" type="text" value={titleValue} onchange={handleInputChangeTitle} disabled={checkStatus}></lightning-input>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                                <div class="slds-col slds-size_1-of-2 slds-m-around_medium">
+                                    <label for="nameValue" class="inputLabel"><span class="red">*</span>Last Name</label>
+                                    <lightning-input id="nameValue" variant="label-hidden" type="text" value={nameValue} onchange={handleInputChangeName} required disabled={checkStatus}></lightning-input>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 slds-m-around_medium">
+                                    <label for="phoneValue" class="inputLabel">Phone</label>
+                                    <lightning-input id="phoneValue" variant="label-hidden" type="tel" value={phoneValue} onchange={handleInputChangePhone} disabled={checkStatus}></lightning-input>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2 slds-m-around_medium">
+                                    <label for="dateValue" class="inputLabel">Date</label>
+                                    <lightning-input id="dateValue" variant="label-hidden" type="date" value={dateValue} onchange={handleInputChangeDate} disabled={checkStatus}></lightning-input>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    <!-- </lightning-card> -->
+
+        <div class="slds-m-around_medium">
+            <template if:true={Next}>
+            <button class="slds-button slds-button_brand" onclick={handleNextClick} style="background: white;color:blue">Next</button>
+            </template>
+        </div>  
+    </div>
+    </template>
+        <template if:true={creditInformation}>
+            <c-ca-approval-credit-details credit-id-from-company={creditIdFromCompany}></c-ca-approval-credit-details>
+        </template>  
+    <!-- </lightning-card> -->
+    <lightning-spinner if:true={showSpinner}></lightning-spinner>
+</template>

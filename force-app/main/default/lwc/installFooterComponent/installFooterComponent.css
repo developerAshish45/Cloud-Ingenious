@@ -1,0 +1,105 @@
+.footer_rath_area {
+    padding: 0;
+    margin: 0;
+    letter-spacing: 0.5px;
+    margin-top: 70px;
+}
+
+.footer_rath_area .inner_area {
+    border-bottom: 1px solid #ffff;
+    display: flex;
+}
+
+.footer_rath_area .inner_area .col {
+        padding: 40px 2%;
+    width: calc(100%/3);
+}
+
+.footer_rath_area .inner_area .col:nth-of-type(2){
+    border: 1px solid #fff;
+    border-top: 0;
+    border-bottom:0;
+}
+
+.footer_rath_area .inner_area .col >div, .footer_rath_area .inner_area .col>a {
+    display: flex;
+    width: 100%;
+   padding: 3px 0;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer_rath_area .inner_area .col >div svg, .footer_rath_area .inner_area .col>a svg path {
+    stroke-width: 7px;
+    stroke: #fff;
+}
+
+.footer_rath_area .inner_area .col >div svg, .footer_rath_area .inner_area .col>a svg  {
+    margin-right: 10px;
+}
+
+.footer_rath_area .inner_area .f_head {
+    font-size: 20px !important;
+    margin-bottom: 15px;
+    padding: 0 !important;
+}
+
+.inner_area .f_img{
+    padding: 0 !important;
+    margin-bottom: 10px;
+}
+
+.footer_rath_area .out_area {
+    padding: 20px 2% 40px;
+    text-align: center;
+}
+
+.footer_rath_area .out_area .copyright, .footer_rath_area .out_area .reserved {
+    color: #fff;
+    font-size: 11px;
+    line-height: 18px;
+}
+
+.inner_area .f_img img {
+    max-width: 200px;
+}
+
+.f_link svg {
+    width: 15px;
+}
+
+.out_area .f_img img {
+    width: 150px;
+    margin-top: 10px;
+}
+
+@media(max-width:1023px){
+    .footer_rath_area .inner_area .f_head {
+        font-size: 18px !important;
+    }
+    .inner_area .f_img img {
+        max-width: 150px;
+    }
+    .footer_rath_area .inner_area .col >div, .footer_rath_area .inner_area .col>a {
+        font-size: 13px;
+    }
+}
+
+@media(max-width:767px) {
+    .footer_rath_area .inner_area {
+        display: block;
+    }
+    .footer_rath_area .inner_area .col {
+        width: 100% !important;
+        border: 0 !important;
+        padding: 40px 5% !important;
+    }
+    .footer_rath_area .inner_area .col:nth-of-type(2){
+        padding: 0 5% !important;
+
+    }
+    .footer_rath_area .out_area {
+        padding: 20px 5% 40px;
+    }
+}

@@ -1,0 +1,963 @@
+<!--
+  @description       : 
+  @author            : 
+  @group             : 
+  @last modified on  : 03-14-2024
+  @last modified by  : 
+-->
+<template>
+    <lightning-accordion allow-multiple-sections-open>
+        <lightning-accordion-section name="section1" label="VAP DISCONNECT">
+            <lightning-accordion-section name="section2" label="MEDIUM TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress50">Internal/External</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Internal/External" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress50" value={surveyRecord.INT_EXT_Elec_MedTemp__c}
+                                    placeholder="Select Value" options={intextOptions} onchange={handleInputChange}
+                                    data-field="INT_EXT_Elec_MedTemp__c" variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress51">Quantity Of Fuses</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Quantity Of Fuses" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress51" type="text" value={surveyRecord.QF_Elec_MedTemp__c}
+                                    data-field="QF_Elec_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element"> <label class="slds-form-element__label"
+                                    for="progress52">Fuse /
+                                    Breaker Brand</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse / Breaker Brand"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress52" type="text"
+                                    value={surveyRecord.FUSE_BB_VD_ELE_MedTemp__c}
+                                    data-field="FUSE_BB_VD_ELE_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress53">Fuse / Breaker Model #</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse / Breaker Model #"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress53" type="text"
+                                    value={surveyRecord.FUSE_BM_VD_Ele_MedTemp__c}
+                                    data-field="FUSE_BM_VD_Ele_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element"> <label class="slds-form-element__label"
+                                    for="progress54">Fuse /
+                                    Breaker Type</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse /
+                                    Breaker Type" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress54" type="text"
+                                    value={surveyRecord.Fuse_BT_VD_Ele_MedTemp__c}
+                                    data-field="Fuse_BT_VD_Ele_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress55">Rating (AMPS)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Rating (AMPS)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress55" type="text"
+                                    value={surveyRecord.Rating_VD_Ele_MedTemp__c} data-field="Rating_VD_Ele_MedTemp__c"
+                                    onchange={handleInputChange} variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section1" label="LOW TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress502">Internal/External</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Internal/External" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress502" value={surveyRecord.INT_EXT_Elec_LowTemp__c}
+                                    placeholder="Select Value" options={intextOptions} onchange={handleInputChange}
+                                    data-field="INT_EXT_Elec_LowTemp__c" variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress512">Quantity Of Fuses</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Quantity Of Fuses" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress512" type="text" value={surveyRecord.QF_Elec_LowTemp__c}
+                                    data-field="QF_Elec_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element"> <label class="slds-form-element__label"
+                                    for="progress522">Fuse /
+                                    Breaker Brand</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse /
+                                    Breaker Brand" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress522" type="text"
+                                    value={surveyRecord.FUSE_BB_VD_ELE_LowTemp__c}
+                                    data-field="FUSE_BB_VD_ELE_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress532">Fuse / Breaker Model #</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse / Breaker Model #"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress532" type="text"
+                                    value={surveyRecord.FUSE_BM_VD_Ele_LowTemp__c}
+                                    data-field="FUSE_BM_VD_Ele_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element"> <label class="slds-form-element__label"
+                                    for="progress542">Fuse /
+                                    Breaker Type</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse /
+                                    Breaker Type" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress542" type="text"
+                                    value={surveyRecord.Fuse_BT_VD_Ele_LowTemp__c}
+                                    data-field="Fuse_BT_VD_Ele_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress552">Rating (AMPS)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Rating (AMPS)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress552" type="text"
+                                    value={surveyRecord.Rating_VD_Ele_LowTemp__c} data-field="Rating_VD_Ele_LowTemp__c"
+                                    onchange={handleInputChange} variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section1" label="BEER COOLER">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress503">Internal/External</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Internal/External" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress503" value={surveyRecord.INT_EXT_Elec_BeerCooler__c}
+                                    placeholder="Select Value" options={intextOptions} onchange={handleInputChange}
+                                    data-field="INT_EXT_Elec_BeerCooler__c" variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress513">Quantity Of Fuses</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Quantity Of Fuses" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress513" type="text" value={surveyRecord.QF_Elec_BeerCooler__c}
+                                    data-field="QF_Elec_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element"> <label class="slds-form-element__label"
+                                    for="progress523">Fuse /
+                                    Breaker Brand</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse /
+                                    Breaker Brand" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress523" type="text"
+                                    value={surveyRecord.FUSE_BB_VD_ELE_BeerCooler__c}
+                                    data-field="FUSE_BB_VD_ELE_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress533">Fuse / Breaker Model #</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse / Breaker Model #"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress533" type="text"
+                                    value={surveyRecord.FUSE_BM_VD_Ele_BeerCooler__c}
+                                    data-field="FUSE_BM_VD_Ele_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element"> <label class="slds-form-element__label"
+                                    for="progress543">Fuse /
+                                    Breaker Type</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse /
+                                    Breaker Type" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress543" type="text"
+                                    value={surveyRecord.Fuse_BT_VD_Ele_BeerCooler__c}
+                                    data-field="Fuse_BT_VD_Ele_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress553">Rating (AMPS)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Rating (AMPS)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress553" type="text"
+                                    value={surveyRecord.Rating_VD_Ele_BeerCooler__c}
+                                    data-field="Rating_VD_Ele_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="section1" label="POWER SUPPLY">
+            <lightning-accordion-section name="section2" label="MEDIUM TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress56">Voltage (Nameplate)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Voltage (Nameplate)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress56" type="text"
+                                    value={surveyRecord.Voltage_PS_Elec_MedTemp__c}
+                                    data-field="Voltage_PS_Elec_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress57">Phase (Nameplate)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Phase (Nameplate)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress57" type="text"
+                                    value={surveyRecord.Phase_PS_Elec_MedTemp__c} data-field="Phase_PS_Elec_MedTemp__c"
+                                    onchange={handleInputChange} variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section2" label="LOW TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress562">Voltage (Nameplate)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Voltage (Nameplate)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress562" type="text"
+                                    value={surveyRecord.Voltage_PS_Elec_LowTemp__c}
+                                    data-field="Voltage_PS_Elec_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress572">Phase (Nameplate)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Phase (Nameplate)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress572" type="text"
+                                    value={surveyRecord.Phase_PS_Elec_LowTemp__c} data-field="Phase_PS_Elec_LowTemp__c"
+                                    onchange={handleInputChange} variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section2" label="BEER COOLER">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress561">Voltage (Nameplate)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Voltage (Nameplate)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress561" type="text"
+                                    value={surveyRecord.Voltage_PS_Elec_BeerCooler__c}
+                                    data-field="Voltage_PS_Elec_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress571">Phase (Nameplate)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Phase (Nameplate)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress571" type="text"
+                                    value={surveyRecord.Phase_PS_Elec_BeerCooler__c}
+                                    data-field="Phase_PS_Elec_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="section1" label="ELECTRICAL PANEL">
+            <lightning-accordion-section name="section2" label="MEDIUM TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element"> <label class="slds-form-element__label"
+                                    for="progress58">Fuse /
+                                    Breaker Size</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse /
+                                    Breaker Size" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress58" type="text"
+                                    value={surveyRecord.Fuse_BS_EP_Elec_MedTemp__c}
+                                    data-field="Fuse_BS_EP_Elec_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress59">Rating (Amps)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Rating (Amps)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress59" type="text"
+                                    value={surveyRecord.Rating_EP_Elec_MedTemp__c}
+                                    data-field="Rating_EP_Elec_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress60">Fuse / Breaker Brand</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse / Breaker Brand"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress60" type="text"
+                                    value={surveyRecord.Fuse_BB_EP_Elec_MedTemp__c}
+                                    data-field="Fuse_BB_EP_Elec_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress61">Fuse / Breaker Model #</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse / Breaker Model #"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress61" type="text"
+                                    value={surveyRecord.Fuse_BM_EP_Elec_MedTemp__c}
+                                    data-field="Fuse_BM_EP_Elec_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section2" label="LOW TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element"> <label class="slds-form-element__label"
+                                    for="progress5823">Fuse /
+                                    Breaker Size</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse /
+                                    Breaker Size" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress5823" type="text"
+                                    value={surveyRecord.Fuse_BS_EP_Elec_LowTemp__c}
+                                    data-field="Fuse_BS_EP_Elec_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress592">Rating (Amps)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Rating (Amps)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress592" type="text"
+                                    value={surveyRecord.Rating_EP_Elec_LowTemp__c}
+                                    data-field="Rating_EP_Elec_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress602">Fuse / Breaker Brand</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse / Breaker Brand"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress602" type="text"
+                                    value={surveyRecord.Fuse_BB_EP_Elec_LowTemp__c}
+                                    data-field="Fuse_BB_EP_Elec_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress612">Fuse / Breaker Model #</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse / Breaker Model #"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress612" type="text"
+                                    value={surveyRecord.Fuse_BM_EP_Elec_LowTemp__c}
+                                    data-field="Fuse_BM_EP_Elec_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section2" label="BEER COOLER">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element"> <label class="slds-form-element__label"
+                                    for="progress582">Fuse /
+                                    Breaker Size</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse /
+                                    Breaker Size" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress582" type="text"
+                                    value={surveyRecord.Fuse_BS_EP_Elec_BeerCooler__c}
+                                    data-field="Fuse_BS_EP_Elec_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress5921">Rating (Amps)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Rating (Amps)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress5921" type="text"
+                                    value={surveyRecord.Rating_EP_Elec_BeerCooler__c}
+                                    data-field="Rating_EP_Elec_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress6021">Fuse / Breaker Brand</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse / Breaker Brand"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress6021" type="text"
+                                    value={surveyRecord.Fuse_BB_EP_Elec_BeerCooler__c}
+                                    data-field="Fuse_BB_EP_Elec_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress6121">Fuse / Breaker Model
+                                    #</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Fuse / Breaker Model
+                                    #" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress6121" type="text"
+                                    value={surveyRecord.Fuse_BM_EP_Elec_BeerCooler__c}
+                                    data-field="Fuse_BM_EP_Elec_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="section1" label="POWER FEED">
+            <lightning-accordion-section name="section2" label="MEDIUM TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress62">Wire Size</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Wire Size" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress62" type="text" value={surveyRecord.WS_PF_Elec_MedTemp__c}
+                                    data-field="WS_PF_Elec_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress63">Wire Quantity</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Wire Quantity" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress63" type="text" value={surveyRecord.WQ_PF_Elec_MedTemp__c}
+                                    data-field="WQ_PF_Elec_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress64">Is Wire Reusable Based On
+                                    Visual
+                                    Inspection Of Condition</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Is Wire Reusable Based On
+                                    Visual
+                                    Inspection Of Condition" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress64" name="progress"
+                                    value={surveyRecord.IS_WRBOVIOC_PF_Elec_MedTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="IS_WRBOVIOC_PF_Elec_MedTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress65">Conduit Size</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Conduit Size" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress65" type="text" value={surveyRecord.CS_PF_Elec_MedTemp__c}
+                                    data-field="CS_PF_Elec_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section2" label="LOW TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress623">Wire Size</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Wire Size" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress623" type="text" value={surveyRecord.WS_PF_Elec_LowTemp__c}
+                                    data-field="WS_PF_Elec_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress633">Wire Quantity</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Wire Quantity" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress633" type="text" value={surveyRecord.WQ_PF_Elec_LowTemp__c}
+                                    data-field="WQ_PF_Elec_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress643">Is Wire Reusable Based On
+                                    Visual
+                                    Inspection Of Condition</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Is Wire Reusable Based On
+                                    Visual
+                                    Inspection Of Condition" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress643" name="progress"
+                                    value={surveyRecord.IS_WRBOVIOC_PF_Elec_LowTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="IS_WRBOVIOC_PF_Elec_LowTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress653">Conduit Size</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Conduit Size" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress653" type="text" value={surveyRecord.CS_PF_Elec_LowTemp__c}
+                                    data-field="CS_PF_Elec_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section2" label="BEER COOLER">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress622">Wire Size</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Wire Size" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress622" type="text"
+                                    value={surveyRecord.WS_PF_Elec_BeerCooler__c} data-field="WS_PF_Elec_BeerCooler__c"
+                                    onchange={handleInputChange} variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress632">Wire Quantity</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Wire Quantity" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress632" type="text"
+                                    value={surveyRecord.WQ_PF_Elec_BeerCooler__c} data-field="WQ_PF_Elec_BeerCooler__c"
+                                    onchange={handleInputChange} variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress642">Is Wire Reusable Based On
+                                    Visual
+                                    Inspection Of Condition</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Is Wire Reusable Based On
+                                    Visual
+                                    Inspection Of Condition" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress642" name="progress"
+                                    value={surveyRecord.IS_WRBOVIOC_PF_Elec_BeerCooler__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="IS_WRBOVIOC_PF_Elec_BeerCooler__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress652">Conduit Size</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Conduit Size" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress652" type="text"
+                                    value={surveyRecord.CS_PF_Elec_BeerCooler__c} data-field="CS_PF_Elec_BeerCooler__c"
+                                    onchange={handleInputChange} variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion-section>
+    </lightning-accordion>
+    <template if:true={isPopupVisible}>
+        <div class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium slds-hyphenate">Add Note for {fieldName}</h2>
+                    <button class="slds-button slds-button_icon slds-modal__close" title="Close" onclick={closePopup}>
+                        <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <!-- Add your input box for adding a note -->
+                    <textarea class="slds-textarea" placeholder="Enter note here..."
+                        onchange={handleNoteInput}>{noteBody}</textarea>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand" onclick={handleSave}>Save</button>
+                    <button class="slds-button slds-button_neutral" onclick={closePopup}>Cancel</button>
+                </footer>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

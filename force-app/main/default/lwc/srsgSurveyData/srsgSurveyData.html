@@ -1,0 +1,187 @@
+<!--
+  @description       : 
+  @author            : 
+  @group             : 
+  @last modified on  : 03-15-2024
+  @last modified by  : 
+-->
+<template>
+
+    <div style={backgroundImage}>
+        <div class=" slds-m-around_medium slds-text-align_center">
+            <img src={rsgLogo} class="imageMargin" />
+        </div>
+        <div class="tab-container">
+            <div class={tab1Class} onclick={handleTab1Click}>Survey</div>
+            <div class={tab2Class} onclick={handleTab2Click}>Image</div>
+        </div>
+        <div class="content-container">
+            <template if:true={showTab1Content}>
+                <div class="tab-content">
+
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <h4 class="slds-text-title_bold labelDesign">Survey # : { surveyRecord.Name}</h4>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <h4 class="slds-text-title_bold labelDesign">Project Name : { projectName}</h4>
+                        </div>
+                    </div>
+
+
+                    <div class="tabCss">
+                        <h6>GENERAL WALK IN SYSTEM
+                            <lightning-icon class="iconMargin" size="xx-small" icon-position="right"
+                                icon-name={GWISIcon} onclick={handleGWIS}
+                                alternative-text={buttonLabel}></lightning-icon>
+                        </h6>
+                    </div>
+                    <div if:true={showGWIS}>
+                        <c-srsg-survey-data-g-w-i-s survey-rec={surveyId}></c-srsg-survey-data-g-w-i-s>
+                    </div>
+
+
+                    <div class="tabCss">
+                        <h6>STORE REACH IN CASES
+                            <lightning-icon class="iconMargin" size="xx-small" icon-name={SRICIcon} onclick={handleSRIC}
+                                alternative-text={buttonLabel2}></lightning-icon>
+                        </h6>
+                    </div>
+                    <div if:true={showSRIC}>
+                        <c-srsg-survey-data-s-r-i-c survey-rec={surveyId}></c-srsg-survey-data-s-r-i-c>
+                    </div>
+
+                    <div class="tabCss">
+                        <h6>BACK-OF-HOUSE (BOH) CASES
+                            <lightning-icon class="iconMargin" size="xx-small" icon-name={BOHCIcon} onclick={handleBOHC}
+                                alternative-text={buttonLabel3}></lightning-icon>
+                        </h6>
+                    </div>
+                    <div if:true={showBOHC}>
+                        <c-srsg-survey-data-b-o-h survey-rec={surveyId}></c-srsg-survey-data-b-o-h>
+                    </div>
+
+
+                    <div class="tabCss">
+                        <h6>WALK-IN (WIC/F) BOX ELECTRICAL
+                            <lightning-icon class="iconMargin" size="xx-small" icon-name={WIBEIcon} onclick={handleWIBE}
+                                alternative-text={buttonLabel4}></lightning-icon>
+                        </h6>
+                    </div>
+                    <div if:true={showWIBE}>
+                        <c-srsg-survey-data-w-i-b-e survey-rec={surveyId}></c-srsg-survey-data-w-i-b-e>
+                    </div>
+
+                    <div class="tabCss">
+                        <h6>WALK-IN CONDENSING UNIT ELECTRICAL
+                            <lightning-icon class="iconMargin" size="xx-small" icon-name={WICUEIcon}
+                                onclick={handleWICUE} alternative-text={buttonLabel5}></lightning-icon>
+                        </h6>
+                    </div>
+                    <div if:true={showWICUE}>
+                        <c-srsg-survey-data-w-i-c-u-e survey-rec={surveyId}></c-srsg-survey-data-w-i-c-u-e>
+                    </div>
+
+                    <div class="tabCss">
+                        <h6>WALK-IN COOLER/FREEZER EXISTING ISSUES
+                            <lightning-icon class="iconMargin" size="xx-small" icon-name={WICFEIIcon}
+                                onclick={handleWICFEI} alternative-text={buttonLabel6}></lightning-icon>
+                        </h6>
+                    </div>
+                    <div if:true={showWICFEI}>
+                        <c-srsg-survey-data-w-i-c-f-e-i survey-rec={surveyId}></c-srsg-survey-data-w-i-c-f-e-i>
+                    </div>
+
+                    <div class="tabCss">
+                        <h6>WALK-IN DOOR/SHELVING DIMENSIONS & INFORMATION
+                            <lightning-icon class="iconMargin" size="xx-small" icon-name={WIDSDIIcon}
+                                onclick={handleWIDSDI} alternative-text={buttonLabel7}></lightning-icon>
+                        </h6>
+                    </div>
+                    <div if:true={showWWIDSDI}>
+                        <c-srsg-survey-data-w-i-d-s-d-i survey-rec={surveyId}></c-srsg-survey-data-w-i-d-s-d-i>
+                    </div>
+
+                    <div class="tabCss">
+                        <h6>SITE GENERAL INFORMATION
+                            <lightning-icon class="iconMargin" size="xx-small" icon-name={SGIIcon} onclick={handleSGI}
+                                alternative-text={buttonLabel8}></lightning-icon>
+                        </h6>
+                    </div>
+                    <div if:true={showSGI}>
+                        <c-srsg-survey-data-s-g-i survey-rec={surveyId}></c-srsg-survey-data-s-g-i>
+                    </div>
+                    <div class="tabCss">
+                        <h6>GENERAL IMAGE UPLOAD
+                            <lightning-icon class="iconMargin" size="xx-small" icon-position="right" icon-name={GIUIcon}
+                                onclick={handleGIU} alternative-text={buttonLabel9}></lightning-icon>
+                        </h6>
+                    </div>
+                    <div if:true={showGUI}>
+                        <c-general-file-upload survey-record={surveyId}></c-general-file-upload>
+                    </div>
+                    <div>
+                        <lightning-input type="checkbox" label={surveyCheckboxLabel} checked={isChecked}
+                            onchange={handleCheckbox}></lightning-input>
+                    </div>
+                    <div class="slds-grid slds-wrap slds-p-around_medium buttonSize">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="brand" label="Submit Survey" onclick={updateSurveyRecord}
+                                disabled={isSubmitSurvey}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <template if:true={showTab2Content}>
+                <div class="tab-content">
+                    <lightning-accordion allow-multiple-sections-open>
+                        <lightning-accordion-section name="section1" label="Medium Temp">
+                            <lightning-accordion allow-multiple-sections-open>
+                                <lightning-accordion-section name="section1" label="Condensing Unit">
+                                    <c-all-condensing-unit survey-record={surveyId}
+                                        type="MediumTemp"></c-all-condensing-unit>
+                                </lightning-accordion-section>
+                                <lightning-accordion-section name="section1" label="Evaporators">
+                                    <c-all-evaporators survey-record={surveyId} type="MediumTemp"></c-all-evaporators>
+                                </lightning-accordion-section>
+                                <lightning-accordion-section name="section1" label="Reach In Cases">
+                                    <c-all-reach-in-cases survey-record={surveyId}
+                                        type="MediumTemp"></c-all-reach-in-cases>
+                                </lightning-accordion-section>
+                            </lightning-accordion>
+                        </lightning-accordion-section>
+                        <lightning-accordion-section name="section1" label="Low Temp">
+                            <lightning-accordion-section name="section1" label="Condensing Unit">
+                                <c-all-condensing-unit survey-record={surveyId} type="LowTemp"></c-all-condensing-unit>
+                            </lightning-accordion-section>
+                            <lightning-accordion-section name="section1" label="Evaporators">
+                                <c-all-evaporators survey-record={surveyId} type="LowTemp"></c-all-evaporators>
+                            </lightning-accordion-section>
+                            <lightning-accordion-section name="section1" label="Reach In Cases">
+                                <c-all-reach-in-cases survey-record={surveyId} type="LowTemp"></c-all-reach-in-cases>
+                            </lightning-accordion-section>
+                        </lightning-accordion-section>
+                        <lightning-accordion-section name="section1" label="Beer Cooler">
+                            <lightning-accordion-section name="section1" label="Condensing Unit">
+                                <c-all-condensing-unit survey-record={surveyId}
+                                    type="BeerCooler"></c-all-condensing-unit>
+                            </lightning-accordion-section>
+                            <lightning-accordion-section name="section1" label="Evaporators">
+                                <c-all-evaporators survey-record={surveyId} type="BeerCooler"></c-all-evaporators>
+                            </lightning-accordion-section>
+                            <lightning-accordion-section name="section1" label="Reach In Cases">
+                                <c-all-reach-in-cases survey-record={surveyId} type="BeerCooler"></c-all-reach-in-cases>
+                            </lightning-accordion-section>
+                        </lightning-accordion-section>
+                        <lightning-accordion-section name="section1" label="General">
+                            <c-general-file-upload survey-record={surveyId}></c-general-file-upload>
+                        </lightning-accordion-section>
+                    </lightning-accordion>
+
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

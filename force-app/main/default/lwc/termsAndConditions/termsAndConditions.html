@@ -1,0 +1,70 @@
+<template>
+    <div class="slds-m-around_medium">
+
+        <template if:true={termsAndConditions}>
+        <div class="termSection" style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:30px;">
+            <h1>TERMS AND CONDITIONS</h1>
+        </div>
+        <p>
+            I/we understand that Refrigerated Solutions Group terms are Net 30 days from date of invoice and I/we agree to pay all
+            debts within terms. I/we acknowledge that my/our failure to pay within terms may result in (1) interest added to
+            delinquent invoices at the rate of 1-1/2% per month (18% annual rate), or at the maximum rate of interest allowed by law,
+            whichever is less and/or (2) suspension of shipping on any and/or all products of the Refrigerated Solutions Group
+            companies represented by this application for credit. Credit limits assigned on this application may be adjusted at any
+            time and at the sole discretion of Refrigerated Solutions Group in consideration of total credit exposure. It is understood
+            that the approval of credit for the Refrigerated Solutions Group company applied to with this application does not
+            automatically indicate open account with any other Refrigerated Solutions Group Company. Separate credit applications
+            may be required for each Refrigerated Solutions Group Company. I/we further agree to pay reasonable collection costs and
+            or attorney fees incurred in connection with the collection of this account. I/we are authorized to sign this application for
+            credit on behalf of the applicant. I/we certify that everything stated on this application is true and correct to the best of
+            my/our knowledge. 
+        </p>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                <label for="conditions" class="inputLabel">I agree to the terms and conditions</label>
+                <lightning-input
+                    id="conditions"
+                    type="checkbox"
+                    label="I agree to the terms and conditions"
+                    variant="label-hidden"
+                    checked={conditions}
+                    disabled={checkStatus}
+                    onchange={handleChangeCheckBox3}>
+                </lightning-input>
+            </div>
+            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                <label class="inputLabel">This Application For Credit is for the following Refrigerated Solutions Group brand(s):</label>
+                <label for="MasterBilt" class="inputLabel">Master-Bilt</label>
+                <lightning-input
+                id="MasterBilt"
+                    type="checkbox"
+                    label="Master-Bilt"
+                    variant="label-hidden"
+                    checked={MasterBilt}
+                    disabled={checkStatus}
+                    onchange={handleChangeCheckBox1}>
+                </lightning-input>
+                <label for="Norlake" class="inputLabel">Norlake</label>
+                <lightning-input
+                id="Norlake"
+                    type="checkbox"
+                    label="Norlake"
+                    variant="label-hidden"
+                    checked={Norlake}
+                    disabled={checkStatus}
+                    onchange={handleChangeCheckBox2}>
+                </lightning-input>
+            </div>
+          </div>
+          <template if:true={conditions}>
+            <div style="text-align: center; margin-top: 20px;">
+                <lightning-button variant="brand" label="Save and Continue" onclick={handleSaveAndContinue}></lightning-button>
+            </div>
+        </template>
+    </template>
+        <template if:true={companyInformation}>
+            <c-company-information-form ></c-company-information-form>
+         </template>
+
+        </div>
+</template>

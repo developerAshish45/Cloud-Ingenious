@@ -1,0 +1,1077 @@
+<!--
+  @description       : 
+  @author            : 
+  @group             : 
+  @last modified on  : 03-11-2024
+  @last modified by  : 
+-->
+<template>
+    <lightning-accordion-section name="section1" label="ENVIRONMENTAL">
+        <lightning-accordion-section name="section1" label="MEDIUM TEMP">
+            <div class="backgroundColor">
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress103">
+                                Box Issues: Wall Panel Major Damage (Puncture)
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick}
+                                    data-field-name="Box Issues: Wall Panel Major Damage (Puncture)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+                            <lightning-combobox id="progress103" name="progress"
+                                label="Box Issues: Wall Panel Major Damage (Puncture)"
+                                value={surveyRecord.Box_Issues_WPMDP_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Box_Issues_WPMDP_MediumTemp__c" variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress104">
+                                Mold/Mildew Inside Of Cooler/Freezer
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Mold/Mildew Inside Of Cooler/Freezer"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+                            <lightning-combobox id="progress104" name="progress"
+                                value={surveyRecord.Mold_MILD_INS_Freezer_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Mold_MILD_INS_Freezer_MediumTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1054">
+                                Mold/Mildew On Door Frame
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Mold/Mildew On Door Frame"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+                            <lightning-combobox id="progress1054" name="progress"
+                                value={surveyRecord.Mold_MILDODF_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Mold_MILDODF_MediumTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress106">Box Issues: Sagging
+                                Ceiling</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Box Issues: Sagging
+                                Ceiling" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress106" name="progress" label="Box Issues: Sagging Ceiling"
+                                value={surveyRecord.Box_Issues_SC_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Box_Issues_SC_MediumTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress107">Ice Formation In
+                                Cooler/Freezer</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Ice Formation In
+                                Cooler/Freezer" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress107" name="progress" label="Ice Formation In Cooler/Freezer"
+                                value={surveyRecord.Ice_Form_In_C_F_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Ice_Form_In_C_F_MediumTemp__c" variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress108">Ice Formation On Door
+                                Frame</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Ice Formation On Door
+                                Frame" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress108" name="progress" label="Ice Formation On Door Frame"
+                                value={surveyRecord.Ice_Form_On_DF_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Ice_Form_On_DF_MediumTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                    <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                        <lightning-button variant="neutral" label="Save & Draft"
+                            onclick={updateSurveyRecord}></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="section1" label="LOW TEMP">
+            <div class="backgroundColor">
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1034">
+                                Box Issues: Wall Panel Major Damage (Puncture)
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick}
+                                    data-field-name="Box Issues: Wall Panel Major Damage (Puncture)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+                            <lightning-combobox id="progress1034" name="progress"
+                                label="Box Issues: Wall Panel Major Damage (Puncture)"
+                                value={surveyRecord.Box_Issues_WPMDP_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Box_Issues_WPMDP_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1044">
+                                Mold/Mildew Inside Of Cooler/Freezer
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name=" Mold/Mildew Inside Of Cooler/Freezer"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+                            <lightning-combobox id="progress1044" name="progress"
+                                value={surveyRecord.Mold_MILD_INS_Freezer_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Mold_MILD_INS_Freezer_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress10545">
+                                Mold/Mildew On Door Frame
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name=" Mold/Mildew On Door Frame"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+                            <lightning-combobox id="progress10545" name="progress"
+                                value={surveyRecord.Mold_MILDODF_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Mold_MILDODF_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1064">Box Issues: Sagging
+                                Ceiling</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Box Issues: Sagging
+                                Ceiling" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1064" name="progress" label="Box Issues: Sagging Ceiling"
+                                value={surveyRecord.Box_Issues_SC_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Box_Issues_SC_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1074">Ice Formation In
+                                Cooler/Freezer</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Ice Formation In
+                                Cooler/Freezer" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1074" name="progress"
+                                label="Ice Formation In Cooler/Freezer" value={surveyRecord.Ice_Form_In_C_F_LowTemp__c}
+                                placeholder="Select Value" options={options} onchange={handleInputChange}
+                                data-field="Ice_Form_In_C_F_LowTemp__c" variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1084">Ice Formation On Door
+                                Frame</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Ice Formation On Door
+                                Frame" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1084" name="progress" label="Ice Formation On Door Frame"
+                                value={surveyRecord.Ice_Form_On_DF_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Ice_Form_On_DF_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                    <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                        <lightning-button variant="neutral" label="Save & Draft"
+                            onclick={updateSurveyRecord}></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="section1" label="BEER COOLER">
+            <div class="backgroundColor">
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1035">
+                                Box Issues: Wall Panel Major Damage (Puncture)
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick}
+                                    data-field-name="Box Issues: Wall Panel Major Damage (Puncture)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+                            <lightning-combobox id="progress1035" name="progress"
+                                label="Box Issues: Wall Panel Major Damage (Puncture)"
+                                value={surveyRecord.Box_Issues_WPMDP_Beercooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Box_Issues_WPMDP_Beercooler__c" variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1045">
+                                Mold/Mildew Inside Of Cooler/Freezer
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Mold/Mildew Inside Of Cooler/Freezer"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+                            <lightning-combobox id="progress1045" name="progress"
+                                value={surveyRecord.Mold_MILD_INS_Freezer_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Mold_MILD_INS_Freezer_BeerCooler__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1055">
+                                Mold/Mildew On Door Frame
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Mold/Mildew On Door Frame"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+                            <lightning-combobox id="progress1055" name="progress"
+                                value={surveyRecord.Mold_MILDODF_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Mold_MILDODF_BeerCooler__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1065">Box Issues: Sagging
+                                Ceiling</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Box Issues: Sagging
+                                Ceiling" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1065" name="progress" label="Box Issues: Sagging Ceiling"
+                                value={surveyRecord.Box_Issues_SC_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Box_Issues_SC_BeerCooler__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1075">Ice Formation In
+                                Cooler/Freezer</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Ice Formation In
+                                Cooler/Freezer" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1075" name="progress"
+                                label="Ice Formation In Cooler/Freezer"
+                                value={surveyRecord.Ice_Form_In_C_F_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Ice_Form_In_C_F_BeerCooler__c" variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1085">Ice Formation On Door
+                                Frame</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Ice Formation On Door
+                                Frame" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1085" name="progress" label="Ice Formation On Door Frame"
+                                value={surveyRecord.Ice_Form_On_DF_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Ice_Form_On_DF_BeerCooler__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                    <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                        <lightning-button variant="neutral" label="Save & Draft"
+                            onclick={updateSurveyRecord}></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </lightning-accordion-section>
+    </lightning-accordion-section>
+    <lightning-accordion-section name="section1" label="WIC/F GLASS DOOR & DOOR ACCESSORIES">
+        <lightning-accordion-section name="section1" label="MEDIUM TEMP">
+            <div class="backgroundColor">
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress109">Number Of Glass Doors</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Number Of Glass Doors" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress109" type="text"
+                                value={surveyRecord.Number_Of_Glass_Doors_MediumTemp__c}
+                                data-field="Number_Of_Glass_Doors_MediumTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress110">Door Issues: Cracked
+                                Glass</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Cracked
+                                Glass" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress110" name="progress"
+                                value={surveyRecord.Door_Issues_CG_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_CG_MediumTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress111">Door Issues: Handles
+                                Damaged</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Handles
+                                Damaged" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress111" name="progress"
+                                value={surveyRecord.Door_Issues_HD_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_HD_MediumTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress112">Door Issues: Do Doors
+                                Open/Close
+                                Correctly?</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Do Doors
+                                Open/Close
+                                Correctly?" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress112" name="progress"
+                                value={surveyRecord.Door_Issues_DDO_CC_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Door_Issues_DDO_CC_MediumTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress113">Door Issues: Damaged
+                                Seals/Gaskets</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Damaged
+                                Seals/Gaskets" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress113" name="progress"
+                                value={surveyRecord.Door_Issues_DS_GS_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Door_Issues_DS_GS_MediumTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress114">Door Issues: Damaged
+                                Frame</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Damaged
+                                Frame" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress114" name="progress"
+                                value={surveyRecord.Door_Issues_DF_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_DF_MediumTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress115">Door Issues: Fogging
+                                Glass</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Fogging
+                                Glass" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress115" name="progress"
+                                value={surveyRecord.Door_Issues_FG_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_FG_MediumTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress116">Door Issues: General</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: General" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress116" name="progress"
+                                value={surveyRecord.Door_Issues_GN_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_GN_MediumTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress117">Door Issues: Are Existing
+                                Doors
+                                Lockable?</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Are Existing
+                                Doors
+                                Lockable?" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress117" name="progress"
+                                value={surveyRecord.Door_Issues_AEDL_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Door_Issues_AEDL_MediumTemp__c" variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress118">Hinge Condition: Corrosion,
+                                Pitting,
+                                or Non
+                                Functional</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Hinge Condition: Corrosion,
+                                Pitting,
+                                or Non
+                                Functional" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress118" name="progress"
+                                value={surveyRecord.Hinge_CND_CPN_Mediumtemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Hinge_CND_CPN_Mediumtemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress119">Door Frame Heaters Functional
+                                (Y /
+                                N)</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Frame Heaters Functional
+                                (Y /
+                                N)" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress119" name="progress"
+                                value={surveyRecord.Door_Frame_HF_MediumTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Frame_HF_MediumTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                    <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                        <lightning-button variant="neutral" label="Save & Draft"
+                            onclick={updateSurveyRecord}></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="section1" label="LOW TEMP">
+            <div class="backgroundColor">
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1098">Number Of Glass Doors</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Number Of Glass Doors" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress1098" type="text"
+                                value={surveyRecord.Number_Of_Glass_Doors_LowTemp__c}
+                                data-field="Number_Of_Glass_Doors_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1108">Door Issues: Cracked
+                                Glass</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Cracked
+                                Glass" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1108" name="progress"
+                                value={surveyRecord.Door_Issues_CG_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_CG_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1118">Door Issues: Handles
+                                Damaged</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Handles
+                                Damaged" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1118" name="progress"
+                                value={surveyRecord.Door_Issues_HD_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_HD_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1128">Door Issues: Do Doors
+                                Open/Close
+                                Correctly?</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Do Doors
+                                Open/Close
+                                Correctly?" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1128" name="progress"
+                                value={surveyRecord.Door_Issues_DDO_CC_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Door_Issues_DDO_CC_LowTemp__c" variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1138">Door Issues: Damaged
+                                Seals/Gaskets</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Damaged
+                                Seals/Gaskets" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1138" name="progress"
+                                value={surveyRecord.Door_Issues_DS_GS_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_DS_GS_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1148">Door Issues: Damaged
+                                Frame</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Damaged
+                                Frame" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1148" name="progress"
+                                value={surveyRecord.Door_Issues_DF_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_DF_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1158">Door Issues: Fogging
+                                Glass</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Fogging
+                                Glass" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1158" name="progress"
+                                value={surveyRecord.Door_Issues_FG_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_FG_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1168">Door Issues: General</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: General" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1168" name="progress"
+                                value={surveyRecord.Door_Issues_GN_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_GN_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1178">Door Issues: Are Existing
+                                Doors
+                                Lockable?</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Are Existing
+                                Doors
+                                Lockable?" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1178" name="progress"
+                                value={surveyRecord.Door_Issues_AEDL_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_AEDL_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1188">Hinge Condition: Corrosion,
+                                Pitting,
+                                or Non
+                                Functional</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Hinge Condition: Corrosion,
+                                Pitting,
+                                or Non
+                                Functional" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1188" name="progress"
+                                value={surveyRecord.Hinge_CND_CPN_Lowtemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Hinge_CND_CPN_Lowtemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1198">Door Frame Heaters Functional
+                                (Y /
+                                N)</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Frame Heaters Functional
+                                (Y /
+                                N)" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1198" name="progress"
+                                value={surveyRecord.Door_Frame_HF_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Frame_HF_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                    <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                        <lightning-button variant="neutral" label="Save & Draft"
+                            onclick={updateSurveyRecord}></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="section1" label="BEER COOLER">
+            <div class="backgroundColor">
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1099">Number Of Glass Doors</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Number Of Glass Doors" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress1099" type="text"
+                                value={surveyRecord.Number_Of_Glass_Doors_BeerCooler__c}
+                                data-field="Number_Of_Glass_Doors_BeerCooler__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1109">Door Issues: Cracked
+                                Glass</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Cracked
+                                Glass" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1109" name="progress"
+                                value={surveyRecord.Door_Issues_CG_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_CG_BeerCooler__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1119">Door Issues: Handles
+                                Damaged</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Handles
+                                Damaged" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1119" name="progress"
+                                value={surveyRecord.Door_Issues_HD_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_HD_BeerCooler__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1129">Door Issues: Do Doors
+                                Open/Close
+                                Correctly?</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Do Doors
+                                Open/Close
+                                Correctly?" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1129" name="progress"
+                                value={surveyRecord.Door_Issues_DDO_CC_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Door_Issues_DDO_CC_BeerCooler__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1139">Door Issues: Damaged
+                                Seals/Gaskets</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Damaged
+                                Seals/Gaskets" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1139" name="progress"
+                                value={surveyRecord.Door_Issues_DS_GS_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Door_Issues_DS_GS_BeerCooler__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1149">Door Issues: Damaged
+                                Frame</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Damaged
+                                Frame" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1149" name="progress"
+                                value={surveyRecord.Door_Issues_DF_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_DF_BeerCooler__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1159">Door Issues: Fogging
+                                Glass</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Fogging
+                                Glass" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1159" name="progress"
+                                value={surveyRecord.Door_Issues_FG_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_FG_BeerCooler__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1169">Door Issues: General</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: General" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1169" name="progress"
+                                value={surveyRecord.Door_Issues_GN_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Issues_GN_BeerCooler__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1179">Door Issues: Are Existing
+                                Doors
+                                Lockable?</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Issues: Are Existing
+                                Doors
+                                Lockable?" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1179" name="progress"
+                                value={surveyRecord.Door_Issues_AEDL_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Door_Issues_AEDL_BeerCooler__c" variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1189">Hinge Condition: Corrosion,
+                                Pitting,
+                                or Non
+                                Functional</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Hinge Condition: Corrosion,
+                                Pitting,
+                                or Non
+                                Functional" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1189" name="progress"
+                                value={surveyRecord.Hinge_CND_CPN_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Hinge_CND_CPN_BeerCooler__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1199">Door Frame Heaters Functional
+                            </label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Door Frame Heaters Functional"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-combobox id="progress1199" name="progress"
+                                value={surveyRecord.Door_Frame_HF_BeerCooler__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="Door_Frame_HF_BeerCooler__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                    <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                        <lightning-button variant="neutral" label="Save & Draft"
+                            onclick={updateSurveyRecord}></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </lightning-accordion-section>
+    </lightning-accordion-section>
+    <lightning-accordion-section name="section1" label="GENERAL SURVEY MISC. ISSUES NOTES">
+
+        <div class="backgroundColor">
+            <div class="slds-grid slds-wrap">
+
+                <div
+                    class="slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                    <label class="slds-form-element__label" for="additionNoteMedTemp">Survey MISC. Issues Notes</label>
+                    <lightning-textarea id="additionNoteMedTemp" class="textAreaBody"
+                        value={surveyRecord.Survey_M_Issues_Note__c} data-field="Survey_M_Issues_Note__c"
+                        onchange={handleInputChange} variant="label-hidden"></lightning-textarea>
+                </div>
+
+            </div>
+
+            <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                    <lightning-button variant="neutral" label="Save & Draft"
+                        onclick={updateSurveyRecord}></lightning-button>
+                </div>
+            </div>
+        </div>
+    </lightning-accordion-section>
+
+    <template if:true={isPopupVisible}>
+        <div class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium slds-hyphenate">Add Note for {fieldName}</h2>
+                    <button class="slds-button slds-button_icon slds-modal__close" title="Close" onclick={closePopup}>
+                        <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <!-- Add your input box for adding a note -->
+                    <textarea class="slds-textarea" placeholder="Enter note here..."
+                        onchange={handleNoteInput}>{noteBody}</textarea>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand" onclick={handleSave}>Save</button>
+                    <button class="slds-button slds-button_neutral" onclick={closePopup}>Cancel</button>
+                </footer>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

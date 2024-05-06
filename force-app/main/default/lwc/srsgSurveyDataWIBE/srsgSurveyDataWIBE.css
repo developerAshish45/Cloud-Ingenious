@@ -1,0 +1,25 @@
+label{
+    font-weight:bold;
+     color:white;
+}
+/* .accordionClass .slds-accordion__summary-heading {
+    color: white; /* Change to the desired color */
+
+    .accordionClass {
+        --slds-c-accordion-color-border: orange;
+    }
+
+
+
+.custom-icon{
+    --slds-c-icon-color-foreground-default: white;
+}
+
+
+
+.backgroundColor{
+    background-color: #0866AB;
+}
+.slds-form-element__label {
+    color: white;
+}

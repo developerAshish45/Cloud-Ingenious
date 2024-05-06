@@ -1,0 +1,52 @@
+.custom-toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px; /* Increase padding for better spacing */
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    z-index: 9999;
+    opacity: 0.9;
+    font-size: 18px; /* Adjust font size as needed */
+}
+
+.success {
+    background-color: #4caf50;
+}
+
+.error {
+    background-color: #f44336;
+}
+.counter {
+    display: flex;
+    align-items: center;
+    
+}
+
+.count {
+    margin: 0 10px;
+    font-size: 18px;
+}
+.backgroundColor{
+    background-color: #0866AB;
+    border: 1px solid black;
+}
+.varLabel{
+    margin-top: 25px;
+    margin-left:20px;
+    color: white;
+}
+.fileUpload{
+    margin-left:20px;
+}
+.thumbnailCard{
+    max-height: 200px;
+    overflow-y: auto;
+    margin-left:20px;
+}
+.sectionLabel{
+    font-weight: bold;
+    color: white;
+}

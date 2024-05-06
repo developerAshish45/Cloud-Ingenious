@@ -1,0 +1,40 @@
+<template>
+    <!-- <lightning-card> -->
+        <div class="slds-m-around_medium" style="background: #0866AB;">
+            <template if:true={showLoginPage}>
+                <div style="text-align: center;">
+                    <img src={rsgLogo} style="margin-top: 10px;height: 100px;padding:2px;"/>
+                </div>
+                <div style="text-align: center;">
+                    <img src={norlakeLogo} style="margin-top: -20px;height: 35px;padding:2px;"/>
+                    <img src={masterBuiltLogo} style="margin-top: -20px;height: 35px;padding:2px;"/>
+                    <img src={norlakeScientficLogo} style="margin-top: -20px;height: 35px;padding:2px;"/>
+                </div>
+        </template>
+        <template if:true={checkStatus}>
+            <div style="text-align: center;">
+                <img src={rsgLogo} style="margin-top: 10px;height: 100px;padding:2px;"/>
+            </div>
+            <div style="text-align: center;">
+                <img src={norlakeLogo} style="margin-top: -20px;height: 35px;padding:2px;"/>
+                <img src={masterBuiltLogo} style="margin-top: -20px;height: 35px;padding:2px;"/>
+                <img src={norlakeScientficLogo} style="margin-top: -20px;height: 35px;padding:2px;"/>
+            </div>
+        </template>
+        
+        <!-- <lightning-card> -->
+        <div if:true={showLoginPage} class="slds-p-around_medium" style="background-color: white; border:8px solid #0866AB">
+            <!-- border:8px solid #0866AB -->
+            <lightning-input label="Email" type="email" value={email} onchange={handleEmailChange} style="margin-bottom: 10px;" required></lightning-input>
+            <lightning-button variant="brand" label="Send Verification Code" onclick={handleSendOTP} disabled={otpSent}></lightning-button>
+            <lightning-input label="OTP" type="text" value={otp} onchange={handleOTPChange} disabled={otpDisabled} style="margin-bottom: 10px;" required></lightning-input>
+            <lightning-button variant="brand" label="Log In" onclick={handleLogin} disabled={verifyDisabled} ></lightning-button> 
+        </div>
+            <template if:true={companyInformation}>
+                <c-ca-approval-company-information-form contact-email={contactEmail} credit-selected-row-status={creditSelectedRowStatus}
+                credit-selected-row-id={creditSelectedRowId} action-type={type} new-credit-id={newCreditId}>
+                </c-ca-approval-company-information-form>
+            </template>
+            <lightning-spinner if:true={showSpinner}></lightning-spinner>
+    </div>
+</template>

@@ -1,0 +1,97 @@
+.heading
+{
+    margin-top: -35px;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Add margin above submit button */
+}
+.border_color{
+    border: 2px solid#5ea2eb;
+    border-radius: 0.25rem;
+    display: block;
+}
+div{
+  margin: 0;
+  padding: 0;
+}
+.site-footer {
+    background-color: transparent;
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+}
+.site-footer p {
+    margin-bottom: 10px;
+    width: max-content;
+}
+.custom-button:hover {
+  -webkit-box-shadow: 3px 10px 6px 0px rgba(235,236,245,1);
+-moz-box-shadow: 3px 10px 6px 0px rgba(235,236,245,1);
+box-shadow: 3px 10px 6px 0px rgba(235,236,245,1);
+}
+@media only screen and (min-device-width: 100px)
+and (max-device-width: 768px) {
+   
+    .site-footer img {
+        max-width: 120px;
+    }
+    .middle-box{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 60vh;
+    }
+}
+/* updated button css */
+.button-26 {
+    appearance: button;
+    background-color: #1652F0;
+    border: 1px solid #1652F0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Graphik,-apple-system,system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-size: 20px;
+    line-height: 1.15;
+    overflow: visible;
+    padding: 12px 16px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition: all 80ms ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+  }
+.button-26:disabled {
+    opacity: .5;
+  }
+.button-26:focus {
+    outline: 0;
+  } 
+.button-26:hover {
+    background-color: #0A46E4;
+    border-color: #0A46E4;
+    box-shadow: 10px 10px 20px -5px rgba(255, 255, 255, 0.5); /* Adjusted shadow size */
+    -webkit-box-shadow: 10px 10px 20px -5px rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: 10px 10px 20px -5px rgba(255, 255, 255, 0.5);
+}
+.button-26:active {
+    background-color: #0039D7;
+    border-color: #0039D7;
+  }

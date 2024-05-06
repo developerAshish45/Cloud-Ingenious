@@ -1,0 +1,54 @@
+/* Existing styles for the card container and card */
+.custom-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 16px;
+}
+
+.custom-card {
+    width: calc(25% - 20px);
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f8f8f8; /* Light gray background color */
+    transition: transform 0.2s;
+}
+
+.custom-card:hover {
+    transform: scale(1.05);
+}
+
+.custom-card__body {
+    padding: 16px;
+}
+
+.custom-card__title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.custom-card__text {
+    font-size: 0.875rem;
+    margin-bottom: 4px;
+}
+
+/* New styles for pagination, search, and title */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+h1 {
+    margin: 0;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Walkin Question Sixteen</label>
+    <protected>false</protected>
+    <values>
+        <field>Checklist_Name__c</field>
+        <value xsi:type="xsd:string">Walk-In</value>
+    </values>
+    <values>
+        <field>Question__c</field>
+        <value xsi:type="xsd:string">Does the door seal properly around the entire perimeter? Review the space around the
+door plug from the interior of the walk-in, with the door closed and all lights off. There
+should be no light visible around the edges of the door. If light is visible, adjust the sweep
+gasket until no light is visible.</value>
+    </values>
+    <values>
+        <field>SF_ApiName__c</field>
+        <value xsi:type="xsd:string">Walkin_Question_Twelve__c</value>
+    </values>
+    <values>
+        <field>Sr_Num__c</field>
+        <value xsi:type="xsd:double">16.0</value>
+    </values>
+</CustomMetadata>

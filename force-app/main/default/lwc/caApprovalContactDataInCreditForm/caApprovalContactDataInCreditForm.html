@@ -1,0 +1,82 @@
+<template>
+    <!-- <lightning-card > -->
+        <!-- title="TERMS AND CONDITIONS" -->
+        <!-- <div class="slds-p-around_medium" style="border: 4px solid rgb(8, 102, 171);"> -->
+            <!-- class="slds-p-around_medium" style="border: 4px solid rgb(8, 102, 171);" -->
+            <template if:true={showConatctForm}>
+            <div class="slds-p-around_medium" style="border: 4px solid rgb(8, 102, 171);">
+            <div class="termSection" style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:30px;">
+                <h1>APPROVER SECTION</h1>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <div class="slds-col slds-size_1-of-2 slds-m-around_medium">
+                        <label for="email" class="inputLabel"><span class="red">*</span>Approver Email</label>
+                        <lightning-input
+                            id="email"
+                            label="Approver Email"
+                            variant="label-hidden"
+                            type="text"
+                            value={email}
+                            onchange={handleInputChangeApproverEmail}
+                            required
+                            disabled>
+                        </lightning-input>
+                        <label for="comment" class="inputLabel"><span class="red">*</span>Approver Comment</label>
+                        <lightning-textarea
+                            id="comment"
+                            label="comment"
+                            variant="label-hidden"
+                            type="text"
+                            value={comment}
+                            onchange={handleInputChangeComment}
+                            required>
+                        </lightning-textarea>
+                    </div>
+                </div>
+                <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <div class="slds-col slds-size_1-of-2 slds-m-around_medium">
+                        <label for="status" class="inputLabel">Status</label>
+                        <lightning-input
+                            id="status"
+                            label="Status"
+                            variant="label-hidden"
+                            type="text"
+                            value={status}
+                            onchange={handleInputChangeStatus}
+                            disabled>
+                        </lightning-input>
+                        <label for="amount" class="inputLabel">Approved credit amount $</label>
+                        <lightning-input
+                            id="amount"
+                            label="Approved credit amount"
+                            variant="label-hidden"
+                            formatter="currency"
+                            type="number"
+                            value={amount}
+                            onchange={handleInputChangeAmount}>
+                        </lightning-input>
+                    </div>
+                </div>
+            </div> 
+         <div class="slds-m-around_medium">
+                <button class="slds-button slds-button_brand" onclick={handleApprove} style="background: white;color:blue">Approve</button>
+                <button class="slds-button slds-button_brand" onclick={handleReject} style="background: white;color:blue">Reject</button>
+                <button class="slds-button slds-button_brand" onclick={handleNeedInformation} style="background: white;color:blue">Need More Information</button>
+                <button class="slds-button slds-button_brand" onclick={handleBack} style="background: white;color:blue">Back</button>
+            </div> 
+        </div> 
+            </template>  
+
+            <template if:true={successPage}>
+                <!-- <c-credit-form success-message={successMessage} contact-log-in-email={contactEmailLogin}></c-credit-form> -->
+                    <div class="slds-p-around_medium" style="border: 4px solid rgb(8, 102, 171);">
+                        <p if:true={showMessage} style="color: white; font-weight:bold;font-size:x-large;text-align:center;">Thank you for the response !</p>
+                    </div>              
+            </template>
+            <template if:true={showCreditPge}>
+                <c-ca-approval-credit-details credit-id={creditId} fetch-credit-record-id-from-contact={fetchCreditRecordId} log-in-email={contactLogInEmail} action-type-credit={type}></c-ca-approval-credit-details>
+            </template>
+            <lightning-spinner if:true={isLoading}></lightning-spinner>
+        <!-- </div> -->
+</template>

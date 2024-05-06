@@ -1,0 +1,19 @@
+<apex:page showHeader="false" standardStylesheets="false">
+    <apex:includeLightning />
+    <div id="lightning" />
+    <script>
+        $Lightning.use("c:InstallerThanksApp", function () {
+            // Extract the recordId from the URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var recordId = urlParams.get('proId');
+            
+            // Create the Lightning component with the extracted recordId
+            $Lightning.createComponent(
+                "c:installerAfterSubmit", { recordId: recordId }, "lightning",
+                function (cmp) {
+                    console.log('LWC Component Created.');
+                }
+            );
+        });
+    </script>
+</apex:page>

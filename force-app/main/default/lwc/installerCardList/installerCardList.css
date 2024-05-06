@@ -1,0 +1,227 @@
+.heading
+{
+    margin-top: -41px;
+    padding: 0;
+   
+    font-family: Arial, sans-serif;
+    
+}
+.div {
+    margin-top: -41px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+.responsive {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 20px;
+    
+}
+
+.content {
+    color: white;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin: 0 auto;
+   
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid black;
+    padding: 20px;
+}
+
+.item:nth-last-child(1) {
+    border-bottom: none;
+   
+}
+/* updated button css */
+.button-26 {
+    appearance: button;
+    background-color: #1652F0;
+    border: 1px solid #1652F0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Graphik,-apple-system,system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-size: 20px;
+    line-height: 1.15;
+    overflow: visible;
+    padding: 12px 16px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition: all 80ms ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 265px;
+  }
+  
+.button-26:disabled {
+    opacity: .5;
+  }
+  
+.button-26:focus {
+    outline: 0;
+  }
+  
+.button-26:hover {
+    background-color: #0A46E4;
+    border-color: #0A46E4;
+    box-shadow: 10px 10px 20px -5px rgba(255, 255, 255, 0.5); /* Adjusted shadow size */
+    -webkit-box-shadow: 10px 10px 20px -5px rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: 10px 10px 20px -5px rgba(255, 255, 255, 0.5);
+}
+  
+.button-26:active {
+    background-color: #0039D7;
+    border-color: #0039D7;
+  }
+  /* end */
+.img-fluid{
+    width: 30px;
+     height: 30px;
+}
+
+@media only screen and (min-device-width: 100px)
+  and (max-device-width: 768px) {
+    .responsive {
+        flex-direction: column;
+    display: flex;
+    justify-content: center;
+ 
+      
+    }
+.img-fluid{
+        width: 50px;
+         height: 50px;
+         margin:10px;
+    }
+.site-footer footer p{
+        font-size: x-large;
+    }
+    .flex-container ul li a span {
+        top: -85%;
+        left: 192%;
+    }
+}
+
+
+/*Icon CSS*/
+.flex-container {
+    display: flex;
+}
+
+.flex-container ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-container ul li {
+    margin-right: 20px;
+}
+
+.flex-container ul li:last-child {
+    margin-right: 0;
+}
+
+.flex-container ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-container ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-container ul li {
+    margin-right: 20px;
+}
+
+.flex-container ul li:last-child {
+    margin-right: 0;
+}
+
+.flex-container ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    position: relative;
+    /* Added */
+}
+
+.flex-container ul li a img {
+    /* Added */
+    transition: transform 0.3s ease;
+    /* Added */
+}
+
+.flex-container ul li a span {
+    /* Added */
+    display: none;
+    position: absolute;
+    top: 224%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.flex-container ul li a:hover img {
+    /* Added */
+    transform: scale(1.2);
+    /* Added */
+}
+
+.flex-container ul li a:hover span {
+    /* Added */
+    display: block;
+    /* Added */
+}
+
+.site-footer {
+    background-color: transparent;
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+}
+
+.site-footer p {
+    margin-bottom: 10px;
+    width: max-content;
+}

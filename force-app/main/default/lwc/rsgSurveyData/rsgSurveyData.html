@@ -1,0 +1,124 @@
+<!--
+  @description       : 
+  @author            : 
+  @group             : 
+  @last modified on  : 03-05-2024
+  @last modified by  : 
+-->
+<template>   
+    <div style={backgroundImage}>
+        <div class=" slds-m-around_medium slds-text-align_center">
+            <img src={rsgLogo} style="margin-top: 8px" />
+        </div>
+        <div class="tab-container">
+            <div class={tab1Class} onclick={handleTab1Click}>Survey</div>
+            <div class={tab2Class} onclick={handleTab2Click}>Image</div>
+        </div>
+        <div class="content-container">
+            <template if:true={showTab1Content}>
+                <div class="tab-content">
+
+                    <div
+                        style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:1px;">
+                        <h6>MEDIUM TEMP
+                            <lightning-icon style="margin:0.5rem;" size="xx-small" icon-position="right"
+                                icon-name={medTempIcon} onclick={handleMedTempIcon}
+                                alternative-text={buttonLabel}></lightning-icon>
+                        </h6>
+                    </div>
+                    <div if:true={showMedTemp}>
+                        <c-rsg-survey-data-m-t survey-rec={surveyId}></c-rsg-survey-data-m-t>
+                    </div>
+
+
+                    <div
+                        style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:1px;">
+                        <h6>LOW TEMP
+                            <lightning-icon style="margin:0.5rem;" size="xx-small" icon-name={lowTempIcon}
+                                onclick={handleLowTempIcon} alternative-text={buttonLabel2}></lightning-icon>
+                        </h6>
+                    </div>
+                    <div if:true={showLowTemp}>
+                        <c-rsg-survey-data-l-t survey-rec={surveyId}></c-rsg-survey-data-l-t>
+                    </div>
+
+
+                    <div
+                        style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:1px;">
+                        <h6>BEER COOLER
+                            <lightning-icon style="margin:0.5rem;" size="xx-small" icon-name={beerIcon}
+                                onclick={handleBeerCoolerIcon} alternative-text={buttonLabel3}></lightning-icon>
+                        </h6>
+                    </div>
+                    <div if:true={showBeerCooler}>
+                        <c-rsg-survey-data-b-c survey-rec={surveyId}></c-rsg-survey-data-b-c>
+                    </div>
+
+
+                    <div
+                        style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:1px;">
+                        <h6>GENERAL
+                            <lightning-icon style="margin:0.5rem;" size="xx-small" icon-name={genralIcon}
+                                onclick={handleGeneralIcon} alternative-text={buttonLabel4}></lightning-icon>
+                        </h6>
+                    </div>
+                    <div if:true={showGeneral}>
+                        <c-rsg-survey-data-gen survey-rec={surveyId}></c-rsg-survey-data-gen>
+                    </div>
+
+                </div>
+            </template>
+            <template if:true={showTab2Content}>
+                <div class="tab-content">
+                    <lightning-accordion allow-multiple-sections-open>
+                        <lightning-accordion-section name="section1" label="Medium Temp">
+                            <lightning-accordion allow-multiple-sections-open>
+                                <lightning-accordion-section name="section1" label="Condensing Unit">
+                                    <c-condensing-unit survey-record={surveyId} type="MediumTemp"></c-condensing-unit>
+                                </lightning-accordion-section>
+                                <lightning-accordion-section name="section1" label="Evaporators">
+                                    <c-evaporators survey-record={surveyId} type="MediumTemp"></c-evaporators>
+                                </lightning-accordion-section>
+                                <lightning-accordion-section name="section1" label="Reach In Cases">
+                                    <c-reach-in-cases survey-record={surveyId} type="MediumTemp"></c-reach-in-cases>
+                                </lightning-accordion-section>
+                            </lightning-accordion>
+                        </lightning-accordion-section>
+                        <lightning-accordion-section name="section1" label="Low Temp">
+                            <lightning-accordion-section name="section1" label="Condensing Unit">
+                                <c-condensing-unit survey-record={surveyId} type="LowTemp"></c-condensing-unit>
+                            </lightning-accordion-section>
+                            <lightning-accordion-section name="section1" label="Evaporators">
+                                <c-evaporators survey-record={surveyId} type="LowTemp"></c-evaporators>
+                            </lightning-accordion-section>
+                            <lightning-accordion-section name="section1" label="Reach In Cases">
+                                <c-reach-in-cases survey-record={surveyId} type="LowTemp"></c-reach-in-cases>
+                            </lightning-accordion-section>
+                        </lightning-accordion-section>
+                        <lightning-accordion-section name="section1" label="Beer Cooler">
+                            <lightning-accordion-section name="section1" label="Condensing Unit">
+                                <c-condensing-unit survey-record={surveyId} type="BeerTemp"></c-condensing-unit>
+                            </lightning-accordion-section>
+                            <lightning-accordion-section name="section1" label="Evaporators">
+                                <c-evaporators survey-record={surveyId} type="BeerTemp"></c-evaporators>
+                            </lightning-accordion-section>
+                            <lightning-accordion-section name="section1" label="Reach In Cases">
+                                <c-reach-in-cases survey-record={surveyId} type="BeerTemp"></c-reach-in-cases>
+                            </lightning-accordion-section>
+                        </lightning-accordion-section>
+                        <lightning-accordion-section name="section1" label="General">
+                            <c-general-file-upload survey-record={surveyId}></c-general-file-upload>
+                        </lightning-accordion-section>
+                    </lightning-accordion>
+                </div>
+            </template>
+        </div>
+
+        <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+            <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                <lightning-button variant="neutral" label="Submit Survey"
+                    onclick={updateSurveyRecord}></lightning-button>
+            </div>
+        </div>
+    </div>  
+</template>

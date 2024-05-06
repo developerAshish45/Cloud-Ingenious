@@ -1,0 +1,9 @@
+<template>
+    <lightning-card style="display: flex; justify-content: center; align-items: center;">
+        <template if:true={data}>
+            <div style="text-align: center;">
+                <h1 style="font-size: 24px; font-weight: bold;">Welcome {data.Customer_Name__r.Name}</h1>
+            </div>
+        </template>
+    </lightning-card>
+</template>

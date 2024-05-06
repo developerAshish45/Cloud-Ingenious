@@ -1,0 +1,76 @@
+<template>
+    <div cz-shortcut-listen="true" style={backgroundImage} class="div">
+        <div style="padding: 10px;">
+            <div style="border-bottom: 1px solid white;">
+                <div style="display: flex; justify-content: space-between;">
+                    <div><img src={rsgLogoUrl} alt="" style="max-width: 200px;"></div>
+                    <div class="flex-container">
+                        <ul>
+                            <li><a href={setBaseUrlHome} if:true={setBaseUrlHome}><img src={homeActionUrl} alt="Home" style="width: 30px; height: 30px;"></a></li>
+                        </ul>       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div style="font-size: 20px;text-align: left;">
+                <h1 style="color: white;margin-bottom: 0;">My Cleaning Sites</h1>
+            </div>
+            <div class="sortbtn">
+                <nav class="slds-builder-header_item slds-builder-header_nav">
+                    <ul class="slds-builder-header__nav-list">
+                        <li class="slds-builder-header__nav-item">
+                            <span class="span">View</span>
+                <lightning-combobox  
+                    name="DataPicklist"
+                    value={selectedValue}
+                    options={selectOptions}
+                    onchange={handleDataChange}>
+                </lightning-combobox>
+                </li>
+                    </ul>
+                        </nav>
+                </div>
+            <div class="content">
+                <table style=" color: black;">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Site Number">Site/Store Number</div>
+                            </th> 
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Project Name">Project Name</div>
+                            </th> 
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Customer Name">Customer Name</div>
+                            </th> 
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Customer Name">Cleaning Status</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <template for:each={data} for:item="record" >
+                            <tr key={record.Project_Name__r.Site_Number__c} class="slds-hint-parent">
+                            <th data-label="Site Number" scope="row">
+                                <div class="slds-truncate" title={record.Project_Name__r.Site_Number__c}>
+                                    <a tabindex="-1" href={setBaseUrl} if:true={setBaseUrl} name={record.Id} onclick={handleSiteChange}>{record.Project_Name__r.Site_Number__c}</a> 
+                                </div>
+                            </th>
+                            <td data-label="Project Name">
+                                <div class="slds-truncate" title={record.Project_Name__r.Name}>{record.Project_Name__r.Name}</div>
+                            </td>
+                            <td data-label="Customer Name">
+                                <div class="slds-truncate" title={record.Project_Name__r.Customer_Name__r.Name}>{record.Project_Name__r.Customer_Name__r.Name}</div>
+                            </td>
+                            <td data-label="Cleaning Status">
+                                <div class="slds-truncate" title={record.Project_Name__r.Customer_Name__r.Name}>{record.Clean_Maint_Status__c}</div>
+                            </td>
+                        </tr>
+                    </template>
+                <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</template>

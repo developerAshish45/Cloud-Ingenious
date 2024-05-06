@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Conunit Cooler Question 1</label>
+    <protected>false</protected>
+    <values>
+        <field>Checklist_Name__c</field>
+        <value xsi:type="xsd:string">Refrigeration – Condensing Unit for the Cooler</value>
+    </values>
+    <values>
+        <field>Question__c</field>
+        <value xsi:type="xsd:string">Where is the condensing unit located? Indoors, Remote on the restaurant roof or
+Capsule Pak™ design on the walk-in ceiling (similar to a Penthouse design)?</value>
+    </values>
+    <values>
+        <field>SF_ApiName__c</field>
+        <value xsi:type="xsd:string">Condensing_unit_cooler1__c</value>
+    </values>
+    <values>
+        <field>Serial_Num__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Sr_Num__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+</CustomMetadata>

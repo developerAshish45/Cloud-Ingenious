@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Evap Cooler Question Two</label>
+    <protected>false</protected>
+    <values>
+        <field>Checklist_Name__c</field>
+        <value xsi:type="xsd:string">Refrigeration – Evaporator Section for the Cooler</value>
+    </values>
+    <values>
+        <field>Question__c</field>
+        <value xsi:type="xsd:string">Have the supplied nylon rods been used to mount the evaporator coil? Metal rods are
+not approved or authorized by RSG for this purpose( Provide photo of evaporator thru-
+bolts siliconed on interior &amp;amp; exterior If applicable)</value>
+    </values>
+    <values>
+        <field>SF_ApiName__c</field>
+        <value xsi:type="xsd:string">Evaporator_Cooler2__c</value>
+    </values>
+    <values>
+        <field>Sr_Num__c</field>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+</CustomMetadata>

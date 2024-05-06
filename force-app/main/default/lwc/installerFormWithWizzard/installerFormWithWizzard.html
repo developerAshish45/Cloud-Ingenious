@@ -1,0 +1,129 @@
+<template>
+<div class="heading" style={backgroundImage}>
+    <div style="padding: 10px;">
+        <div style="border-bottom: 1px solid white;">
+            <div style="display: flex; justify-content: space-between;">
+                <div><img src={rsgLogoUrl} alt="" style="max-width: 200px;"></div>
+                <div class="flex-container">
+                    <ul>
+                        <li><a href={setBaseUrl1} if:true={setBaseUrl1}><img src={homeActionUrl} alt="Home" style="width: 30px; height: 30px;"><span>Home</span></a></li>
+                        <li><a href={setBaseUrl2} if:true={setBaseUrl2}><img src={siteActionUrl} alt="Site Data Table" style="width: 30px; height: 30px;"><span>Sites</span></a></li>
+                        <li><a href={setBaseUrl} if:true={setBaseUrl}><img src={actionActionUrl} alt="Action Buttons" style="width: 30px; height: 30px;"><span>Action</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="responsive">
+        <div style="font-size: 30px; text-align: left;">
+            <h1 style="color: white;margin-bottom: 0;">RSG Installation Portal</h1>
+        </div>
+    </div>
+    <lightning-card>
+        <lightning-progress-indicator current-step={currentStep} variant="base" type="path" class="slds-m-left_medium">
+            <lightning-progress-step label="Project Details" value="1" onclick={handleStepClick}></lightning-progress-step>
+            <lightning-progress-step label="Installation Details" value="2" onclick={handleStepClick}></lightning-progress-step>
+            <lightning-progress-step if:true={showIndicator} class="slds-hide" label="Step 3" value="4"></lightning-progress-step>
+        </lightning-progress-indicator>
+        <template if:true ={isStepOne}>
+            <div class="slds-align_absolute-center slds-grid slds-wrap">
+                <div class="slds-size_4-of-12">
+                    <lightning-input class="slds-var-m-horizontal_x-small" type="text" name="SiteNumber" label="Site/Store Number" 
+                    disabled="true" value={siteNum}></lightning-input>
+                        <lightning-input class="slds-var-m-horizontal_x-small" name="InstallerName" type="text" 
+                        label="Installer Name" disabled="true" value={installerName}></lightning-input>
+                        <lightning-input class="slds-var-m-horizontal_x-small" 
+                        label="Customer Name" type="text" value={customerName} disabled="true" name="Status"></lightning-input>
+                        <lightning-input class="slds-var-m-horizontal_x-small" type="text" name="ProjectName" label="Project Name" 
+                    disabled="true" value={projectName}></lightning-input>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-size_1-of-2 slds-var-m-vertical_x-small"></div>
+                        <div class="slds-size_1-of-2 slds-var-m-vertical_x-small"></div>
+                    </div>
+                </div>
+                <div class="slds-size_4-of-12 slds-var-m-vertical_x-small">
+                    <lightning-input class="slds-var-m-horizontal_x-small" type="text" name="SiteAddress" label="Site Street" 
+                    disabled="true" value={siteStreet}></lightning-input>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-size_1-of-2 slds-var-m-vertical_x-small">
+                            <lightning-input class="slds-var-m-horizontal_x-small" type="text" name="SiteCountry" label="Site Country" 
+                        disabled="true" value={siteCountry}></lightning-input>
+                            <lightning-input class="slds-var-m-horizontal_x-small" type="text" name="SiteCity" label="Site City" 
+                        disabled="true" value={siteCity}></lightning-input>
+                        </div>
+                        <div class="slds-size_1-of-2 slds-var-m-vertical_x-small">
+                            <lightning-input class="slds-var-m-horizontal_x-small" type="text" name="SiteState" label="Site State" 
+                        disabled="true" value={siteState}></lightning-input>
+                            <lightning-input class="slds-var-m-horizontal_x-small" type="text" name="SiteCode" label="Site ZIP Code" 
+                        disabled="true" value={sitePostal}></lightning-input>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </template>
+        <!-- changes code -->
+        <template if:true ={isStepTwo}>
+                <template if:true={showCfaChecklist}>
+                <div class="accordion" style="display: flex;" onclick={toggleSection}>
+                    <div style="max-width: 897px; flex: 1;"  class="headinf">Details
+                        <lightning-icon style="margin:0.5rem;" size="xx-small" icon-position="right"
+                        icon-name={medTempIcon} 
+                        alternative-text={buttonLabel}></lightning-icon>
+                    </div>
+                </div>
+                <div class={section7Class}>
+                    <div>
+                        <div class="slds-align_absolute-center slds-grid slds-wrap">
+                            <div class="slds-size_4-of-12 slds-var-m-vertical_x-small slds-var-m-horizontal_x-small">
+                                <lightning-combobox class="slds-var-m-horizontal_x-small" label="Installation Status" value={value} placeholder="Select Status" name="Status" onchange={handleChange} options={options}
+                                disabled></lightning-combobox>
+                            </div>
+                            <div class="slds-size_4-of-12 slds-var-m-vertical_x-small slds-var-m-horizontal_x-small">
+                                <lightning-input class="slds-var-m-horizontal_x-small" type="text" name="installationSoNum" label="Installation PO#" onchange={handleChange} value={InstallSONum} disabled="true"></lightning-input>
+                            </div>
+                            <div class="slds-size_4-of-12 slds-m-vertical_x-small slds-var-m-horizontal_x-small">
+                                <lightning-input class="slds-var-m-horizontal_x-small" type="date" name="InstallationDate" label="Installation Date" value={InstallationDate} onchange={handleChange} disabled="true"></lightning-input>
+                            </div>
+                            <div class="slds-size_4-of-12 slds-m-vertical_x-small slds-var-m-horizontal_x-small">
+                                <lightning-textarea class="slds-var-m-horizontal_x-small" name="installationSo" label="Notes" value={InstallSONum1} onchange={handleChange}></lightning-textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <c-installer-cfa-checklist-clone record-id={recordId}></c-installer-cfa-checklist-clone>
+        </template>
+        <template if:false={showCfaChecklist}>
+                <div class="accordion" style="display: flex;" onclick={toggleSection}>
+                    <div style="max-width: 897px; flex: 1;"  class="headinf">Details
+                        <lightning-icon style="margin:0.5rem;" size="xx-small" icon-position="right"
+                        icon-name={medTempIcon} 
+                        alternative-text={buttonLabel}></lightning-icon>
+                    </div>
+                </div>
+                <div class={section7Class}>
+                    <div>
+                        <div class="slds-align_absolute-center slds-grid slds-wrap">
+                            <div class="slds-size_4-of-12 slds-var-m-vertical_x-small slds-var-m-horizontal_x-small">
+                                <lightning-combobox class="slds-var-m-horizontal_x-small" label="Installation Status" value={value} placeholder="Select Status" name="Status" onchange={handleChange} options={options}
+                                disabled></lightning-combobox>
+                            </div>
+                            <div class="slds-size_4-of-12 slds-var-m-vertical_x-small slds-var-m-horizontal_x-small">
+                                <lightning-input class="slds-var-m-horizontal_x-small" type="text" name="installationSoNum" label="Installation PO#" onchange={handleChange} value={InstallSONum} disabled="true"></lightning-input>
+                            </div>
+                            <div class="slds-size_4-of-12 slds-m-vertical_x-small slds-var-m-horizontal_x-small">
+                                <lightning-input class="slds-var-m-horizontal_x-small" type="date" name="InstallationDate" label="Installation Date" value={InstallationDate} onchange={handleChange} disabled="true"></lightning-input>
+                            </div>
+                            <div class="slds-size_4-of-12 slds-m-vertical_x-small slds-var-m-horizontal_x-small">
+                                <lightning-textarea class="slds-var-m-horizontal_x-small" name="installationSo" label="Notes" value={InstallSONum1} onchange={handleChange}></lightning-textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <c-installer-gen-checklist record-id={recordId}></c-installer-gen-checklist>
+        </template>
+        </template>
+    </lightning-card>
+    <c-install-footer-component></c-install-footer-component>
+</div>
+</template>

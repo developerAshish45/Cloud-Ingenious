@@ -1,0 +1,14 @@
+.inputLabel{
+    color: white;
+    font-weight:bold;
+}
+.red{
+    color: red;
+}
+.custom-radio-label-yes {
+    color: white; /* Green color for "Yes" */
+}
+
+.custom-radio-label-no {
+    color: white; /* Red color for "No" */
+}

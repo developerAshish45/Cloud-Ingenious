@@ -1,0 +1,62 @@
+<template>
+    <div class="background-container" style={backgroundStyle}>
+        <div>
+            <div style={container} class="containers">
+                <div style="text-align: center">
+                    <h1 style="font-weight:bold;font-size:25px;">Image</h1>
+                    <p style="font-size:20px">(Low Temp)</p>
+                </div>
+                <div class="container1">
+                    <div style="background: #fff;height: 20vh;width: 100%;border-radius: 10px;padding: 17px;">
+                        <h3 style="font-weight:bold;font-size:15px">Number Of Units</h3>
+                        <div style="display: flex;flex-direction: row;justify-content: space-between;">
+                            <div style=" padding: 17px;">
+                                <span style="padding: 5px;
+                                border-radius: 5px;
+                                font-size: 50px;">+</span>
+                                <span
+                                    style="padding: 5px;
+                                    border-radius: 5px;
+                                    font-size: 50px;background: rgb(18, 96, 18); color: white; padding: 5px; border-radius: 12px;font-size: 50px;">01</span>
+                                <span style=" padding: 5px; border-radius: 5px;font-size: 50px;">-</span>
+    
+                            </div>
+                            <div  style={imgBox}><img class="imgbb" style="height:130px" src={frid} alt=""></div>
+                        </div>
+    
+    
+                    </div>
+                </div>
+                <div class="formbox">
+                    <form>
+                        <div  style="display: flex;flex-wrap: wrap;">
+                            <!-- we need 5 boxes  -->
+    
+                            <div class="boxes" style={boxes1}>
+                                Top view
+                                <input class="file" type="file" >
+                                <img src={upload} alt="" class="upl-img">
+                            </div>
+    
+                            <div  style={boxes2} class="boxes">Side view<input class="file" type="file"> <img src={upload} alt=""
+                                    class="upl-img"></div>
+                            <div style={boxes3} class="boxes">Diagonal View <input class="file"  type="file"><img src={upload}
+                                    alt="" class="upl-img"></div>
+                            <div style={boxes4} class="boxes">Inner View <input class="file"  type="file"><img src={upload}
+                                    alt="" class="upl-img"></div>
+                            <div  style={boxes5} class="boxes">Outter View <input class="file"  type="file"> <img src={upload}
+                                    alt="" class="upl-img"></div>    
+                        </div>
+                    </form>
+                </div>
+    
+            </div>
+            <div style="background-color: #fff; display: flex; flex-direction: row; justify-content: space-around; padding: 10px;">
+                <img src={list} alt="">
+                <img src={img} alt="">
+                <img src={left} alt="">
+                <img src={right} alt="">
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,31 @@
+<template>
+    <div style="background-color: white; height: 570px; display: flex; flex-direction: column; align-items: center;">
+        <div>
+            <img usemap={mapName1} src={imageUrl1} style="border: 0;" alt="Image map 1" />
+            <map name={mapName1}>
+                <template for:each={areas1} for:item="area">
+                    <area key={area.id} href={area.href} shape={area.shape} coords={area.coords} alt={area.alt} />
+                </template>
+            </map>
+        </div>
+    
+        <div style="margin-top: 15px;">
+            <img usemap={mapName2} src={thankYouImage} style="border: 0;" alt="Image map 2" />
+            <map name={mapName2}>
+                <template for:each={areas2} for:item="area">
+                    <area key={area.id} href={area.href} shape={area.shape} coords={area.coords} alt={area.alt} />
+                </template>
+            </map>
+        </div>
+        <div class="slds-grid slds-wrap slds-align_absolute-center">
+            <div class="slds-col slds-size_1-of-1 slds-small-size_12-of-12">
+                    <!-- <lightning-button label="View Installation Sites" class="slds-align_absolute-center" onclick={handleClick} variant="brand"></lightning-button> -->
+                    <div class="slds-align_absolute-center">
+                        <a class="slds-button slds-button_brand" href={setBaseUrl} if:true={setBaseUrl}>
+                            Return Back To Menu
+                        </a>
+                    </div>
+            </div>
+        </div> 
+    </div>
+</template>

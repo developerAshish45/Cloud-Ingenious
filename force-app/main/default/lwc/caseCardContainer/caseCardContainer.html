@@ -1,0 +1,29 @@
+<template>
+    <div>
+        <div class="header">
+            <h1>All Installation Cases</h1>
+            <c-case-search onsearch={handleSearch}></c-case-search>
+        </div>
+        <div class="custom-card-container">
+            <template for:each={pagedCaseRecords} for:item="record">
+                <div key={record.Id} class="custom-card" data-recordid={record.Id}>
+                    <div class="custom-card__body">
+                        <p class="custom-card__title">Case Number: {record.CaseNumber}</p>
+                        <p class="custom-card__text">Status: {record.Status}</p>
+                        <p class="custom-card__text"> Equipment SO:{record.Equipment_SO__c}  <!-- <lightning-formatted-date-time value={record.Date_Called__c}></lightning-formatted-date-time> -->  </p>
+                        <p class="custom-card__text">Install PO Amount: {record.Install_PO_Amount__c}</p>
+                        <p class="custom-card__text">Install SO: {record.Install_SO__c}</p>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <c-case-pagination
+            current-page={currentPage}
+            total-pages={totalPages}
+            is-first-page={isFirstPage}
+            is-last-page={isLastPage}
+            onprevious={handlePrevious}
+            onnext={handleNext}
+        ></c-case-pagination>
+    </div>
+</template>

@@ -1,0 +1,196 @@
+<template>
+    <!-- <lightning-card> -->
+        <div class="slds-m-around_medium" style="background: #0866AB;">
+            <template if:true={showLoginPage}>
+                <div style="text-align: center;">
+                    <img src={rsgLogo} style="margin-top: 10px;height: 100px;padding:2px;"/>
+                </div>
+                <div style="text-align: center;">
+                    <img src={norlakeLogo} style="margin-top: -20px;height: 35px;padding:2px;"/>
+                    <img src={masterBuiltLogo} style="margin-top: -20px;height: 35px;padding:2px;"/>
+                    <img src={norlakeScientficLogo} style="margin-top: -20px;height: 35px;padding:2px;"/>
+                </div>
+                
+                <!-- Third Row: Credit APP Text -->
+                <!-- <div style="text-align: center;">
+                    <h1 class="slds-text-heading_large appName">CREDIT APP</h1>
+                </div> -->
+        </template>
+        <template if:true={checkStatus}>
+            <div style="text-align: center;">
+                <img src={rsgLogo} style="margin-top: 10px;height: 100px;padding:2px;"/>
+            </div>
+            <div style="text-align: center;">
+                <img src={norlakeLogo} style="margin-top: -20px;height: 35px;padding:2px;"/>
+                <img src={masterBuiltLogo} style="margin-top: -20px;height: 35px;padding:2px;"/>
+                <img src={norlakeScientficLogo} style="margin-top: -20px;height: 35px;padding:2px;"/>
+            </div>
+            
+            <!-- Third Row: Credit APP Text -->
+            <!-- <div style="text-align: center;">
+                <h1 class="slds-text-heading_large appName">CREDIT APP</h1>
+            </div> -->
+        </template>
+        
+        <!-- <lightning-card> -->
+        <div if:true={showLoginPage} class="slds-p-around_medium" style="background-color: white; border:8px solid #0866AB">
+            <!-- border:8px solid #0866AB -->
+            <lightning-input label="Email" type="email" value={email} onchange={handleEmailChange} style="margin-bottom: 10px;" required></lightning-input>
+            <lightning-button variant="brand" label="Send Verification Code" onclick={handleSendOTP} disabled={otpSent}></lightning-button>
+            <lightning-input label="OTP" type="text" value={otp} onchange={handleOTPChange} disabled={otpDisabled} style="margin-bottom: 10px;" required></lightning-input>
+            <lightning-button variant="brand" label="Log In" onclick={handleLogin} disabled={verifyDisabled} ></lightning-button> 
+        </div>
+
+    <template if:true={checkStatus}>
+        <div class="slds-grid slds-wrap " if:true={checkStatus} style="user-select: auto; ">
+            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                <p class=" rsg">RSG</p>
+                <h1>CREDIT APP</h1>
+            </div>
+            <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_4-of-12">
+                <h1 class="content"> Create New Credit Record
+                    <button class="slds-button slds-button_neutral btn-1" onclick={handleNewClick}>New</button>
+                    </h1>
+                <hr>
+                <h1 class="content">View Existing Credit Records
+                    <button class="slds-button slds-button_neutral btn-2" onclick={handleExistingClick}>Exiting</button>
+               </h1>
+                <hr>
+            </div>
+            <div class="slds-col slds-large-size_2-of-12 slds-medium-size_2-of-12 slds-size_2-of-12">
+                
+            </div>
+        </div>
+  </template>
+
+    <template if:false={showLoginPage}>
+    <template if:false={checkStatus}> 
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_4-of-12">
+            <img src={rsgLogoPage} alt="Home" onclick={handleHomeClick} style="width: 200px;
+            height: 100px;
+            cursor: pointer;"> 
+        </div>
+        <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_4-of-12">
+            <p style="font-weight: bolder;color:white;font-size: 40px;margin-right:50px;text-align:center;margin-top:20px;">CREDIT APP</p>
+        </div>
+        <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_4-of-12">
+            <img src={ThreeLinerMenu} alt="Home" onclick={handleHomeClick} style="width: 100%;
+            height: 35px;
+            cursor: pointer;margin-top:32px">
+        </div>
+    </div>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_4-of-12" style="margin-left: 15px;">
+            <img src={norlakeLogo} onclick={handleHomeClick} style="margin-top: -17px;height: 25px;padding:2px;"/>
+            <img src={masterBuiltLogo} onclick={handleHomeClick} style="margin-top: -17px;height: 20px;padding:2px;"/>
+            <img src={norlakeScientficLogo} style="margin-top: -17px;height: 20px;padding:2px;"/>
+        </div>
+    </div>
+    </template>
+</template>
+    
+    <template if:true={showExistingRecords}>
+        <div class="dataTable" style="border: 15px solid rgb(8, 102, 171);">
+            <!-- style="border: 15px solid rgb(8, 102, 171);" -->
+        <lightning-datatable
+            key-field="Id"
+            data={creditRecords}
+            columns={columns}
+            hide-checkbox-column="true"
+            show-row-number-column="true"
+            sorted-by={sortBy}
+            sorted-direction={sortDirection}
+            onsort={doSorting}
+            onrowaction={handleRowAction}>
+        </lightning-datatable>
+    </div>
+    </template>
+    <!-- terms and condition -->
+    <template if:true={termsAndConditions}>
+        <div class="slds-m-around_medium" style="border:10px solid #0866AB">
+            <!-- style="border:10px solid #0866AB" -->
+            <div class="termSection" style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:30px;">
+                <p>REFRIGERATED SOLUTION GROUP</p>
+            </div>
+            <label class="inputLabel" style="color:white;">This Application For Credit is for the following Refrigerated Solutions Group brand(s):</label>
+            <br>
+            <label for="MasterBilt" class="inputLabel" style="color:white;">Master-Bilt</label>
+            <input
+                id="MasterBilt"
+                type="checkbox"
+                checked={MasterBilt}
+                disabled
+                onchange={handleChangeCheckBox1}
+                style="margin-left: 10px; margin-top:5px;">
+            <br>
+            <label for="Norlake" class="inputLabel" style="color:white;">Norlake</label>
+            <input
+                id="Norlake"
+                type="checkbox"
+                checked={Norlake}
+                disabled
+                onchange={handleChangeCheckBox2}
+                style="margin-left: 10px;">
+
+        <div class="termSection" style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:30px;">
+            <p>TERMS AND CONDITIONS</p>
+        </div>
+        <p style="color:white;">
+            {Terms_And_Condition_Part_1}{Terms_And_Condition_Part_2}<span style="font-weight: bold;">{contactEmailForQueries}</span>
+        </p>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                <!-- <label for="conditions" class="inputLabel">I agree to the terms and conditions</label>
+                <lightning-input
+                    id="conditions"
+                    type="checkbox"
+                    label="I agree to the terms and conditions"
+                    variant="label-hidden"
+                    checked={conditions}
+                    disabled={agree}
+                    onchange={handleChangeCheckBox3}>
+                </lightning-input> -->
+                <label for="conditions" style="color: white;">I agree to the terms and conditions</label>
+                <input
+                  type="checkbox"
+                  class="radio"
+                  name="x"
+                  value="y"
+                  id="conditions"
+                  checked={conditions}
+                  disabled={agree}
+                  onchange={handleChangeCheckBox3}
+                  style="margin-left: 10px; 
+                  font-weight: bold;
+                  font-size:17px;
+                  margin: 0.5rem;"
+                />
+            </div>
+            <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                <!--  -->
+            </div>
+          </div>
+
+          <template if:true={conditions}>
+                <template if:true={saveContinue}>
+                    <!-- <lightning-button variant="brand" label="Save and Continue" onclick={handleSaveAndContinue}></lightning-button> -->
+                    <button class="slds-button slds-button_brand" onclick={handleSaveAndContinue} style="background: white;color:blue">Save and Continue</button>
+                </template>
+                <template if:true={Next}>
+                    <!-- <lightning-button variant="brand" label="Next" onclick={handleNextClick}></lightning-button> -->
+                    <button class="slds-button slds-button_brand" onclick={handleNextClick} style="background: white;color:blue">Next</button>
+                </template>
+          </template>
+    </div>
+    </template>
+
+            <!-- Company Information starts here associated with account object -->
+            <template if:true={companyInformation}>
+                <c-company-information-form contact-email={contactEmail} credit-selected-row-status={creditSelectedRowStatus}
+                credit-selected-row-id={creditSelectedRowId} action-type={type} new-credit-id={newCreditId}>
+                </c-company-information-form>
+            </template>
+            <lightning-spinner if:true={showSpinner}></lightning-spinner>
+    </div>
+</template>

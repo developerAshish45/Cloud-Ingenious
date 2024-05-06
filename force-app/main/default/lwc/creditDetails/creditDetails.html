@@ -1,0 +1,376 @@
+<!--
+  @description       : 
+  @author            : 
+  @group             : 
+  @last modified on  : 03-27-2024
+  @last modified by  : 
+-->
+<template>
+    <!-- <lightning-card> -->
+    <!-- <div class="slds-m-around_medium" style="border: 4px solid rgb(8, 102, 171);"> -->
+    <template if:true={showCreditDetails}>
+        <div class="slds-m-around_medium" style="border: 4px solid rgb(8, 102, 171);">
+            <div class="termSection"
+                style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:30px;">
+                <h1>Application For Credit</h1>
+            </div>
+
+            <!-- Section 1 Starts here -->
+            <div class="slds-m-around_medium">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12"
+                        style="text-align: center;">
+                        <label for="y" style="color: white;font-weight: bold;font-size:17px;">I am including my resale
+                            certificate</label>
+                        <input disabled={checkStatus} type="radio" class="radio" name="radioGroup1" id="y"
+                            checked={radio1} onchange={handleRadioChange} style="margin-left: 10px;" />
+                    </div>
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12"
+                        style="text-align: center;">
+                        <label for="fileUploader" class="inputLabel" style="margin-right: 115px;">Attach
+                            Cerificate</label>
+                        <lightning-file-upload id="fileUploader" label="" variant="label-hidden" name="fileUploader"
+                            accept={acceptedFormats} record-id={contactLogInId} disabled={checkStatus}
+                            onuploadfinished={handleUploadFinished} multiple>
+                        </lightning-file-upload>
+                    </div>
+                    <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <!-- <div style="display: flex; align-items: center;">
+                <label class="inputLabel">This Application For Credit is for the following Refrigerated Solutions Group brand(s):</label>
+                <label for="MasterBilt" class="inputLabel">Master-Bilt</label>
+                <lightning-input
+                id="MasterBilt"
+                    type="checkbox"
+                    label="Master-Bilt"
+                    variant="label-hidden"
+                    checked={MasterBilt}
+                    disabled={checkStatus}
+                    onchange={handleChangeCheckBox1}>
+                </lightning-input>
+                <label for="Norlake" class="inputLabel">Norlake</label>
+                <lightning-input
+                id="Norlake"
+                    type="checkbox"
+                    label="Norlake"
+                    variant="label-hidden"
+                    checked={Norlake}
+                    disabled={checkStatus}
+                    onchange={handleChangeCheckBox2}>
+                </lightning-input>
+            </div> -->
+                        <label for="selectedValue" class="inputLabel">Customer Accounts Payable Portal
+                            Requirement?</label>
+                        <lightning-combobox id="selectedValue" name="radioGroup"
+                            label="Customer Accounts Payable Portal Requirement?" variant="label-hidden"
+                            value={selectedValue} options={options} disabled={checkStatus} onchange={handleChangeRadio}>
+                        </lightning-combobox>
+                        <!-- <lightning-radio-group
+                        id="selectedValue"
+                        name="radioGroup"
+                        label="Customer Accounts Payable Portal Requirement?"
+                        variant="label-hidden"
+                        options={options}
+                        value={selectedValue}
+                        disabled={checkStatus}
+                        onchange={handleChangeRadio}
+                        style="color: white;">
+                    </lightning-radio-group> -->
+
+                        <template if:true={websiteDisplay}>
+                            <label for="website" class="inputLabel"><span class="red">*</span>If Yes, Website</label>
+                            <lightning-input id="website" label="If Yes, Website" type="text" variant="label-hidden"
+                                name="website" value={website} disabled={checkStatus} onchange={handleInputChange}
+                                required>
+                            </lightning-input>
+                        </template>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
+                        <label for="z" style="color: white;font-weight: bold;font-size:17px; margin-left:35px;"
+                            class="inputLabel">I agree to pay tax on my shipment</label>
+                        <input disabled={checkStatus} type="radio" class="radio" name="radioGroup2" id="z"
+                            style="margin-left: 10px;" onchange={handleRadioChange} checked={radio2} />
+                    </div>
+                    <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_3-of-12">
+                    </div>
+                    <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                        <!-- <label for="selectedValue" class="inputLabel">Customer Accounts Payable Portal Requirement?</label>
+            <lightning-radio-group
+            id="selectedValue"
+                    name="radioGroup"
+                    label="Customer Accounts Payable Portal Requirement?"
+                    variant="label-hidden"
+                    options={options}
+                    value={selectedValue}
+                    disabled={checkStatus}
+                    onchange={handleChangeRadio}>
+                </lightning-radio-group>
+            <template if:true={websiteDisplay}>
+                <lightning-input
+                label="If Yes, Website"
+                name="website"
+                value={websiteDetails}
+                disabled={checkStatus}
+                onchange={handleInputChange} required>
+                </lightning-input>
+            </template> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2 starts here -->
+            <div class="termSection"
+                style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:30px;">
+                <h1>Business Information</h1>
+            </div>
+            <div class="slds-grid slds-wrap slds-gutters">
+                <!-- First Column -->
+                <div class="slds-col slds-size_1-of-2">
+                    <label for="businessType" class="inputLabel">Business Type</label>
+                    <lightning-combobox id="businessType" name="businessType" label="Business Type"
+                        variant="label-hidden" value={businessType} options={businessTypeOptions}
+                        onchange={handleBusinessTypeChange} disabled={checkStatus}
+                        placeholder="Choose one business type">
+                    </lightning-combobox>
+                    <label for="presidentOwner" class="inputLabel">President/Owner</label>
+                    <lightning-input id="presidentOwner" name="presidentOwner" variant="label-hidden"
+                        label="President/Owner" value={presidentOwner} disabled={checkStatus}
+                        onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="vpFinanceCFO" class="inputLabel">VP of Finance/CFO</label>
+                    <lightning-input id="vpFinanceCFO" name="vpFinanceCFO" label="VP of Finance/CFO"
+                        variant="label-hidden" value={vpFinanceCFO} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                </div>
+                <!-- Second Column -->
+                <div class="slds-col slds-size_1-of-2">
+                    <label for="secTreasurer" class="inputLabel">Sec/Treasurer</label>
+                    <lightning-input id="secTreasurer" name="secTreasurer" label="Sec/Treasurer" variant="label-hidden"
+                        value={secTreasurer} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="creditLimitRequested" class="inputLabel"><span class="red">*</span>Credit Limit
+                        Requested $</label>
+                    <lightning-input id="creditLimitRequested" name="creditLimitRequested"
+                        label="Credit Limit Requested $" variant="label-hidden" type="number" formatter="currency"
+                        value={creditLimitRequested} disabled={checkStatus} required onchange={handleInputChange}>
+                    </lightning-input>
+                </div>
+
+            </div>
+            <div class="termSection"
+                style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:30px;">
+                <h1>Trade Information</h1>
+            </div>
+            <!-- First Section -->
+            <div class="slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_1-of-2">
+                    <label for="company1" class="inputLabel">Company</label>
+                    <lightning-input id="company1" name="company1" label="Company" variant="label-hidden"
+                        value={company1} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="contact1" class="inputLabel">Contact</label>
+                    <lightning-input id="contact1" name="contact1" label="Contact" variant="label-hidden" type="tel"
+                        value={contact1} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <label for="acctNumber1" class="inputLabel">Acct #</label>
+                    <lightning-input id="acctNumber1" name="acctNumber1" label="Acct #" variant="label-hidden"
+                        type="number" value={acctNumber1} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="email1" class="inputLabel">Email</label>
+                    <lightning-input id="email1" name="email1" label="Email" variant="label-hidden" type="email"
+                        value={email1} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="phone1" class="inputLabel">Phone</label>
+                    <lightning-input id="phone1" name="phone1" label="Phone" variant="label-hidden" type="tel"
+                        value={phone1} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                </div>
+
+            </div>
+            <!-- Second Section -->
+            <div class="slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_1-of-2">
+                    <label for="company2" class="inputLabel">Company</label>
+                    <lightning-input id="company2" name="company2" label="Company" variant="label-hidden"
+                        value={company2} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="contact2" class="inputLabel">Contact</label>
+                    <lightning-input id="contact2" name="contact2" label="Contact" variant="label-hidden" type="tel"
+                        value={contact2} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <label for="acctNumber2" class="inputLabel">Acct #</label>
+                    <lightning-input id="acctNumber2" name="acctNumber2" label="Acct #" variant="label-hidden"
+                        type="number" value={acctNumber2} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="email2" class="inputLabel">Email</label>
+                    <lightning-input id="email2" name="email2" label="Email" variant="label-hidden" type="email"
+                        value={email2} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="phone2" class="inputLabel">Phone</label>
+                    <lightning-input id="phone2" name="phone2" label="Phone" variant="label-hidden" type="tel"
+                        value={phone2} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                </div>
+            </div>
+
+            <!-- Third Section -->
+            <div class="slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_1-of-2">
+                    <label for="company3" class="inputLabel">Company</label>
+                    <lightning-input id="company3" name="company3" label="Company" variant="label-hidden"
+                        value={company3} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="contact3" class="inputLabel">Contact</label>
+                    <lightning-input id="contact3" name="contact3" label="Contact" variant="label-hidden" type="tel"
+                        value={contact3} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <label for="acctNumber3" class="inputLabel">Acct #</label>
+                    <lightning-input id="acctNumber3" name="acctNumber3" label="Acct #" variant="label-hidden"
+                        type="number" value={acctNumber3} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="email3" class="inputLabel">Email</label>
+                    <lightning-input id="email3" name="email3" label="Email" variant="label-hidden" type="email"
+                        value={email3} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="phone3" class="inputLabel">Phone</label>
+                    <lightning-input id="phone3" name="phone3" label="Phone" variant="label-hidden" type="tel"
+                        value={phone3} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                </div>
+            </div>
+
+            <!-- </lightning-card> -->
+
+            <!-- Banking Section Start -->
+            <!-- <lightning-card> -->
+            <div class="termSection"
+                style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:30px;">
+                <h1>Banking Information</h1>
+            </div>
+            <div class="slds-grid slds-wrap slds-gutters">
+                <!-- First Column -->
+                <div class="slds-col slds-size_1-of-2">
+                    <label for="bankName" class="inputLabel"><span class="red">*</span>Bank Name</label>
+                    <lightning-input id="bankName" name="bankName" label="Bank Name" variant="label-hidden"
+                        value={bankName} required disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="accountNumber" class="inputLabel"><span class="red">*</span>Account #</label>
+                    <lightning-input id="accountNumber" name="accountNumber" label="Account #" variant="label-hidden"
+                        type="number" value={accountNumber} required disabled={checkStatus}
+                        onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="address" class="inputLabel"><span class="red">*</span>Address</label>
+                    <lightning-textarea id="address" name="address" label="Address" variant="label-hidden"
+                        value={address} required disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-textarea>
+                    <label for="contactPhone" class="inputLabel"><span class="red">*</span>Contact</label>
+                    <lightning-input id="contactPhone" name="contactPhone" label="Contact" variant="label-hidden"
+                        type="tel" value={contactPhone} required disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                </div>
+                <!-- Second Column -->
+                <div class="slds-col slds-size_1-of-2">
+                    <label for="bankPhone" class="inputLabel"><span class="red">*</span>Phone</label>
+                    <lightning-input id="bankPhone" name="bankPhone" label="Phone" variant="label-hidden" type="tel"
+                        value={bankPhone} required disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="city" class="inputLabel"><span class="red">*</span>City</label>
+                    <lightning-input id="city" name="city" label="City" variant="label-hidden" value={city} required
+                        disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="state" class="inputLabel"><span class="red">*</span>State</label>
+                    <lightning-input id="state" name="state" label="State" variant="label-hidden" value={state} required
+                        disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="zip" class="inputLabel"><span class="red">*</span>Zip</label>
+                    <lightning-input id="zip" name="zip" label="Zip" variant="label-hidden" value={zip} required
+                        disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <!-- <label for="fax" class="inputLabel"><span class="red">*</span>Fax</label>
+                    <lightning-input
+                        id="fax"
+                        name="fax"
+                        label="Fax"
+                        variant="label-hidden"
+                        value={fax}
+                        required
+                        disabled={checkStatus}
+                        onchange={handleInputChange}>
+                    </lightning-input> -->
+                </div>
+            </div>
+
+            <div class="termSection"
+                style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:30px;">
+                <h1>Finanace Information</h1>
+            </div>
+            <div class="slds-grid slds-wrap slds-gutters">
+                <!-- First Column -->
+                <div class="slds-col slds-size_1-of-2">
+                    <label for="hedOfFinance" class="inputLabel">Head of Finance or Head of Accounting</label>
+                    <lightning-input id="hedOfFinance" name="hedOfFinance" label="Head of Finance or Head of Accounting"
+                        type="text" variant="label-hidden" value={hedOfFinance} disabled={checkStatus}
+                        onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="nameFinance" class="inputLabel">Name</label>
+                    <lightning-input id="nameFinance" name="nameFinance" label="Name" type="text" variant="label-hidden"
+                        value={nameFinance} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                </div>
+                <!-- Second Column -->
+                <div class="slds-col slds-size_1-of-2">
+                    <label for="phoneFinance" class="inputLabel">Phone</label>
+                    <lightning-input id="phoneFinance" name="phoneFinance" label="Phone" variant="label-hidden"
+                        type="tel" value={phoneFinance} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                    <label for="emailFinance" class="inputLabel">Email</label>
+                    <lightning-input id="emailFinance" name="emailFinance" label="Phone" variant="label-hidden"
+                        type="email" value={emailFinance} disabled={checkStatus} onchange={handleInputChange}>
+                    </lightning-input>
+                </div>
+            </div>
+
+            <!-- </lightning-card> -->
+
+            <div class="slds-m-around_medium">
+                <template if:true={saveContinue}>
+                    <button class="slds-button slds-button_brand" onclick={handleClick}
+                        style="background: white;color:blue">Save & Continue</button>
+                </template>
+                <template if:true={Next}>
+                    <button class="slds-button slds-button_brand" onclick={handleNextClick}
+                        style="background: white;color:blue">Next</button>
+                </template>
+                <template if:true={showCreditDetails}>
+                    <button class="slds-button slds-button_brand" onclick={handleBack}
+                        style="background: white;color:blue">Back</button>
+                </template>
+            </div>
+        </div>
+    </template>
+    <!-- </div> -->
+    <template if:true={showContactDetails}>
+        <c-contact-data-in-credit-form credit-id={creditRecordId} account-id={accountId} contact-id={contactIdFromLogIn}
+            contact-log-in-email={contactLogInEmail} credit-selected-row-id={creditRowId}
+            credit-selected-row-status={creditStatusInRow} action-type={type} new-credit-id={createdCreditId}>
+        </c-contact-data-in-credit-form>
+    </template>
+    <!-- <template if:true={showCreditDetails}>
+        <button class="slds-button slds-button_brand" onclick={handleBack}>Back</button> 
+    </template> -->
+    <template if:true={showCompanyPge}>
+        <c-company-information-form credit-detail-id={creditId} company-id={companyId} contact-email={contactLogInEmail}
+            credit-id-from-credit-details={creditSelectedRowId} action-type-credit={type}
+            new-credit-id-from-credit-details={newCreditIdFromCreditDetails}></c-company-information-form>
+    </template>
+
+    <!-- </lightning-card>  -->
+    <lightning-spinner if:true={showSpinner}></lightning-spinner>
+</template>

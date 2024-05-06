@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Image Uploader" icon-name="custom:custom14" style="border-top: 1px solid rgb(64, 0, 255);">
+        <c-attachment-upload-component 
+                    onrefreshlist={delegateRefreshingAttachmentList} 
+                    record-id={recordId}>
+        </c-attachment-upload-component>
+        <c-attachment-related-list record-id={recordId}></c-attachment-related-list>      
+      </lightning-card>
+</template>

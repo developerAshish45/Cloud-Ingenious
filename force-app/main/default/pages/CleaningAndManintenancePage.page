@@ -1,0 +1,30 @@
+<apex:page showHeader="false" standardStylesheets="false">
+    <apex:includeLightning />
+    <div id="lightning" />
+    <script>
+        $Lightning.use("c:cleanSiteAuraApplication", function () {
+            // Extract the recordId from the URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var recordId = urlParams.get('proId');
+            
+            // Create the Lightning component with the extracted recordId
+            $Lightning.createComponent(
+                "c:cleanAndMaintainForm", { recordId: recordId }, "lightning",
+                function (cmp) {
+                    console.log('LWC Component Created.');
+                    cmp.addEventHandler('navigate', function (event) {
+                        console.log('Custom Event Received:', event.detail);
+                        navigateToVFPage(event.detail.page);
+                    });
+                }
+            );
+            function navigateToVFPage(pageName) {
+                console.log('Navigating to Visualforce Page:', pageName);
+                // Use force:navigateToURL to navigate to the VF Page within the Salesforce Site
+                $A.get("e.force:navigateToURL").setParams({
+                    "url": "/installer/" + pageName
+                }).fire();
+            }
+        });
+    </script>
+</apex:page>

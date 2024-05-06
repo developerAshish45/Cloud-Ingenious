@@ -1,0 +1,255 @@
+<template>
+    <div cz-shortcut-listen="true" style={backgroundImage} class="div">
+        <div style="padding: 10px;">
+            <div style="border-bottom: 1px solid white;">
+                <div style="display: flex; justify-content: space-between;">
+                    <div><img src={rsgLogoUrl} alt="" style="max-width: 200px;"></div>
+                    <div class="flex-container">
+                        <ul>
+                            <li><a href={setBaseUrl1} if:true={setBaseUrl1}><img src={homeActionUrl} alt="Home" class="img-fluid"><span>Home</span></a></li>
+                        </ul>       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div style="font-size: 20px;text-align: left;">
+                <h1 style="color: white;margin-bottom: 0;">My Installation Sites </h1>        
+            </div>
+            <div class="sortbtn">
+                <nav class="slds-builder-header_item slds-builder-header_nav">
+                    <ul class="slds-builder-header__nav-list">
+                        <li class="slds-builder-header__nav-item">
+                            <span class="span">View</span>
+                      <lightning-combobox  
+                        name="DataPicklist"
+                        value={selectedValue}
+                        options={selectOptions}
+                        onchange={handleDataChange}>
+                    </lightning-combobox>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="content">
+                <table aria-multiselectable="true" class="slds-table slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols" role="grid" aria-label="Example advanced table of Opportunities in actionable mode">
+                    <thead class="thead">
+                      <tr class="slds-line-height_reset">
+                          <th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode first-header" scope="col">
+                              <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+                                <span class="slds-assistive-text">Sort by: </span>
+                                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate" >
+                                  <span class="slds-truncate" title="Name" style="text-align: center;">Sr No.</span>
+                                  <span class="slds-icon_container slds-icon-utility-arrowdown">
+                                    <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+                                      <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                                    </svg>
+                                  </span>
+                                </div>
+                              </a>
+                              <div class="slds-resizable">
+                                <input type="range" aria-label="Name column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-533" max="1000" min="20" tabindex="0" />
+                                <span class="slds-resizable__handle">
+                                  <span class="slds-resizable__divider"></span>
+                                </span>
+                              </div>
+                          </th>
+                            <!-- second -->
+                          <th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode oth-header" scope="col">
+                          <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+                            <span class="slds-assistive-text">Sort by: </span>
+                            <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                              <span class="slds-truncate" title="Name">Site/Store Number</span>
+                              <span class="slds-icon_container slds-icon-utility-arrowdown">
+                                <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+                                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                                </svg>
+                              </span>
+                            </div>
+                          </a>
+                          <div class="slds-resizable">
+                            <input type="range" aria-label="Name column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-538" max="1000" min="20" tabindex="0" />
+                            <span class="slds-resizable__handle">
+                              <span class="slds-resizable__divider"></span>
+                            </span>
+                          </div>
+                          </th>
+                        <!-- three -->
+                        <th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode oth-header" scope="col">
+                          <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+                            <span class="slds-assistive-text">Sort by: </span>
+                            <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                              <span class="slds-truncate" title="Account Name">Project Name</span>
+                              <span class="slds-icon_container slds-icon-utility-arrowdown">
+                                <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+                                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                                </svg>
+                              </span>
+                            </div>
+                          </a>
+                          <div class="slds-resizable">
+                            <input type="range" aria-label="Account Name column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-534" max="1000" min="20" tabindex="0" />
+                            <span class="slds-resizable__handle">
+                              <span class="slds-resizable__divider"></span>
+                            </span>
+                          </div>
+                        </th>
+                        <!-- four -->
+                        <th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode oth-header" scope="col">
+                          <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+                            <span class="slds-assistive-text">Sort by: </span>
+                            <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                              <span class="slds-truncate" title="Close Date">Customer Name</span>
+                              <span class="slds-icon_container slds-icon-utility-arrowdown">
+                                <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+                                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                                </svg>
+                              </span>
+                            </div>
+                          </a>
+                          <div class="slds-resizable">
+                            <input type="range" aria-label="Close Date column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-535" max="1000" min="20" tabindex="0" />
+                            <span class="slds-resizable__handle">
+                              <span class="slds-resizable__divider"></span>
+                            </span>
+                          </div>
+                        </th>
+                        <!-- fifth -->
+                        <th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode oth-header" scope="col">
+                            <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+                              <span class="slds-assistive-text">Sort by: </span>
+                              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                <span class="slds-truncate" title="Close Date">Installation Type</span>
+                                <span class="slds-icon_container slds-icon-utility-arrowdown">
+                                  <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+                                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                                  </svg>
+                                </span>
+                              </div>
+                            </a>
+                            <div class="slds-resizable">
+                              <input type="range" aria-label="Close Date column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-536" max="1000" min="20" tabindex="0" />
+                              <span class="slds-resizable__handle">
+                                <span class="slds-resizable__divider"></span>
+                              </span>
+                            </div>
+                          </th>
+                          <!-- six -->
+                          <th aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode oth-header" scope="col">
+                            <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+                              <span class="slds-assistive-text">Sort by: </span>
+                              <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                <span class="slds-truncate" title="Close Date">Installation Status</span>
+                                <span class="slds-icon_container slds-icon-utility-arrowdown">
+                                  <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+                                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                                  </svg>
+                                </span>
+                              </div>
+                            </a>
+                            <div class="slds-resizable">
+                              <input type="range" aria-label="Close Date column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-537" max="400" min="20" tabindex="0" />
+                              <span class="slds-resizable__handle">
+                                <span class="slds-resizable__divider"></span>
+                              </span>
+                            </div>
+                          </th>
+                        <th class="slds-cell_action-mode oth-header" scope="col">
+                          <div class="slds-truncate" title="Action">Action</div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="tbody">
+                      <template for:each={data} for:item="record" for:index="index" >
+                      <template if:true={record.Project_Name__c}>
+                      <tr key={record.Project_Name__r.Site_Number__c} aria-selected="false" class="slds-hint-parent ">
+                          <th class="slds-cell_action-mode " scope="row">
+                              <div class="slds-truncate" title={record.Project_Name__r.Site_Number__c} style="text-align: center;">
+                                <a  href="#" tabindex="0">{record.index} </a>
+                               
+                              </div>
+                            </th>
+                        <th class="slds-cell_action-mode" scope="row">
+                          <div class="slds-truncate" title="Sample Opportunity">
+                              <a tabindex="-1" href={setBaseUrl} if:true={setBaseUrl} name={record.Id} data-status={record.Installation_Status__c} onclick={handleSiteChange} 
+                            class={disableLink}>{record.Project_Name__r.Site_Number__c}</a>
+                          </div>
+                        </th>
+                        <td class="slds-cell_action-mode" role="gridcell" >
+                          <div class="slds-truncate" title={record.Project_Name__r.Name}>{record.Project_Name__r.Name}</div>
+                        </td>
+                        <td class="slds-cell_action-mode" role="gridcell">
+                          <div class="slds-truncate" title={record.Project_Name__r.Customer_Name__r.Name}>{record.Project_Name__r.Customer_Name__r.Name}</div>
+                        </td>
+                        <td class="slds-cell_action-mode" role="gridcell">
+                            <div class="slds-truncate" title={record.Project_Name__r.Installation_Type__c}>{record.Project_Name__r.Installation_Type__c}</div>
+                          </td>
+                          <td class="slds-cell_action-mode" role="gridcell">
+                            <div class="slds-truncate" title={record.Installation_Status__c}>{record.Installation_Status__c}</div>
+                          </td>
+                        <td class="slds-cell_action-mode" role="gridcell">
+                          <a href={setBaseUrl3} if:true={setBaseUrl3}><lightning-button-icon variant="destructive" icon-name="utility:form" title="Form"
+                          onclick={handleSiteChange} name={record.Id}></lightning-button-icon></a>
+                          <lightning-button-icon variant="destructive" icon-name="utility:quip" title="Feedback" onclick={modalPopupAction}></lightning-button-icon>
+                          <lightning-button-icon variant="destructive" icon-name="utility:info_alt" title="Information" onclick={handleDeleteRecord}></lightning-button-icon>
+                        </td> 
+                      </tr>
+                      </template>
+                    </template> 
+                        <template for:each={submittedData} for:item="record" for:index="index" >
+                        <template if:true={record.Project_Name__c}>
+                      <tr key={record.Project_Name__r.Site_Number__c} aria-selected="false" class="slds-hint-parent ">
+                          <th class="slds-cell_action-mode " scope="row">
+                              <div class="slds-truncate" title={record.Project_Name__r.Site_Number__c} style="text-align: center;">
+                                {record.index}
+                               
+                              </div>
+                            </th>
+                          <th class="slds-cell_action-mode" scope="row">
+                            <div class="slds-truncate" title="Sample Opportunity">
+                              {record.Project_Name__r.Site_Number__c}
+                            </div>
+                          </th>
+                          <td class="slds-cell_action-mode" role="gridcell" >
+                            <div class="slds-truncate" title={record.Project_Name__r.Name}>{record.Project_Name__r.Name}</div>
+                          </td>
+                          <td class="slds-cell_action-mode" role="gridcell">
+                            <div class="slds-truncate" title={record.Project_Name__r.Customer_Name__r.Name}>{record.Project_Name__r.Customer_Name__r.Name}</div>
+                          </td>
+                          <td class="slds-cell_action-mode" role="gridcell">
+                            <div class="slds-truncate" title={record.Project_Name__r.Installation_Type__c}>{record.Project_Name__r.Installation_Type__c}</div>
+                          </td>
+                          <td class="slds-cell_action-mode" role="gridcell">
+                            <div class="slds-truncate" title={record.Installation_Status__c}>{record.Installation_Status__c}</div>
+                          </td>
+                          <td class="slds-cell_action-mode" role="gridcell">
+                            <lightning-button-icon variant="destructive" icon-name="utility:form" title="Form"></lightning-button-icon>
+                            <lightning-button-icon variant="destructive" icon-name="utility:quip" title="Feedback"
+                            onclick={modalPopupAction}></lightning-button-icon>
+
+                            <lightning-button-icon variant="destructive" icon-name="utility:info_alt" title="Information"
+                            onclick={handleDeleteRecord}></lightning-button-icon>
+                          </td>
+                        </tr>
+                        </template>
+                    </template>
+                    </tbody>
+                </table>
+            </div>
+            <template if:true={show}>
+                <div class="slds-m-top_medium">
+                    <lightning-layout>
+                        <lightning-layout-item flexibility="auto" padding="around-small">
+                            <div class="slds-text-align_center" style="color: white;">
+                                <lightning-button-icon icon-name="utility:chevronleft" onclick={handlePrevious} disabled={isFirstPage} style="margin-right: 4px;"></lightning-button-icon>
+                                {currentPage}  of  {totalPages}
+                                <lightning-button-icon icon-name="utility:chevronright" onclick={handleNext} disabled={isLastPage} style="margin-left: 4px;"></lightning-button-icon>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+            </template>
+        </div>
+        <c-install-footer-component></c-install-footer-component>
+    </div>
+</template>

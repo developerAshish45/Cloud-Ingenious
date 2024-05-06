@@ -1,0 +1,56 @@
+label{
+    font-weight:bold;
+     color:white;
+}
+/* .accordionClass .slds-accordion__summary-heading {
+    color: white; /* Change to the desired color */
+
+    .accordionClass {
+        --slds-c-accordion-color-border: orange;
+    }
+
+
+
+.add-note {
+    margin-left: 10px; /* Adjust the margin as needed */
+    text-decoration: none; /* Remove underline */
+    color: hsl(207, 36%, 95%); /* Set link color */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.custom-icon {
+    --slds-c-icon-color-foreground-default: white;
+} 
+
+.backgroundColor{
+    background-color: #0866AB;
+}
+
+
+
+.slds-form-element__label {
+    color: white;
+}
+
+.custom-button {
+    background-color: #ffffff; 
+    color:#0866AB;
+    border: none; 
+    border-radius: 5rem;
+    padding: 0.5rem 1rem; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center;
+    margin-top: 19px;
+    margin-left: 11px;
+    margin-bottom: -22px;
+}
+
+.custom-button:hover {
+    background-color: hsl(207, 38%, 94%);
+}
+
+.custom-icon1{
+    --slds-c-icon-color-foreground-default: #0866AB;
+      margin-left: 0.5rem; 
+}

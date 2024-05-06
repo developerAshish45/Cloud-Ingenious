@@ -1,0 +1,27 @@
+:host {    
+    height: 100%;
+    
+    display: grid;
+    
+    grid-template-rows: auto 1fr auto;
+    
+    grid-template-columns: winmax(0, 1fr);
+    }
+    
+    
+    @media only screen and (min-with: 48cm) {
+    
+    .custom-header {
+    
+    padding-left: 3res;
+    
+    padding-right: 3res;
+}
+    }
+    
+    .custom-header {
+    
+    background-color: var(--dxp-g-root);
+    
+    min-height: 3res;
+    }

@@ -1,0 +1,1254 @@
+<!--
+  @description       : 
+  @author            : 
+  @group             : 
+  @last modified on  : 03-11-2024
+  @last modified by  : 
+-->
+<template>
+    <lightning-accordion allow-multiple-sections-open>
+        <lightning-accordion-section name="section1" label="W/I BOX TEMPERATURE">
+            <lightning-accordion-section name="section1" label="MEDIUM TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress85">Temperature Inside
+                                    Cooler/Freezer(°F)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Temperature Inside
+                                    Cooler/Freezer(°F)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress85" type="text" value={surveyRecord.Temp_In_C_F_MedTemp__c}
+                                    data-field="Temp_In_C_F_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress86">Temperature Reading At Box
+                                    Monitor/Dial
+                                    (°F)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Temperature Reading At Box
+                                    Monitor/Dial
+                                    (°F)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress86" type="text"
+                                    value={surveyRecord.Temp_Reading_At_M_D_MedTemp__c}
+                                    data-field="Temp_Reading_At_M_D_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress87">Box Vs Monitor Temperature
+                                    Difference
+                                    (°F)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Box Vs Monitor Temperature
+                                    Difference
+                                    (°F)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress87" type="text"
+                                    value={surveyRecord.Box_Vs_MTR_Temp_Diff_MedTemp__c}
+                                    data-field="Box_Vs_MTR_Temp_Diff_MedTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress88">Is Box Temperature > 5 Above
+                                    Design
+                                    Temperatures
+                                </label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Is Box Temperature > 5 Above
+                                    Design
+                                    Temperatures
+                                    " title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress88" name="progress"
+                                    value={surveyRecord.Box_Temp_5_ABV_DSG_Temp_MediumTemp__c}
+                                    placeholder="Select Value" options={options} onchange={handleInputChange}
+                                    data-field="Box_Temp_5_ABV_DSG_Temp_MediumTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress89">Is The Dial Thermometer Bulb
+                                    Extended
+                                    Properly
+                                    Inside The Box?</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Is The Dial Thermometer Bulb
+                                    Extended
+                                    Properly
+                                    Inside The Box?" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress89" name="progress"
+                                    value={surveyRecord.DTHMTR_Bulb_EXT_PROP_INST_MediumTemp__c}
+                                    placeholder="Select Value" options={options} onchange={handleInputChange}
+                                    data-field="DTHMTR_Bulb_EXT_PROP_INST_MediumTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress90">Box Vs. Modularm Difference
+                                    (°F)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Box Vs. Modularm Difference
+                                    (°F)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress90" type="text"
+                                    value={surveyRecord.Box_Vs_MDL_Diff_MediumTemp__c}
+                                    data-field="Box_Vs_MDL_Diff_MediumTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section1" label="LOW TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress851">Temperature Inside
+                                    Cooler/Freezer(°F)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Temperature Inside
+                                    Cooler/Freezer(°F)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress851" type="text"
+                                    value={surveyRecord.Temp_In_C_F_LowTemp__c} data-field="Temp_In_C_F_LowTemp__c"
+                                    onchange={handleInputChange} variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress861">Temperature Reading At Box
+                                    Monitor/Dial
+                                    (°F)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Temperature Reading At Box
+                                    Monitor/Dial
+                                    (°F)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress861" type="text"
+                                    value={surveyRecord.Temp_Reading_At_M_D_LowTemp__c}
+                                    data-field="Temp_Reading_At_M_D_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress871">Box Vs Monitor Temperature
+                                    Difference
+                                    (°F)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Box Vs Monitor Temperature
+                                    Difference
+                                    (°F)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress871" type="text"
+                                    value={surveyRecord.Box_Vs_MTR_Temp_Diff_LowTemp__c}
+                                    data-field="Box_Vs_MTR_Temp_Diff_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress881">Is Box Temperature > 5 Above
+                                    Design
+                                    Temperatures
+                                </label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Is Box Temperature > 5 Above
+                                    Design
+                                    Temperatures
+                                    " title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress881" name="progress"
+                                    value={surveyRecord.Box_Temp_5_ABV_DSG_Temp_LowTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Box_Temp_5_ABV_DSG_Temp_LowTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress891">Is The Dial Thermometer Bulb
+                                    Extended
+                                    Properly
+                                    Inside The Box?</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Is The Dial Thermometer Bulb
+                                    Extended
+                                    Properly
+                                    Inside The Box?" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress891" name="progress"
+                                    value={surveyRecord.DTHMTR_Bulb_EXT_PROP_INST_LowTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="DTHMTR_Bulb_EXT_PROP_INST_LowTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress901">Box Vs. Modularm Difference
+                                    (°F)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Box Vs. Modularm Difference
+                                    (°F)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress901" type="text"
+                                    value={surveyRecord.Box_Vs_MDL_Diff_LowTemp__c}
+                                    data-field="Box_Vs_MDL_Diff_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section1" label="BEER COOLER">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress852">Temperature Inside
+                                    Cooler/Freezer(°F)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Temperature Inside
+                                    Cooler/Freezer(°F)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress852" type="text"
+                                    value={surveyRecord.Temp_In_C_F_BeerCooler__c}
+                                    data-field="Temp_In_C_F_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress862">Temperature Reading At Box
+                                    Monitor/Dial
+                                    (°F)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Temperature Reading At Box
+                                    Monitor/Dial
+                                    (°F)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress862" type="text"
+                                    value={surveyRecord.Temp_Reading_At_M_D_BeerCooler__c}
+                                    data-field="Temp_Reading_At_M_D_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress872">Box Vs Monitor Temperature
+                                    Difference
+                                    (°F)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Box Vs Monitor Temperature
+                                    Difference
+                                    (°F)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress872" type="text"
+                                    value={surveyRecord.Box_Vs_MTR_Temp_Diff_BeerCooler__c}
+                                    data-field="Box_Vs_MTR_Temp_Diff_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress882">Is Box Temperature > 5 Above
+                                    Design
+                                    Temperatures
+                                </label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Is Box Temperature > 5 Above
+                                    Design
+                                    Temperatures" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress882" name="progress"
+                                    value={surveyRecord.Box_Temp_5_ABV_DSG_Temp_BeerCooler__c}
+                                    placeholder="Select Value" options={options} onchange={handleInputChange}
+                                    data-field="Box_Temp_5_ABV_DSG_Temp_BeerCooler__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress892">Is The Dial Thermometer Bulb
+                                    Extended
+                                    Properly
+                                    Inside The Box?</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Is The Dial Thermometer Bulb
+                                    Extended
+                                    Properly
+                                    Inside The Box?" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress892" name="progress"
+                                    value={surveyRecord.DTHMTR_Bulb_EXT_PROP_INST_BeerCooler__c}
+                                    placeholder="Select Value" options={options} onchange={handleInputChange}
+                                    data-field="DTHMTR_Bulb_EXT_PROP_INST_BeerCooler__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress902">Box Vs. Modularm Difference
+                                    (°F)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Box Vs. Modularm Difference
+                                    (°F)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress902" type="text"
+                                    value={surveyRecord.Box_Vs_MDL_Diff_BeerCooler__c}
+                                    data-field="Box_Vs_MDL_Diff_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="section1" label="MAIN W/I DOORS">
+            <lightning-accordion-section name="section1" label="MEDIUM TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress91">
+                                    Hydraulic Door (Main cooler/Freezer Door) Damage
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick}
+                                        data-field-name="Hydraulic Door (Main cooler/Freezer Door) Damage "
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress91" name="progress"
+                                    value={surveyRecord.HDR_Door_MC_FD_DMG_MediumTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="HDR_Door_MC_FD_DMG_MediumTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress92">
+                                    Hydraulic Door Accessory Damage (Y/N) If Yes Provide Detail In Note Cell
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick}
+                                        data-field-name="Hydraulic Door Accessory Damage (Y/N) If Yes Provide Detail In Note Cell"
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress92" name="progress"
+                                    value={surveyRecord.HDR_Door_ACSRY_DMG_MediumTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="HDR_Door_ACSRY_DMG_MediumTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress93">
+                                    Walk-In Door Width
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick} data-field-name="Walk-In Door Width"
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-input id="progress93" type="text"
+                                    value={surveyRecord.WI_Door_Width_MediumTemp__c}
+                                    data-field="WI_Door_Width_MediumTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress94">Interior Walk-In Box Dimensions
+                                    (L
+                                    x W
+                                    x H)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Interior Walk-In Box Dimensions
+                                    (L
+                                    x W
+                                    x H)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress94" type="text"
+                                    value={surveyRecord.INTR_WI_Box_DMNSN_MediumTemp__c}
+                                    data-field="INTR_WI_Box_DMNSN_MediumTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section1" label="LOW TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress911">
+                                    Hydraulic Door (Main cooler/Freezer Door) Damage
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick}
+                                        data-field-name="Hydraulic Door (Main cooler/Freezer Door) Damage "
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress911" name="progress"
+                                    value={surveyRecord.HDR_Door_MC_FD_DMG_LowTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="HDR_Door_MC_FD_DMG_LowTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress921">
+                                    Hydraulic Door Accessory Damage (Y/N) If Yes Provide Detail In Note Cell
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick}
+                                        data-field-name="Hydraulic Door Accessory Damage (Y/N) If Yes Provide Detail In Note Cell"
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress921" name="progress"
+                                    value={surveyRecord.HDR_Door_ACSRY_DMG_LowTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="HDR_Door_ACSRY_DMG_LowTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress931">
+                                    Walk-In Door Width
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick} data-field-name="Walk-In Door Width"
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-input id="progress931" type="text"
+                                    value={surveyRecord.WI_Door_Width_LowTemp__c} data-field="WI_Door_Width_LowTemp__c"
+                                    onchange={handleInputChange} variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress942">Interior Walk-In Box
+                                    Dimensions
+                                    (L
+                                    x W
+                                    x H)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Interior Walk-In Box Dimensions
+                                    (L
+                                    x W
+                                    x H)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress942" type="text"
+                                    value={surveyRecord.INTR_WI_Box_DMNSN_LowTemp__c}
+                                    data-field="INTR_WI_Box_DMNSN_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section1" label="BEER COOLER">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress913">
+                                    Hydraulic Door (Main cooler/Freezer Door) Damage
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick}
+                                        data-field-name="Hydraulic Door (Main cooler/Freezer Door) Damage"
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress913" name="progress"
+                                    value={surveyRecord.HDR_Door_MC_FD_DMG_BeerCooler__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="HDR_Door_MC_FD_DMG_BeerCooler__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress923">
+                                    Hydraulic Door Accessory Damage (Y/N) If Yes Provide Detail In Note Cell
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick}
+                                        data-field-name="Hydraulic Door Accessory Damage (Y/N) If Yes Provide Detail In Note Cell"
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress923" name="progress"
+                                    value={surveyRecord.HDR_Door_ACSRY_DMG_BeerCooler__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="HDR_Door_ACSRY_DMG_BeerCooler__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress933">
+                                    Walk-In Door Width
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick} data-field-name="Walk-In Door Width"
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-input id="progress933" type="text"
+                                    value={surveyRecord.WI_Door_Width_BeerCooler__c}
+                                    data-field="WI_Door_Width_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress943">Interior Walk-In Box
+                                    Dimensions
+                                    (L
+                                    x W
+                                    x H)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Interior Walk-In Box
+                                    Dimensions
+                                    (L
+                                    x W
+                                    x H)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress943" type="text"
+                                    value={surveyRecord.INTR_WI_Box_DMNSN_BeerCooler__c}
+                                    data-field="INTR_WI_Box_DMNSN_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="section1" label="GENERAL">
+            <lightning-accordion-section name="section1" label="MEDIUM TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label">
+                                    # Lights To Be Replaced / Relocated
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick}
+                                        data-field-name="# Lights To Be Replaced / Relocated" title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress95" name="progress"
+                                    value={surveyRecord.Lights_To_Be_RPC_RLC_MediumTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Lights_To_Be_RPC_RLC_MediumTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label">
+                                    Fire Protection Head Issues? (Y/N) If Yes Provide Detail In Note Cell
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick}
+                                        data-field-name="Fire Protection Head Issues? (Y/N) If Yes Provide Detail In Note Cell"
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress96" name="progress"
+                                    value={surveyRecord.Fire_PRTC_Head_Issues_MediumTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Fire_PRTC_Head_Issues_MediumTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label">
+                                    Heat Trace Intact And Functional
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick} data-field-name="Heat Trace Intact And Functional"
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress97" name="progress"
+                                    value={surveyRecord.Heat_TRC_INT_And_FNC_MediumTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Heat_TRC_INT_And_FNC_MediumTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress98">Wiring Safety Concerns</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Wiring Safety Concerns"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress98" name="progress"
+                                    value={surveyRecord.Wiring_Safety_CNCRNS_MediumTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Wiring_Safety_CNCRNS_MediumTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress99">Air Leakage: To Stock room If
+                                    Yes
+                                    Provide Detail In
+                                    Note Cell</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Air Leakage: To Stock room If
+                                    Yes
+                                    Provide Detail In
+                                    Note Cell" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress99" name="progress"
+                                    value={surveyRecord.Air_Leakage_TSR_MediumTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Air_Leakage_TSR_MediumTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress100">Air Leakage: To Ceiling If Yes
+                                    Provide
+                                    Detail In
+                                    Note Cell</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Air Leakage: To Ceiling If Yes
+                                    Provide
+                                    Detail In
+                                    Note Cell" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress100" name="progress"
+                                    value={surveyRecord.Air_Leakage_TC_MediumTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Air_Leakage_TC_MediumTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress101">Air Leakage: To Sales Area If
+                                    Yes
+                                    Provide Detail In
+                                    Note Cell</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Air Leakage: To Sales Area If
+                                    Yes
+                                    Provide Detail In
+                                    Note Cell" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress101" name="progress"
+                                    value={surveyRecord.AIr_Leakage_TSA_MediumTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="AIr_Leakage_TSA_MediumTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress102">Unsealed Pipe
+                                    Penetration/s</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Unsealed Pipe
+                                    Penetration/s" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress102" name="progress"
+                                    value={surveyRecord.UPP_MediumTemp__c} placeholder="Select Value" options={options}
+                                    onchange={handleInputChange} data-field="UPP_MediumTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section1" label="LOW TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress952">
+                                    # Lights To Be Replaced / Relocated
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick}
+                                        data-field-name="# Lights To Be Replaced / Relocated" title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress952" name="progress"
+                                    value={surveyRecord.Lights_To_Be_RPC_RLC_LowTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Lights_To_Be_RPC_RLC_LowTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress962">
+                                    Fire Protection Head Issues? (Y/N) If Yes Provide Detail In Note Cell
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick}
+                                        data-field-name="Fire Protection Head Issues? (Y/N) If Yes Provide Detail In Note Cell"
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress962" name="progress"
+                                    value={surveyRecord.Fire_PRTC_Head_Issues_LowTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Fire_PRTC_Head_Issues_LowTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress972">
+                                    Heat Trace Intact And Functional
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick} data-field-name="Heat Trace Intact And Functional"
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress972" name="progress"
+                                    value={surveyRecord.Heat_TRC_INT_And_FNC_LowTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Heat_TRC_INT_And_FNC_LowTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress982">Wiring Safety Concerns</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Wiring Safety Concerns"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress982" name="progress"
+                                    value={surveyRecord.Wiring_Safety_CNCRNS_LowTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Wiring_Safety_CNCRNS_LowTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress992">Air Leakage: To Stock room If
+                                    Yes
+                                    Provide Detail In
+                                    Note Cell</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Air Leakage: To Stock room If
+                                    Yes
+                                    Provide Detail In
+                                    Note Cell" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress992" name="progress"
+                                    value={surveyRecord.Air_Leakage_TSR_LowTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Air_Leakage_TSR_LowTemp__c" variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress1002">Air Leakage: To Ceiling If
+                                    Yes
+                                    Provide
+                                    Detail In
+                                    Note Cell</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Air Leakage: To Ceiling If Yes
+                                    Provide
+                                    Detail In
+                                    Note Cell" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress1002" name="progress"
+                                    value={surveyRecord.Air_Leakage_TC_LowTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Air_Leakage_TC_LowTemp__c" variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress1012">Air Leakage: To Sales Area If
+                                    Yes
+                                    Provide Detail In
+                                    Note Cell</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Air Leakage: To Sales Area If
+                                    Yes
+                                    Provide Detail In
+                                    Note Cell" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress1012" name="progress"
+                                    value={surveyRecord.AIr_Leakage_TSA_LowTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="AIr_Leakage_TSA_LowTemp__c" variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress1022">Unsealed Pipe
+                                    Penetration/s</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Unsealed Pipe
+                                    Penetration/s" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress1022" name="progress"
+                                    value={surveyRecord.UPP_LowTemp__c} placeholder="Select Value" options={options}
+                                    onchange={handleInputChange} data-field="UPP_LowTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section1" label="BEER COOLER">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress4">
+                                    # Lights To Be Replaced / Relocated
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick}
+                                        data-field-name="# Lights To Be Replaced / Relocated" title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress4" name="progress"
+                                    value={surveyRecord.Lights_To_Be_RPC_RLC_BeerCooler__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Lights_To_Be_RPC_RLC_BeerCooler__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress5">
+                                    Fire Protection Head Issues? (Y/N) If Yes Provide Detail In Note Cell
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick}
+                                        data-field-name="Fire Protection Head Issues? (Y/N) If Yes Provide Detail In Note Cell"
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress5" name="progress"
+                                    value={surveyRecord.Fire_PRTC_Head_Issues_BeerCooler__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Fire_PRTC_Head_Issues_BeerCooler__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress6">
+                                    Heat Trace Intact And Functional
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                        onclick={handleAddNoteClick} data-field-name="Heat Trace Intact And Functional"
+                                        title="Add Note">
+                                        <lightning-icon class="custom-icon" icon-name="utility:note"
+                                            size="small"></lightning-icon>
+                                    </button>
+                                </label>
+                                <lightning-combobox id="progress6" name="progress"
+                                    value={surveyRecord.Heat_TRC_INT_And_FNC_BeerCooler__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Heat_TRC_INT_And_FNC_BeerCooler__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress7">Wiring Safety Concerns</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Wiring Safety Concerns"
+                                    title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress7" name="progress"
+                                    value={surveyRecord.Wiring_Safety_CNCRNS_BeerCooler__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Wiring_Safety_CNCRNS_BeerCooler__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress8">Air Leakage: To Stock room If
+                                    Yes
+                                    Provide Detail In
+                                    Note Cell</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Air Leakage: To Stock room If
+                                    Yes
+                                    Provide Detail In
+                                    Note Cell" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress8" name="progress"
+                                    value={surveyRecord.Air_Leakage_TSR_BeerCooler__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Air_Leakage_TSR_BeerCooler__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress9">Air Leakage: To Ceiling If Yes
+                                    Provide
+                                    Detail In
+                                    Note Cell</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Air Leakage: To Ceiling If Yes
+                                    Provide
+                                    Detail In
+                                    Note Cell" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress9" name="progress"
+                                    value={surveyRecord.Air_Leakage_TC_BeerCooler__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Air_Leakage_TC_BeerCooler__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress10">Air Leakage: To Sales Area If
+                                    Yes
+                                    Provide Detail In
+                                    Note Cell</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Air Leakage: To Sales Area If
+                                    Yes
+                                    Provide Detail In
+                                    Note Cell" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress10" name="progress"
+                                    value={surveyRecord.AIr_Leakage_TSA_BeerCooler__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="AIr_Leakage_TSA_BeerCooler__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress105">Unsealed Pipe
+                                    Penetration/s</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Unsealed Pipe
+                                    Penetration/s" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-combobox id="progress105" name="progress"
+                                    value={surveyRecord.UPP_BeerCooler__c} placeholder="Select Value" options={options}
+                                    onchange={handleInputChange} data-field="UPP_BeerCooler__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion-section>
+        <c-srsg-survey-data-w-i-c-f-e-i-child survey-rec={surveyRec}></c-srsg-survey-data-w-i-c-f-e-i-child>
+    </lightning-accordion>
+
+    <template if:true={isPopupVisible}>
+        <div class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium slds-hyphenate">Add Note for {fieldName}</h2>
+                    <button class="slds-button slds-button_icon slds-modal__close" title="Close" onclick={closePopup}>
+                        <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <!-- Add your input box for adding a note -->
+                    <textarea class="slds-textarea" placeholder="Enter note here..."
+                        onchange={handleNoteInput}>{noteBody}</textarea>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand" onclick={handleSave}>Save</button>
+                    <button class="slds-button slds-button_neutral" onclick={closePopup}>Cancel</button>
+                </footer>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

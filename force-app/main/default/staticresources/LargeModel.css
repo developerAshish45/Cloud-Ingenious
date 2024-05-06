@@ -1,0 +1,9 @@
+.slds-modal__content{
+	width: 100% !important;
+    max-width: 100% !important;
+    height:100% !important;
+	max-height:100% !important;
+}
+.slds-modal__header .slds-modal__close {
+    display: none;
+}

@@ -1,0 +1,17 @@
+<!--
+  @description       : 
+  @author            : 
+  @group             : 
+  @last modified on  : 03-08-2024
+  @last modified by  : 
+-->
+<template>
+    <lightning-card title="Edit Email Template">
+        <div class="slds-p-around_medium">
+            <p>Use the editor below to edit the email template:</p>
+            <lightning-input-rich-text value={emailTemplate}
+                onchange={handleTemplateChange}></lightning-input-rich-text>
+            <p>Note: Changes made here will reflect in the email template.</p>
+        </div>
+    </lightning-card>
+</template>

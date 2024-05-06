@@ -1,0 +1,16 @@
+.backgroundColor{
+    background-color: #0866AB;
+    border: 1px solid black;
+}
+p{
+    font-weight:bold;
+    color:white;
+}
+.fileUpload{
+    margin-left:20px;
+}
+.thumbnailCard{
+    max-height: 200px;
+    overflow-y: auto;
+    margin-left:20px;
+}

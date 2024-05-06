@@ -1,0 +1,1317 @@
+<!--
+  @description       : 
+  @author            : 
+  @group             : 
+  @last modified on  : 03-14-2024
+  @last modified by  : 
+-->
+<template>
+    <lightning-accordion allow-multiple-sections-open class="accordionClass">
+        <lightning-accordion-section name="assetsDebts" label="MEDIUM TEMP">
+            <div class="backgroundColor">
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress1">
+                                <span>Will New or Existing Reach-In Equipment be able to Fit Through Either The Front or
+                                    Back Entrance?</span>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Will New or Existing Reach-In Equipment be able to Fit Through Either The Front or
+                                Back Entrance?" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+                            <div class="slds-form-element__control">
+                                <lightning-combobox id="progress1" name="progress"
+                                    value={surveyRecord.WillNewOrExistingReach_MedTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="WillNewOrExistingReach_MedTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+
+                                <label class="slds-form-element__label" for="progress2">Permanent Reach-In Cases At
+                                    Store</label>
+                                <button class="slds-button slds-button_icon slds-input__icon"
+                                    onclick={handleAddNoteClick} data-field-name="Permanent Reach-In Cases At
+                                Store" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </div>
+                            <lightning-combobox id="progress2" name="progress"
+                                value={surveyRecord.PermReachAtStore_MedTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="PermReachAtStore_MedTemp__c"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+
+                                <label class="slds-form-element__label" for="progress3">Reach-In Cases Self Contained Or
+                                    Remote Condensing Units</label>
+                                <button class="slds-button slds-button_icon slds-input__icon"
+                                    onclick={handleAddNoteClick} data-field-name="Reach-In Cases Self Contained Or
+                                Remote Condensing Units" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </div>
+                            <lightning-combobox id="progress3" name="progress"
+                                value={surveyRecord.Reach_InCaseSC_R_MedTemp__c} placeholder="Select Value"
+                                options={reachOptions} onchange={handleInputChange}
+                                data-field="Reach_InCaseSC_R_MedTemp__c"></lightning-combobox>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_3-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <button class="custom-button" onclick={handleFileUpload} data-field-name="Reach-In Case 1"
+                            title="Upload Image">
+                            Upload Image For Reach-In
+                            Case 1
+                            <lightning-icon class="custom-icon1" icon-name="utility:upload"
+                                size="small"></lightning-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress4">Reach-In Case #1
+                                Manufacturer</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 Manufacturer"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress4" type="text" label="Reach-In Case #1 Manufacturer"
+                                value={surveyRecord.Reach_InCase_1Mfg_MedTemp__c}
+                                data-field="Reach_InCase_1Mfg_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress5">Reach-In Case #1 Model #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 Model #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress5" type="text" label="Reach-In Case #1 Model #"
+                                value={surveyRecord.Reach_InCase_1_Model_MedTemp__c}
+                                data-field="Reach_InCase_1_Model_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12
+                      slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress6">Reach-In Case #1 Serial #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 Serial #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress6" type="text" label="Reach-In Case #1 Serial #"
+                                value={surveyRecord.Reach_InCase_1_Serial_MedTemp__c}
+                                data-field="Reach_InCase_1_Serial_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress7">Reach-In Case #1 - Electrical
+                                Connection</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 - Electrical
+                            Connection" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress7" type="text" label="Reach-In Case #1 - Electrical Connection"
+                                value={surveyRecord.Reach_InCase_1EleCon_MedTemp__c}
+                                data-field="Reach_InCase_1EleCon_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress8">Reach-In Case #1 Door Width</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 Door Width"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress8" type="text" label="Reach-In Case #1 Door WIDTH"
+                                value={surveyRecord.Reach_InCase_1_DoorWidth_MedTemp__c}
+                                data-field="Reach_InCase_1_DoorWidth_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_3-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <button class="custom-button" onclick={handleFileUpload} data-field-name="Reach-In Case 2"
+                            title="Upload Image">
+                            Upload Image For Reach-In
+                            Case 2
+                            <lightning-icon class="custom-icon1" icon-name="utility:upload"
+                                size="small"></lightning-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress9">Reach-In Case #2
+                                Manufacturer</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 Manufacturer"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress9" type="text" label="Reach-In Case #2 Manufacturer"
+                                value={surveyRecord.Reach_InCase_2Mfg_MedTemp__c}
+                                data-field="Reach_InCase_2Mfg_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress10">Reach-In Case #2 - Model #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 - Model #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress10" type="text" label="Reach-In Case #2 - Model #"
+                                value={surveyRecord.Reach_InCase_2_Model_MedTemp__c}
+                                data-field="Reach_InCase_2_Model_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress112">Reach-In Case #2 - Serial
+                                #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 - Serial #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress112" type="text" label="Reach-In Case #2 - Serial #"
+                                value={surveyRecord.Reach_InCase_2_Serial_MedTemp__c}
+                                data-field="Reach_InCase_2_Serial_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress12">Reach-In Case #2 - Electrical
+                                Connection</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 - Electrical
+                            Connection" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress12" type="text"
+                                label="Reach-In Case #2 - Electrical Connection"
+                                value={surveyRecord.Reach_InCase_2EleCon_MedTemp__c}
+                                data-field="Reach_InCase_2EleCon_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress13">Reach-In Case #2 - Door
+                                width</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 - Door width"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress13" type="text" label="Reach-In Case #2 - Door width"
+                                value={surveyRecord.Reach_InCase_2_DoorWidth_MedTemp__c}
+                                data-field="Reach_InCase_2_DoorWidth_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_3-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <button class="custom-button" onclick={handleFileUpload} data-field-name="Reach-In Case 3"
+                            title="Upload Image">
+                            Upload Image For Reach-In
+                            Case 3
+                            <lightning-icon class="custom-icon1" icon-name="utility:upload"
+                                size="small"></lightning-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress14">Reach-In Case #3
+                                Manufacturer</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 Manufacturer"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress14" type="text" label="Reach-In Case #3 Manufacturer"
+                                value={surveyRecord.Reach_InCase_3Mfg_MedTemp__c}
+                                data-field="Reach_InCase_3Mfg_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress15">Reach-In Case #3 - Model #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 - Model #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress15" type="text" label="Reach-In Case #3 - Model #"
+                                value={surveyRecord.Reach_InCase_3_Model_MedTemp__c}
+                                data-field="Reach_InCase_3_Model_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress16">Reach-In Case #3 - Serial #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 - Serial #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress16" type="text" label="Reach-In Case #3 - Serial #"
+                                value={surveyRecord.Reach_InCase_3_Serial_MedTemp__c}
+                                data-field="Reach_InCase_3_Serial_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress17">Reach-In Case #3 - Electrical
+                                Connection</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 - Electrical
+                            Connection" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress17" type="text"
+                                label="Reach-In Case #3 - Electrical Connection"
+                                value={surveyRecord.Reach_InCase_3EleCon_MedTemp__c}
+                                data-field="Reach_InCase_3EleCon_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress18">Reach-In Case #3 - Door
+                                Width</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 - Door Width"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress18" type="text" label="Reach-In Case #3 - Door Width"
+                                value={surveyRecord.Reach_InCase_3_DoorWidth_MedTemp__c}
+                                data-field="Reach_InCase_3_DoorWidth_MedTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+
+                            <label class="slds-form-element__label" for="progress19">
+                                Shared Condensing Units units Supplying Reach-Ins. Are Reach-In and Walk-In Cases Served
+                                By The Same Condensing Unit
+                                <button class="slds-button slds-button_icon slds-input__icon"
+                                    onclick={handleAddNoteClick} data-field-name="Shared Condensing Units units Supplying Reach-Ins. Are Reach-In and Walk-In Cases Served
+                                    By The Same Condensing Unit" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+
+                            <lightning-combobox id="progress19" name="progress"
+                                label="Shared Condensing Units units Supplying Reach-Ins. Are Reach-In and Walk-In Cases Served By The Same Condensing Unit"
+                                value={surveyRecord.SharedCU_MedTemp__c} placeholder="Select Value" options={options}
+                                onchange={handleInputChange} data-field="SharedCU_MedTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_6-of-12 slds-size_6-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress20">Number Of Total Doors</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Number Of Total Doors" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress20" type="Number"
+                                value={surveyRecord.NumberOfTotalDoors_MedTemp__c}
+                                data-field="NumberOfTotalDoors_MedTemp__c"
+                                onchange={handleInputChange}></lightning-input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                    <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                        <lightning-button variant="neutral" label="Save & Draft"
+                            onclick={updateSurveyRecord}></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="assetsDebts" label="LOW TEMP">
+            <div class="backgroundColor">
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress11">
+                                <span>Will New or Existing Reach-In Equipment be able to Fit Through Either The Front or
+                                    Back Entrance?</span>
+                                <button class="slds-button slds-button_icon slds-input__icon"
+                                    onclick={handleAddNoteClick} data-field-name="Will New or Existing Reach-In Equipment be able to Fit Through Either The Front or
+                                Back Entrance?" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+                            <div class="slds-form-element__control">
+                                <lightning-combobox id="progress11" name="progress"
+                                    value={surveyRecord.WillNewOrExistingReach_LowTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="WillNewOrExistingReach_LowTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+
+                                <label class="slds-form-element__label" for="progress21">Permanent Reach-In Cases At
+                                    Store</label>
+                                <button class="slds-button slds-button_icon slds-input__icon"
+                                    onclick={handleAddNoteClick} data-field-name="Permanent Reach-In Cases At
+                                Store" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </div>
+                            <lightning-combobox id="progress21" name="progress"
+                                value={surveyRecord.PermReachAtStore_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="PermReachAtStore_LowTemp__c"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+
+                                <label class="slds-form-element__label" for="progress31">Reach-In Cases Self Contained
+                                    Or
+                                    Remote Condensing Units</label>
+                                <button class="slds-button slds-button_icon slds-input__icon"
+                                    onclick={handleAddNoteClick} data-field-name="Reach-In Cases Self Contained Or
+                                Remote Condensing Units" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </div>
+                            <lightning-combobox id="progress31" name="progress"
+                                value={surveyRecord.Reach_InCaseSC_R_LowTemp__c} placeholder="Select Value"
+                                options={reachOptions} onchange={handleInputChange}
+                                data-field="Reach_InCaseSC_R_LowTemp__c"></lightning-combobox>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_3-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <button class="custom-button" onclick={handleFileUpload}
+                            data-field-name="Low Temp Reach-In Case 1" title="Upload Image">
+                            Upload Image For Reach-In
+                            Case 1
+                            <lightning-icon class="custom-icon1" icon-name="utility:upload"
+                                size="small"></lightning-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress41">Reach-In Case #1
+                                Manufacturer</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 Manufacturer"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress41" type="text" label="Reach-In Case #1 Manufacturer"
+                                value={surveyRecord.Reach_InCase_1Mfg_LowTemp__c}
+                                data-field="Reach_InCase_1Mfg_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress51">Reach-In Case #1 Model #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 Model #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress51" type="text" label="Reach-In Case #1 Model #"
+                                value={surveyRecord.Reach_InCase_1_Model_LowTemp__c}
+                                data-field="Reach_InCase_1_Model_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12
+                slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress61">Reach-In Case #1 Serial #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 Serial #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress61" type="text" label="Reach-In Case #1 Serial #"
+                                value={surveyRecord.Reach_InCase_1_Serial_LowTemp__c}
+                                data-field="Reach_InCase_1_Serial_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress71">Reach-In Case #1 - Electrical
+                                Connection</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 - Electrical
+                            Connection" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress71" type="text"
+                                label="Reach-In Case #1 - Electrical Connection"
+                                value={surveyRecord.Reach_InCase_1EleCon_LowTemp__c}
+                                data-field="Reach_InCase_1EleCon_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress81">Reach-In Case #1 Door WIDTH</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 Door WIDTH"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress81" type="text" label="Reach-In Case #1 Door WIDTH"
+                                value={surveyRecord.Reach_InCase_1_DoorWidth_LowTemp__c}
+                                data-field="Reach_InCase_1_DoorWidth_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_3-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <button class="custom-button" onclick={handleFileUpload}
+                            data-field-name="Low Temp Reach-In Case 2" title="Upload Image">
+                            Upload Image For Reach-In
+                            Case 2
+                            <lightning-icon class="custom-icon1" icon-name="utility:upload"
+                                size="small"></lightning-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress91">Reach-In Case #2
+                                Manufacturer</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 Manufacturer"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress91" type="text" label="Reach-In Case #2 Manufacturer"
+                                value={surveyRecord.Reach_InCase_2Mfg_LowTemp__c}
+                                data-field="Reach_InCase_2Mfg_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress101">Reach-In Case #2 - Model #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 - Model #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress101" type="text" label="Reach-In Case #2 - Model #"
+                                value={surveyRecord.Reach_InCase_2_Model_LowTemp__c}
+                                data-field="Reach_InCase_2_Model_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress111">Reach-In Case #2 - Serial
+                                #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 - Serial #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress111" type="text" label="Reach-In Case #2 - Serial #"
+                                value={surveyRecord.Reach_InCase_2_Serial_LowTemp__c}
+                                data-field="Reach_InCase_2_Serial_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress121">Reach-In Case #2 - Electrical
+                                Connection</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 - Electrical
+                            Connection" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress121" type="text"
+                                label="Reach-In Case #2 - Electrical Connection"
+                                value={surveyRecord.Reach_InCase_2EleCon_LowTemp__c}
+                                data-field="Reach_InCase_2EleCon_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress131">Reach-In Case #2 - Door
+                                width</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 - Door width"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress131" type="text" label="Reach-In Case #2 - Door width"
+                                value={surveyRecord.Reach_InCase_2_DoorWidth_LowTemp__c}
+                                data-field="Reach_InCase_2_DoorWidth_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_3-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <button class="custom-button" onclick={handleFileUpload}
+                            data-field-name="Low Temp Reach-In Case 3" title="Upload Image">
+                            Upload Image For Reach-In
+                            Case 3
+                            <lightning-icon class="custom-icon1" icon-name="utility:upload"
+                                size="small"></lightning-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress141">Reach-In Case #3
+                                Manufacturer</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 Manufacturer"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress141" type="text" label="Reach-In Case #3 Manufacturer"
+                                value={surveyRecord.Reach_InCase_3Mfg_LowTemp__c}
+                                data-field="Reach_InCase_3Mfg_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress151">Reach-In Case #3 - Model #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 - Model #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress151" type="text" label="Reach-In Case #3 - Model #"
+                                value={surveyRecord.Reach_InCase_3_Model_LowTemp__c}
+                                data-field="Reach_InCase_3_Model_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress161">Reach-In Case #3 - Serial
+                                #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 - Serial #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress161" type="text" label="Reach-In Case #3 - Serial #"
+                                value={surveyRecord.Reach_InCase_3_Serial_LowTemp__c}
+                                data-field="Reach_InCase_3_Serial_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress171">Reach-In Case #3 - Electrical
+                                Connection</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 - Electrical
+                        Connection" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress171" type="text"
+                                label="Reach-In Case #3 - Electrical Connection"
+                                value={surveyRecord.Reach_InCase_3EleCon_LowTemp__c}
+                                data-field="Reach_InCase_3EleCon_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress181">Reach-In Case #3 - Door
+                                Width</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 - Door Width"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress181" type="text" label="Reach-In Case #3 - Door Width"
+                                value={surveyRecord.Reach_InCase_3_DoorWidth_LowTemp__c}
+                                data-field="Reach_InCase_3_DoorWidth_LowTemp__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+
+                            <label class="slds-form-element__label" for="progress191">
+                                Shared Condensing Units units Supplying Reach-Ins. Are Reach-In and Walk-In Cases Served
+                                By The Same Condensing Unit
+                                <button class="slds-button slds-button_icon slds-input__icon"
+                                    onclick={handleAddNoteClick} data-field-name="Shared Condensing Units units Supplying Reach-Ins. Are Reach-In and Walk-In Cases Served
+                                By The Same Condensing Unit" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+
+                            <lightning-combobox id="progress191" name="progress"
+                                label="Shared Condensing Units units Supplying Reach-Ins. Are Reach-In and Walk-In Cases Served By The Same Condensing Unit"
+                                value={surveyRecord.SharedCU_LowTemp__c} placeholder="Select Value" options={options}
+                                onchange={handleInputChange} data-field="SharedCU_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_6-of-12 slds-size_6-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress201">Number Of Total Doors</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Number Of Total Doors" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress201" type="Number"
+                                value={surveyRecord.NumberOfTotalDoors_LowTemp__c}
+                                data-field="NumberOfTotalDoors_LowTemp__c"
+                                onchange={handleInputChange}></lightning-input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                    <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                        <lightning-button variant="neutral" label="Save & Draft"
+                            onclick={updateSurveyRecord}></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="assetsDebts" label="BEER COOLER">
+            <div class="backgroundColor">
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress123">
+                                <span>Will New or Existing Reach-In Equipment be able to Fit Through Either The Front or
+                                    Back Entrance?</span>
+                                <button class="slds-button slds-button_icon slds-input__icon"
+                                    onclick={handleAddNoteClick} data-field-name="Will New or Existing Reach-In Equipment be able to Fit Through Either The Front or
+                                Back Entrance?" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+                            <div class="slds-form-element__control">
+                                <lightning-combobox id="progress123" name="progress"
+                                    value={surveyRecord.WillNewOrExistingReach_BeerCooler_MT__c}
+                                    placeholder="Select Value" options={options} onchange={handleInputChange}
+                                    data-field="WillNewOrExistingReach_BeerCooler_MT__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+
+                                <label class="slds-form-element__label" for="progress22">Permanent Reach-In Cases At
+                                    Store</label>
+                                <button class="slds-button slds-button_icon slds-input__icon"
+                                    onclick={handleAddNoteClick} data-field-name="Permanent Reach-In Cases At
+                                Store" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </div>
+                            <lightning-combobox id="progress22" name="progress"
+                                value={surveyRecord.PermReachAtStore_BeerCooler_MT__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="PermReachAtStore_BeerCooler_MT__c"></lightning-combobox>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+
+                                <label class="slds-form-element__label" for="progress32">Reach-In Cases Self Contained
+                                    Or
+                                    Remote Condensing Units</label>
+                                <button class="slds-button slds-button_icon slds-input__icon"
+                                    onclick={handleAddNoteClick} data-field-name="Reach-In Cases Self Contained Or
+                                Remote Condensing Units" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </div>
+                            <lightning-combobox id="progress32" name="progress"
+                                value={surveyRecord.Reach_InCaseSC_R_BeerCooler_MT__c} placeholder="Select Value"
+                                options={reachOptions} onchange={handleInputChange}
+                                data-field="Reach_InCaseSC_R_BeerCooler_MT__c"></lightning-combobox>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_3-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <button class="custom-button" onclick={handleFileUpload}
+                            data-field-name="Beer Cooler Reach-In Case 1" title="Upload Image">
+                            Upload Image For Reach-In
+                            Case 1
+                            <lightning-icon class="custom-icon1" icon-name="utility:upload"
+                                size="small"></lightning-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress42">Reach-In Case #1
+                                Manufacturer</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 Manufacturer"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress42" type="text" label="Reach-In Case #1 Manufacturer"
+                                value={surveyRecord.Reach_InCase_1Mfg_BeerCooler_MT__c}
+                                data-field="Reach_InCase_1Mfg_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress52">Reach-In Case #1 Model #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 Model #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress52" type="text" label="Reach-In Case #1 Model #"
+                                value={surveyRecord.Reach_InCase_1_Model_BeerCooler_MT__c}
+                                data-field="Reach_InCase_1_Model_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12
+                slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress62">Reach-In Case #1 Serial #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 Serial #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress62" type="text" label="Reach-In Case #1 Serial #"
+                                value={surveyRecord.Reach_InCase_1_Serial_BeerCooler_MT__c}
+                                data-field="Reach_InCase_1_Serial_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress72">Reach-In Case #1 - Electrical
+                                Connection</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 - Electrical
+                            Connection" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress72" type="text"
+                                label="Reach-In Case #1 - Electrical Connection"
+                                value={surveyRecord.Reach_InCase_1EleCon_BeerCooler_MT__c}
+                                data-field="Reach_InCase_1EleCon_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress82">Reach-In Case #1 Door WIDTH</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #1 Door WIDTH"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress82" type="text" label="Reach-In Case #1 Door WIDTH"
+                                value={surveyRecord.Reach_InCase_1_DoorWidth_BeerCooler_MT__c}
+                                data-field="Reach_InCase_1_DoorWidth_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_3-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <button class="custom-button" onclick={handleFileUpload}
+                            data-field-name="Beer Cooler Reach-In Case 2" title="Upload Image">
+                            Upload Image For Reach-In
+                            Case 2
+                            <lightning-icon class="custom-icon1" icon-name="utility:upload"
+                                size="small"></lightning-icon>
+                        </button>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress92">Reach-In Case #2
+                                Manufacturer</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 Manufacturer"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress92" type="text" label="Reach-In Case #2 Manufacturer"
+                                value={surveyRecord.Reach_InCase_2Mfg_BeerCooler_MT__c}
+                                data-field="Reach_InCase_2Mfg_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress102">Reach-In Case #2 - Model #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 - Model #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress102" type="text" label="Reach-In Case #2 - Model #"
+                                value={surveyRecord.Reach_InCase_2_Model_BeerCooler_MT__c}
+                                data-field="Reach_InCase_2_Model_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress112">Reach-In Case #2 - Serial
+                                #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 - Serial #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress1123" type="text" label="Reach-In Case #2 - Serial #"
+                                value={surveyRecord.Reach_InCase_2_Serial_BeerCooler_MT__c}
+                                data-field="Reach_InCase_2_Serial_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress122">Reach-In Case #2 - Electrical
+                                Connection</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 - Electrical
+                            Connection" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress122" type="text"
+                                label="Reach-In Case #2 - Electrical Connection"
+                                value={surveyRecord.Reach_InCase_2EleCon_BeerCooler_MT__c}
+                                data-field="Reach_InCase_2EleCon_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress132">Reach-In Case #2 - Door
+                                width</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #2 - Door width"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress132" type="text" label="Reach-In Case #2 - Door width"
+                                value={surveyRecord.Reach_InCase_2_DoorWidth_BeerCooler_MT__c}
+                                data-field="Reach_InCase_2_DoorWidth_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_3-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <button class="custom-button" onclick={handleFileUpload}
+                            data-field-name="Beer Cooler Reach-In Case 3" title="Upload Image">
+                            Upload Image For Reach-In
+                            Case 3
+                            <lightning-icon class="custom-icon1" icon-name="utility:upload"
+                                size="small"></lightning-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress142">Reach-In Case #3
+                                Manufacturer</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 Manufacturer"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress142" type="text" label="Reach-In Case #3 Manufacturer"
+                                value={surveyRecord.Reach_InCase_3Mfg_BeerCooler_MT__c}
+                                data-field="Reach_InCase_3Mfg_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress152">Reach-In Case #3 - Model #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 - Model #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress152" type="text" label="Reach-In Case #3 - Model #"
+                                value={surveyRecord.Reach_InCase_3_Model_BeerCooler_MT__c}
+                                data-field="Reach_InCase_3_Model_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress162">Reach-In Case #3 - Serial
+                                #</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 - Serial #"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress162" type="text" label="Reach-In Case #3 - Serial #"
+                                value={surveyRecord.Reach_InCase_3_Serial_BeerCooler_MT__c}
+                                data-field="Reach_InCase_3_Serial_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress172">Reach-In Case #3 - Electrical
+                                Connection</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 - Electrical
+                            Connection" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress172" type="text"
+                                label="Reach-In Case #3 - Electrical Connection"
+                                value={surveyRecord.Reach_InCase_3EleCon_BeerCooler_MT__c}
+                                data-field="Reach_InCase_3EleCon_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress182">Reach-In Case #3 - Door
+                                Width</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Reach-In Case #3 - Door Width"
+                                title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress182" type="text" label="Reach-In Case #3 - Door Width"
+                                value={surveyRecord.Reach_InCase_3_DoorWidth_BeerCooler_MT__c}
+                                data-field="Reach_InCase_3_DoorWidth_BeerCooler_MT__c" onchange={handleInputChange}
+                                variant="label-hidden"></lightning-input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap">
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+
+                            <label class="slds-form-element__label" for="progress192">
+                                Shared Condensing Units Supplying Reach-Ins. Are Reach-In and Walk-In Cases Served
+                                By The Same Condensing Unit
+                                <button class="slds-button slds-button_icon slds-input__icon"
+                                    onclick={handleAddNoteClick} data-field-name="Shared Condensing Units units Supplying Reach-Ins. Are Reach-In and Walk-In Cases Served
+                                    By The Same Condensing Unit" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                            </label>
+
+                            <lightning-combobox id="progress192" name="progress"
+                                label="Shared Condensing Units units Supplying Reach-Ins. Are Reach-In and Walk-In Cases Served By The Same Condensing Unit"
+                                value={surveyRecord.SharedCU_BeerCooler_MT__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange} data-field="SharedCU_BeerCooler_MT__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                    </div>
+
+                    <div
+                        class="slds-col slds-large-size_4-of-12 slds-medium-size_6-of-12 slds-size_6-of-12 slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="progress202">Number Of Total Doors</label>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                onclick={handleAddNoteClick} data-field-name="Number Of Total Doors" title="Add Note">
+                                <lightning-icon class="custom-icon" icon-name="utility:note"
+                                    size="small"></lightning-icon>
+                            </button>
+                            <lightning-input id="progress202" type="Number"
+                                value={surveyRecord.NumberOfTotalDoors_BeerCooler_MT__c}
+                                data-field="NumberOfTotalDoors_BeerCooler_MT__c"
+                                onchange={handleInputChange}></lightning-input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                    <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                        <lightning-button variant="neutral" label="Save & Draft"
+                            onclick={updateSurveyRecord}></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </lightning-accordion-section>
+    </lightning-accordion>
+
+    <template if:true={isPopupVisible}>
+        <div class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium slds-hyphenate">Add Note for {fieldName}</h2>
+                    <button class="slds-button slds-button_icon slds-modal__close" title="Close" onclick={closePopup}>
+                        <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <!-- Add your input box for adding a note -->
+                    <textarea class="slds-textarea" placeholder="Enter note here..."
+                        onchange={handleNoteInput}>{noteBody}</textarea>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand" onclick={handleSave}>Save</button>
+                    <button class="slds-button slds-button_neutral" onclick={closePopup}>Cancel</button>
+                </footer>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <template if:true={isFileUpload}>
+        <div class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium slds-hyphenate">Upload Image for {fieldName}</h2>
+                    <button class="slds-button slds-button_icon slds-modal__close" title="Close"
+                        onclick={closeFilePopup}>
+                        <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <!-- Add your input box for adding a note -->
+                    <template if:true={isReachInCase}>
+                        <c-reach-in-cases survey-record={surveyRec} type={type} count={count}></c-reach-in-cases>
+                    </template>
+                </div>
+                <footer class="slds-modal__footer">
+
+                    <button class="slds-button slds-button_neutral" onclick={closeFilePopup}>Cancel</button>
+                </footer>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

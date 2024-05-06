@@ -1,0 +1,328 @@
+<template>
+    <div class="accordion" style="display: flex;" onclick={toggleSection}>
+        <div style="max-width: 897px; flex: 1;"  class="headinf">Walk-In
+             <lightning-icon style="margin:0.5rem;" size="xx-small" icon-position="right"
+            icon-name={medTempIcon1} 
+            alternative-text={buttonLabel}></lightning-icon>
+        </div>
+    </div>
+    <!-- <table>
+        <thead>
+            <tr>
+                <th class="" scope="col">
+                    <div class="slds-truncate"></div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate">Yes</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate">No</div>
+                </th> 
+                <th class="" scope="col" style="width: 80px;
+                height: 80px;">
+                    <div class="slds-truncate">Repair Made</div>
+                </th> 
+                <th class="" scope="col" style="width: 80px;
+                height: 80px;">
+                    <div class="slds-truncate">N/A</div>
+                </th> 
+            </tr>
+            <template for:each={data} for:item="rec" for:index="index">
+                    <tr key={rec.SF_ApiName__c} style="height:80px">
+                        <td class="left-column container">
+                            <p class="slds-truncate">{rec.Sr_Num__c} {rec.Question__c}</p>
+                        </td>
+                            <td>
+                                <lightning-input type="checkbox" value="Yes" data-id={rec.SF_ApiName__c}> </lightning-input>
+                            </td>
+                            <td>
+                                <lightning-input type="checkbox" value="No" data-id={rec.SF_ApiName__c}> </lightning-input>
+                            </td>
+                            <td>
+                                <lightning-input type="checkbox" value="Repairs Made" data-id={rec.SF_ApiName__c}> </lightning-input>
+                            </td>
+                            <td>
+                                <lightning-input type="checkbox" value="NA" data-id={rec.SF_ApiName__c}> </lightning-input>
+                            </td>
+                    </tr>
+            </template>
+        </thead>
+    </table> -->
+    <div class={section1Class}>
+    <lightning-button onclick={handleDisplayChecklist} label="Submit"></lightning-button>
+    <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+    <template if:true={isVisible}>
+        <lightning-card title="Questionnaire" icon-name="custom:custom11">
+            <div class="slds-m-around_medium">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 70%;"></th>
+                            <th scope="col">Yes</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Repairs Made</th>
+                            <th scope="col">NA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={data1} for:item="question" for:index="index">
+                            <tr key={question.id}>
+                                <td data-label="Question"><p class="wrap-text">{question.Sr_Num__c}. {question.Question__c}</p></td>
+                                <td data-label="Yes">
+                                    <input  type="radio"  name="radiogroup5" class="checkbox-input marginl" onchange={handleCheckboxChange}>
+                                </td>
+                                <td data-label="No">
+                                    <input  type="radio"  name="radiogroup5" class="checkbox-input marginl" onchange={handleCheckboxChange}>
+                                </td>
+                                <td data-label="Repairs Made">
+                                    <lightning-input type="checkbox" value="Repairs Made" data-id={question.SF_ApiName__c} onclick={handleAddNoteClick}></lightning-input>
+                                </td>
+                                <td data-label="NA">
+                                    <lightning-input type="checkbox" value="NA" data-id={question.SF_ApiName__c} onchange={handleOptionChange}></lightning-input>
+                                </td>
+                            </tr>
+                        </template>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </lightning-card>
+    </template>
+</div>
+<div class="accordion" style="display: flex;" onclick={toggleSection}>
+        <div style="max-width: 897px; flex: 1;"  class="headinf">Refrigeration – Evaporator Section for the Cooler
+            <lightning-icon style="margin:0.5rem;" size="xx-small" icon-position="right"
+                icon-name={medTempIcon2} 
+                alternative-text={buttonLabel}></lightning-icon>
+        </div>
+</div>
+<div class={section2Class}>
+    <lightning-button onclick={handleDisplayChecklist} label="Submit"></lightning-button>
+    <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+    <template if:true={isVisible}>
+        <lightning-card title="Questionnaire 2" icon-name="custom:custom11">
+            <div class="slds-m-around_medium">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Yes</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Repairs Made</th>
+                            <th scope="col">NA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={data2} for:item="question" for:index="index">
+                            <tr key={question.id}>
+                                <td data-label="Question"><p class="wrap-text">{question.Sr_Num__c}. {question.Question__c}</p></td>
+                                <td data-label="Yes">
+                                    <lightning-input type="checkbox" value="Yes" data-id={question.SF_ApiName__c} onchange={handleToggle}></lightning-input>
+                                </td>
+                                <td data-label="No">
+                                    <lightning-input type="checkbox" value="No" data-id={question.SF_ApiName__c} onchange={handleToggle}></lightning-input>
+                                </td>
+                                <td data-label="Repairs Made">
+                                    <lightning-input type="checkbox" value="Repairs Made" data-id={question.SF_ApiName__c} onclick={handleAddNoteClick}></lightning-input>
+                                </td>
+                                <td data-label="NA">
+                                    <lightning-input type="checkbox" value="NA" data-id={question.SF_ApiName__c} onchange={handleOptionChange}></lightning-input>
+                                </td>
+                            </tr>
+                        </template>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </lightning-card>
+    </template>
+</div>
+<div class="accordion" style="display: flex;" onclick={toggleSection}>
+        <div style="max-width: 897px; flex: 1;"  class="headinf">Refrigeration – Evaporator Section for the Freezer
+            <lightning-icon style="margin:0.5rem;" size="xx-small" icon-position="right"
+                icon-name={medTempIcon3} 
+                alternative-text={buttonLabel}></lightning-icon>
+        </div>
+</div>
+<div class={section3Class}>
+    <lightning-button onclick={handleDisplayChecklist} label="Submit"></lightning-button>
+    <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+    <template if:true={isVisible}>
+        <lightning-card title="Questionnaire 3" icon-name="custom:custom11">
+            <div class="slds-m-around_medium">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Yes</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Repairs Made</th>
+                            <th scope="col">NA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={data3} for:item="question" for:index="index">
+                            <tr key={question.id}>
+                                <td data-label="Question"><p class="wrap-text">{question.Sr_Num__c}. {question.Question__c}</p></td>
+                                <td data-label="Yes">
+                                    <lightning-input type="checkbox" value="Yes" data-id={question.SF_ApiName__c} onchange={handleToggle}></lightning-input>
+                                </td>
+                                <td data-label="No">
+                                    <lightning-input type="checkbox" value="No" data-id={question.SF_ApiName__c} onchange={handleToggle}></lightning-input>
+                                </td>
+                                <td data-label="Repairs Made">
+                                    <lightning-input type="checkbox" value="Repairs Made" data-id={question.SF_ApiName__c} onclick={handleAddNoteClick}></lightning-input>
+                                </td>
+                                <td data-label="NA">
+                                    <lightning-input type="checkbox" value="NA" data-id={question.SF_ApiName__c} onchange={handleOptionChange}></lightning-input>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </lightning-card>
+    </template>
+</div>
+<div class="accordion" style="display: flex;" onclick={toggleSection}>
+        <div style="max-width: 897px; flex: 1;"  class="headinf">Refrigeration – Condensing Unit for the Cooler
+            <lightning-icon style="margin:0.5rem;" size="xx-small" icon-position="right"
+                icon-name={medTempIcon4} 
+                alternative-text={buttonLabel}></lightning-icon>
+        </div>
+</div>
+<div class={section4Class}>
+    <lightning-button onclick={handleDisplayChecklist} label="Submit"></lightning-button>
+    <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+    <template if:true={isVisible}>
+        <lightning-card title="Questionnaire 3" icon-name="custom:custom11">
+            <div class="slds-m-around_medium">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Yes</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Repairs Made</th>
+                            <th scope="col">NA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={data4} for:item="question" for:index="index">
+                            <tr key={question.id}>
+                                <td data-label="Question"><p class="wrap-text">{question.Sr_Num__c}. {question.Question__c}</p></td>
+                                <td data-label="Yes">
+                                    <lightning-input type="checkbox" value="Yes" data-id={question.SF_ApiName__c} onchange={handleToggle}></lightning-input>
+                                </td>
+                                <td data-label="No">
+                                    <lightning-input type="checkbox" value="No" data-id={question.SF_ApiName__c} onchange={handleToggle}></lightning-input>
+                                </td>
+                                <td data-label="Repairs Made">
+                                    <lightning-input type="checkbox" value="Repairs Made" data-id={question.SF_ApiName__c} onclick={handleAddNoteClick}></lightning-input>
+                                </td>
+                                <td data-label="NA">
+                                    <lightning-input type="checkbox" value="NA" data-id={question.SF_ApiName__c} onchange={handleOptionChange}></lightning-input>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </lightning-card>
+    </template>
+</div>
+<div class="accordion" style="display: flex;" onclick={toggleSection}>
+        <div style="max-width: 897px; flex: 1;"  class="headinf">Refrigeration – Condensing Unit for the Freezer
+            <lightning-icon style="margin:0.5rem;" size="xx-small" icon-position="right"
+                icon-name={medTempIcon5} 
+                alternative-text={buttonLabel}></lightning-icon>
+        </div>
+</div>
+<div class={section5Class}>
+    <lightning-button onclick={handleDisplayChecklist} label="Submit"></lightning-button>
+    <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+    <template if:true={isVisible}>
+        <lightning-card title="Questionnaire 3" icon-name="custom:custom11">
+            <div class="slds-m-around_medium">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Yes</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Repairs Made</th>
+                            <th scope="col">NA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={data5} for:item="question" for:index="index">
+                            <tr key={question.id}>
+                                <td data-label="Question"><p class="wrap-text">{question.Sr_Num__c}. {question.Question__c}</p></td>
+                                <td data-label="Yes">
+                                    <lightning-input type="checkbox" value="Yes" data-id={question.SF_ApiName__c} onchange={handleToggle}></lightning-input>
+                                </td>
+                                <td data-label="No">
+                                    <lightning-input type="checkbox" value="No" data-id={question.SF_ApiName__c} onchange={handleToggle}></lightning-input>
+                                </td>
+                                <td data-label="Repairs Made">
+                                    <lightning-input type="checkbox" value="Repairs Made" data-id={question.SF_ApiName__c} onclick={handleAddNoteClick}></lightning-input>
+                                </td>
+                                <td data-label="NA">
+                                    <lightning-input type="checkbox" value="NA" data-id={question.SF_ApiName__c} onchange={handleOptionChange}></lightning-input>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </lightning-card>
+    </template>
+</div>
+<div class="accordion" style="display: flex;" onclick={toggleSection}>
+        <div style="max-width: 897px; flex: 1;"  class="headinf">Final Inspection of the Walk-in and Refrigeration Systems
+            <lightning-icon style="margin:0.5rem;" size="xx-small" icon-position="right"
+                icon-name={medTempIcon6} 
+                alternative-text={buttonLabel}></lightning-icon>
+        </div>
+</div>
+<div class={section6Class}>
+    <lightning-button onclick={handleDisplayChecklist} label="Submit"></lightning-button>
+    <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+    <template if:true={isVisible}>
+        <lightning-card title="Questionnaire 3" icon-name="custom:custom11">
+            <div class="slds-m-around_medium">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Yes</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Repairs Made</th>
+                            <th scope="col">NA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={data6} for:item="question" for:index="index">
+                            <tr key={question.id}>
+                                <td data-label="Question"><p class="wrap-text">{question.Sr_Num__c}. {question.Question__c}</p></td>
+                                <td data-label="Yes">
+                                    <lightning-input type="checkbox" value="Yes" data-id={question.SF_ApiName__c} onchange={handleToggle}></lightning-input>
+                                </td>
+                                <td data-label="No">
+                                    <lightning-input type="checkbox" value="No" data-id={question.SF_ApiName__c} onchange={handleToggle}></lightning-input>
+                                </td>
+                                <td data-label="Repairs Made">
+                                    <lightning-input type="checkbox" value="Repairs Made" data-id={question.SF_ApiName__c} onclick={handleAddNoteClick}></lightning-input>
+                                </td>
+                                <td data-label="NA">
+                                    <lightning-input type="checkbox" value="NA" data-id={question.SF_ApiName__c} onchange={handleOptionChange}></lightning-input>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </lightning-card>
+    </template>
+</div>
+</template>

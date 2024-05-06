@@ -1,0 +1,394 @@
+<!--
+  @description       : 
+  @author            : 
+  @group             : 
+  @last modified on  : 03-14-2024
+  @last modified by  : 
+-->
+<template>
+    <lightning-accordion allow-multiple-sections-open>
+        <lightning-accordion-section name="section1" label="WALK-IN DOOR/SHELF DIMENSIONS">
+            <div class="slds-grid slds-wrap">
+                <div
+                    class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                    <img src={imgDoorShelves} alt="Door Dimensions" />
+                </div>
+                <div
+                    class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                    <img src={imgDoorShelves2} alt="Door Dimensions" />
+                </div>
+            </div>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="section1" label="WALK-IN COOLER GLASS DOOR">
+            <lightning-accordion-section name="section1" label="MEDIUM TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress120">Walk-In Cooler Glass Door
+                                    Width
+                                    (IN)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Walk-In Cooler Glass Door Width
+                            (IN)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress120" type="text"
+                                    value={surveyRecord.WI_Cooler_GD_Width_MediumTemp__c}
+                                    data-field="WI_Cooler_GD_Width_MediumTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress121">Walk-In Cooler Glass Door
+                                    Height
+                                    (IN)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Walk-In Cooler Glass Door Height
+                            (IN)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress121" type="text"
+                                    value={surveyRecord.WI_Cooler_GD_Height_MediumTemp__c}
+                                    data-field="WI_Cooler_GD_Height_MediumTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress122">Walk-In Cooler Glass Door Work
+                                    Order</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Walk-In Cooler Glass Door Work
+                            Order" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress122" type="text"
+                                    value={surveyRecord.WI_Cooler_GD_WO_MediumTemp__c}
+                                    data-field="WI_Cooler_GD_WO_MediumTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="section1" label="WALK-IN FREEZER GLASS DOOR">
+            <lightning-accordion-section name="section1" label="LOW TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress12">Walk-In Freezer Glass Door
+                                    Width
+                                    (IN)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Walk-In Cooler Glass Door Width
+                            (IN)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress12" type="text"
+                                    value={surveyRecord.WI_Cooler_GD_Width_LowTemp__c}
+                                    data-field="WI_Cooler_GD_Width_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress1">Walk-In Freezer Glass Door
+                                    Height
+                                    (IN)</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Walk-In Cooler Glass Door Height
+                            (IN)" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress1" type="text"
+                                    value={surveyRecord.WI_Cooler_GD_Height_LowTemp__c}
+                                    data-field="WI_Cooler_GD_Height_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="progress123">Walk-In Freezer Glass Door
+                                    Work
+                                    Order</label>
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right"
+                                    onclick={handleAddNoteClick} data-field-name="Walk-In Cooler Glass Door Work
+                            Order" title="Add Note">
+                                    <lightning-icon class="custom-icon" icon-name="utility:note"
+                                        size="small"></lightning-icon>
+                                </button>
+                                <lightning-input id="progress123" type="text"
+                                    value={surveyRecord.WI_Cooler_GD_WO_LowTemp__c}
+                                    data-field="WI_Cooler_GD_WO_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="section1" label="WALK-IN CASE SHELF INFORMATION">
+            <lightning-accordion-section name="SECTION2" label="MEDIUM TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <label class="slds-form-element__label" for="progress125">Do you have any broken or missing
+                                cooler or freezer
+                                shelves? </label>
+                            <lightning-combobox id="progress125" name="progress"
+                                value={surveyRecord.Brkn_Or_Missing_Cooler_Or_FS_MediumTemp__c}
+                                placeholder="Select Value" options={options} onchange={handleInputChange}
+                                data-field="Brkn_Or_Missing_Cooler_Or_FS_MediumTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                        <template if:true={isShelves}>
+                            <div
+                                class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                                <label class="slds-form-element__label">Number of shelves broken/missing. </label>
+                                <lightning-input type="Number" value={surveyRecord.Number_of_SB_M_MediumTemp__c}
+                                    data-field="Number_of_SB_M_MediumTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                            <div
+                                class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="progress124">Was a picture taken?</label>
+                                <lightning-combobox id="progress124" name="progress"
+                                    value={surveyRecord.Was_a_picture_taken_MediumTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Was_a_picture_taken_MediumTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </template>
+                    </div>
+                    <template if:true={isShelves}>
+                        <div class="slds-grid slds-wrap">
+                            <div
+                                class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="progress126">Size of Shelves
+                                    (Width)</label>
+                                <lightning-input id="progress126" type="textarea"
+                                    value={surveyRecord.Width_Of_Shelves_MediumTemp__c}
+                                    data-field="Width_Of_Shelves_MediumTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                            <div
+                                class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="progress1291">Size of Shelves
+                                    (Length)</label>
+                                <lightning-input id="progress1291" type="textarea"
+                                    value={surveyRecord.Length_Of_Shelves_MediumTemp__c}
+                                    data-field="Length_Of_Shelves_MediumTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                            <div
+                                class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="progress1271">BOF: Do the cooler shelves
+                                    look
+                                    like the
+                                    picuture to
+                                    the right? </label>
+                                <lightning-combobox id="progress1271" name="progress"
+                                    value={surveyRecord.CS_Look_Like_The_Picture_MediumTemp__c}
+                                    placeholder="Select Value" options={options} onchange={handleInputChange}
+                                    data-field="CS_Look_Like_The_Picture_MediumTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+
+                        </div>
+                    </template>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="SECTION2" label="LOW TEMP">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <label class="slds-form-element__label">Do you have any broken or missing
+                                cooler or freezer
+                                shelves? </label>
+                            <lightning-combobox id="progress" name="progress"
+                                value={surveyRecord.Brkn_Or_Missing_Cooler_Or_FS_LowTemp__c} placeholder="Select Value"
+                                options={options} onchange={handleInputChange}
+                                data-field="Brkn_Or_Missing_Cooler_Or_FS_LowTemp__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                        <template if:true={isShelvesLowTemp}>
+                            <div
+                                class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                                <label class="slds-form-element__label">Number of shelves broken/missing. </label>
+                                <lightning-input type="Number" value={surveyRecord.Number_of_SB_M_LowTemp__c}
+                                    data-field="Number_of_SB_M_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                            <div
+                                class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="progress124">Was a picture taken?</label>
+                                <lightning-combobox id="progress1247" name="progress"
+                                    value={surveyRecord.Was_a_picture_taken_LowTemp__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Was_a_picture_taken_LowTemp__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </template>
+                    </div>
+                    <template if:true={isShelvesLowTemp}>
+                        <div class="slds-grid slds-wrap">
+                            <div
+                                class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="progress125">Size of Shelves
+                                    (Width)</label>
+                                <lightning-input id="progress1257" type="textarea"
+                                    value={surveyRecord.Width_Of_Shelves_LowTemp__c}
+                                    data-field="Width_Of_Shelves_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                            <div
+                                class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="progress126">Size of Shelves
+                                    (Length)</label>
+                                <lightning-input id="progress1267" type="textarea"
+                                    value={surveyRecord.Length_Of_Shelves_LowTemp__c}
+                                    data-field="Length_Of_Shelves_LowTemp__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </template>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="SECTION2" label="BEER COOLER">
+                <div class="backgroundColor">
+                    <div class="slds-grid slds-wrap">
+                        <div
+                            class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                            <label class="slds-form-element__label" for="progress1236">Do you have any broken or missing
+                                cooler or freezer
+                                shelves? </label>
+                            <lightning-combobox id="progress1236" name="progress"
+                                value={surveyRecord.Brkn_Or_Missing_Cooler_Or_FS_BeerCooler__c}
+                                placeholder="Select Value" options={options} onchange={handleInputChange}
+                                data-field="Brkn_Or_Missing_Cooler_Or_FS_BeerCooler__c"
+                                variant="label-hidden"></lightning-combobox>
+                        </div>
+                        <template if:true={isShelvesBeerCooler}>
+                            <div
+                                class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                                <label class="slds-form-element__label">Number of shelves broken/missing. </label>
+                                <lightning-input type="Number" value={surveyRecord.Number_of_SB_M_BeerCooler__c}
+                                    data-field="Number_of_SB_M_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                            <div
+                                class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="progress124">Was a picture taken?</label>
+                                <lightning-combobox id="progress1246" name="progress"
+                                    value={surveyRecord.Was_a_picture_taken_BeerCooler__c} placeholder="Select Value"
+                                    options={options} onchange={handleInputChange}
+                                    data-field="Was_a_picture_taken_BeerCooler__c"
+                                    variant="label-hidden"></lightning-combobox>
+                            </div>
+                        </template>
+                    </div>
+                    <template if:true={isShelvesBeerCooler}>
+                        <div class="slds-grid slds-wrap">
+                            <div
+                                class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="progress125">Size of Shelves
+                                    (Width)</label>
+                                <lightning-input id="progress1256" type="textarea"
+                                    value={surveyRecord.Width_Of_Shelves_BeerCooler__c}
+                                    data-field="Width_Of_Shelves_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                            <div
+                                class="slds-col slds-large-size_4-of-12 slds-medium-size_12-of-12 slds-size_12-of-12 slds-p-around_medium">
+                                <label class="slds-form-element__label" for="progress126">Size of Shelves
+                                    (Length)</label>
+                                <lightning-input id="progress1266S" type="textarea"
+                                    value={surveyRecord.Length_Of_Shelves_BeerCooler__c}
+                                    data-field="Length_Of_Shelves_BeerCooler__c" onchange={handleInputChange}
+                                    variant="label-hidden"></lightning-input>
+                            </div>
+                        </div>
+                    </template>
+
+                    <div class="slds-grid slds-wrap slds-p-around_medium" style="font-weight: bold;">
+                        <div class="slds-col slds-size_12-of-12 slds-text-align_center">
+                            <lightning-button variant="neutral" label="Save & Draft"
+                                onclick={updateSurveyRecord}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion-section>
+    </lightning-accordion>
+
+    <template if:true={isPopupVisible}>
+        <div class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium slds-hyphenate">Add Note for {fieldName}</h2>
+                    <button class="slds-button slds-button_icon slds-modal__close" title="Close" onclick={closePopup}>
+                        <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <!-- Add your input box for adding a note -->
+                    <textarea class="slds-textarea" placeholder="Enter note here..."
+                        onchange={handleNoteInput}>{noteBody}</textarea>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand" onclick={handleSave}>Save</button>
+                    <button class="slds-button slds-button_neutral" onclick={closePopup}>Cancel</button>
+                </footer>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

@@ -1,0 +1,34 @@
+label{
+    font-weight:bold;
+     color:white;
+}
+/* .accordionClass .slds-accordion__summary-heading {
+    color: white; /* Change to the desired color */
+
+    .accordionClass {
+        --slds-c-accordion-color-border: orange;
+    }
+
+
+
+.add-note {
+    margin-left: 10px; /* Adjust the margin as needed */
+    text-decoration: none; /* Remove underline */
+    color: hsl(207, 36%, 95%); /* Set link color */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+
+/* .custom-icon {
+    --slds-c-icon-color-foreground-default: white;
+} */
+
+.backgroundColor{
+    background-color: #0866AB;
+}
+
+.custom-icon{
+    --slds-c-icon-color-foreground-default: white;
+}
+.slds-form-element__label {
+    color: white;
+}

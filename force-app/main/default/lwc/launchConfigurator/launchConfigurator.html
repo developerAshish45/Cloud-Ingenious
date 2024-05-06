@@ -1,0 +1,9 @@
+<template>
+    <div lwc:if={isOpen}>
+        <div>
+            <p><b>{title}</b></p>
+            <img src={imageUrl} alt="My Image" />
+            <lightning-button variant="Brand" label="Submit" onclick={closeModal}></lightning-button>
+        </div>
+    </div>
+</template>

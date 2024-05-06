@@ -1,0 +1,50 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #151414;
+    text-align: center;
+    padding: 8px;
+  }
+  td{
+    white-space: normal;
+    word-wrap: break-word;
+  }
+  
+  /* tr:nth-child(even) {
+    background-color: #dddddd;
+  } */
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+    background-color:#dddddd; /* Change to your desired color */
+    color: #000000; /* Change to your desired text color */
+    font-weight: bold; /* Optionally make the text bold */
+    width: 200px;
+}
+th:nth-child(6),
+td:nth-child(6) {
+    color: #000000; /* Change to your desired text color */
+    font-weight: normal; /* Optionally make the text bold */
+    width: 700px;
+}
+.table-cell input {
+    width: 100%;
+    border: 1px solid black; /* Set initial border color to transparent */
+    text-align: center;
+    height: 40px !important;
+    font-size: 15px;
+    border-radius: 0px;
+    transition: border-color 0.3s ease; /* Add transition effect for border color change */
+}
+
+.table-cell input:focus {
+    border-color: rgb(255, 255, 255);
+}

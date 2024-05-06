@@ -1,0 +1,129 @@
+<template>
+    <!-- <lightning-card > -->
+        <!-- title="TERMS AND CONDITIONS" -->
+        <!-- <div class="slds-p-around_medium" style="border: 4px solid rgb(8, 102, 171);"> -->
+            <!-- class="slds-p-around_medium" style="border: 4px solid rgb(8, 102, 171);" -->
+            <template if:true={showConatctForm}>
+            <div class="slds-p-around_medium" style="border: 4px solid rgb(8, 102, 171);">
+            <div class="termSection" style="background:#dddddd;font-weight:bolder;font-size: medium;margin-bottom: 15px;padding: 5px;margin-top:30px;">
+                <h1>SUBMITTED BY DETAILS</h1>
+            </div>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <div class="slds-col slds-size_1-of-2 slds-m-around_medium">
+                        <label for="firstName" class="inputLabel">First Name</label>
+                        <lightning-input
+                            id="firstName"
+                            label="First Name"
+                            variant="label-hidden"
+                            type="text"
+                            value={firstNameValue}
+                            onchange={handleInputChangeFirstName}
+                            disabled={checkStatus}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-m-around_medium">
+                        <label for="email" class="inputLabel">Email</label>
+                        <lightning-input
+                            id="email"
+                            label="Email"
+                            variant="label-hidden"
+                            type="email"
+                            value={contactLogInEmail}
+                            disabled>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-m-around_medium">
+                        <label for="title" class="inputLabel">Title</label>
+                        <lightning-input
+                            id="title"
+                            label="Title"
+                            variant="label-hidden"
+                            type="text"
+                            value={titleValue}
+                            onchange={handleInputChangeTitle}
+                            disabled={checkStatus}>
+                        </lightning-input>
+                        <label for="signature" class="inputLabel"><span class="red">*</span>Applicant Signature</label>
+                        <lightning-input
+                            id="signature"
+                            label="Signature"
+                            variant="label-hidden"
+                            type="text"
+                            value={signatureValue}
+                            onchange={handleInputChangeSignature}
+                            required
+                            disabled={checkStatus}>
+                        </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+                    <div class="slds-col slds-size_1-of-2 slds-m-around_medium">
+                        <label for="lastName" class="inputLabel">Last Name</label>
+                        <lightning-input
+                            id="lastName"
+                            label="Last Name"
+                            variant="label-hidden"
+                            type="text"
+                            value={nameValue}
+                            onchange={handleInputChangeName}
+                            disabled={checkStatus}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-m-around_medium">
+                        <label for="phone" class="inputLabel">Phone</label>
+                        <lightning-input
+                            id="phone"
+                            label="Phone"
+                            variant="label-hidden"
+                            type="tel"
+                            value={phoneValue}
+                            onchange={handleInputChangePhone}
+                            disabled={checkStatus}>
+                        </lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-m-around_medium">
+                        <label for="date" class="inputLabel">Date</label>
+                        <lightning-input
+                            id="date"
+                            label="Date"
+                            variant="label-hidden"
+                            type="date"
+                            value={dateValue}
+                            onchange={handleInputChangeDate}
+                            disabled={checkStatus}>
+                        </lightning-input>
+                    </div>
+                </div>
+            </div> 
+         <div class="slds-m-around_medium">
+                <template if:true={saveContinue}>
+                <button class="slds-button slds-button_brand" onclick={handleSubmit} style="background: white;color:blue">Submit</button>
+                <button class="slds-button slds-button_brand" onclick={handleSaveAndDraft} style="background: white;color:blue">Save & Draft</button>
+                </template>
+                <button class="slds-button slds-button_brand" onclick={handleBack} style="background: white;color:blue">Back</button>
+            </div> 
+        </div> 
+            </template>  
+
+            <template if:true={successPage}>
+                <!-- <c-credit-form success-message={successMessage} contact-log-in-email={contactEmailLogin}></c-credit-form> -->
+                    <div class="slds-p-around_medium" style="border: 4px solid rgb(8, 102, 171);">
+                        <!-- <p if:true={showMessage} style="color: white; font-weight:bold;font-size:x-large;text-align:center;">{successMessage}<a onclick={handleDataTable} style="color: black; font-weight:bold">Click Here!</a></p> -->
+                        <p if:true={showMessage} style="color: white; font-weight:bold;font-size:x-large;text-align:center;">{successMessage}</p>
+                        <template if:true={showDataTable}>
+                            <lightning-datatable
+                                key-field="id"
+                                data={creditRecords}
+                                columns={columns}
+                                hide-checkbox-column="true">
+                            </lightning-datatable>
+                        </template>
+                    </div>              
+            </template>
+            <template if:true={showCreditPge}>
+                <c-credit-details credit-id={creditId} fetch-credit-record-id-from-contact={fetchCreditRecordId} log-in-email={contactLogInEmail} action-type-credit={type}></c-credit-details>
+            </template>
+            <lightning-spinner if:true={isLoading}></lightning-spinner>
+        <!-- </div> -->
+</template>

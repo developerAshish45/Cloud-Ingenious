@@ -1,0 +1,130 @@
+.div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+.responsive {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.content {
+    color: white;
+    background-color: #D9E3EF;
+    padding: 20px;
+    border-radius: 10px;
+    /*width: 50%;*/
+    overflow-y: auto;
+    /*Add overflow-y to enable vertical scrolling*/
+    max-height: 400px;
+    /*Set a max-height to enable scrolling*/
+    margin-top: 30px;
+}
+
+.sortbtn {
+    position: absolute;
+    top: 40px;
+    right: 22px;
+}
+
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.content th,
+.content td {
+    border-bottom: 1px solid black;
+    padding: 14px;
+    text-align: left;
+}
+
+.content th:last-child,
+.content td:last-child {
+    text-align: center;
+}
+
+.content th.sort-button {
+    cursor: pointer;
+}
+
+.content th.sort-button::after {
+    content: "\25B2";
+    padding-left: 5px;
+}
+
+.content th.sort-button.sorted-asc::after {
+    content: "\25B2";
+}
+
+.content th.sort-button.sorted-desc::after {
+    content: "\25BC";
+}
+
+.responsive {
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 767px) {
+    .responsive {
+        flex-direction: column;
+    }
+
+    .content {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        overflow-y: hidden;
+        /*Remove vertical scrolling on smaller screens*/
+        max-height: none;
+        /*Remove max-height on smaller screens*/
+    }
+
+    .sortbtn {
+        position: absolute;
+        top: 38px;
+        right: 22px;
+    }
+}
+.span
+{
+    margin-top: 10px;
+    margin-right: 15px;
+    font-size: 15px;
+    color: white;
+}
+
+/*Icon CSS*/
+.flex-container {
+    display: flex;
+}
+
+.flex-container ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-container ul li {
+    margin-right: 20px;
+}
+
+.flex-container ul li:last-child {
+    margin-right: 0;
+}
+
+.flex-container ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}

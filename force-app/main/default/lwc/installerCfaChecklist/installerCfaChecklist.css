@@ -1,0 +1,151 @@
+.left-column {
+    flex: 1;
+    max-width: 873px;
+}
+
+/*.question-cell {
+    max-width: 300px; /* Adjust the maximum width as per your design 
+    word-wrap: break-word;
+}*/
+.wrap-text {
+        white-space: pre-wrap;
+    }
+
+.right-column {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.checkbox-label {
+    color: black;
+    margin-left: 5px;
+}
+
+/*CFA Checklist CSS*/
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 8px 0;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 12px;
+    transition: 0.4s;
+    position: relative;
+    margin: 16px 0;
+}
+
+/* .accordion::after {
+    content: '\25BC';
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%) rotate(0deg);
+    transition: transform 0.4s;
+} */
+
+.active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.active,
+.accordion:hover {
+    background-color: #ccc;
+}
+
+.panel {
+        padding: 0 18px;
+        display: block;
+        background-color: white;
+        overflow: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(164, 162, 162);
+    align-items: left;
+}
+
+.left-column {
+    flex: 1;
+    max-width: 1000px;
+}
+
+.right-column {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.checkbox-label {
+    color: black;
+    margin-left: 5px;
+}
+
+.checkbox-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    margin: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    position: relative;
+}
+
+.checkbox-input:checked::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.checkbox-input[disabled] {
+    opacity: 0.5; /* Adjust opacity to make it look grayed out */
+    /* Optionally, you can change the border color to gray */
+    border-color: gray;
+    /* Optionally, you can change the background color to gray */
+    background-color: lightgray;
+}
+
+.headinf{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 13px;
+}
+
+.checkboxlab {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+.checkboxlab:nth-child(4){
+    margin-left: 63px;
+}
+.checkboxlab:nth-child(3){
+    margin-left: 10px;
+}
+
+.checkboxlab1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 19px;
+}

@@ -1,0 +1,41 @@
+<template>
+    <lightning-card>
+        <div class="slds-p-around_medium">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-large-size_1-of-12 slds-medium-size_1-of-12 slds-size_1-of-12 flexible-height" style="border: 1px solid black;">
+                    <div style="border: 1px solid black; height:47px;font-weight:bold;padding:6px;text-align:center">Date</div>
+                    <div class="vertical-text" style="font-weight: bold; font-size: larger;padding:40px">GENEREAL WALK-IN SYSTEM</div>
+                </div>
+                <div class="slds-col slds-large-size_11-of-12 slds-medium-size_11-of-12 slds-size_11-of-12 fixed-height">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="table-header">SURVEY ITEM</th>
+                                <th class="table-header">MEDIUM TEMP</th>
+                                <th class="table-header">LOW TEMP</th>
+                                <th class="table-header">BEER COOLER</th>
+                                <th class="table-header">PHOTOS TAKEN</th>
+                                <th class="table-header">NOTES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={tableData} for:item="row">
+                                <tr key={row.id}>
+                                    <td class="table-cell fixed-column">{row.surveyItem}</td>
+                                    <td><lightning-input type={row.type} value={row.mediumTemp} onchange={handleInputChange} data-id={row.id} data-field="mediumTemp"></lightning-input></td>
+                                    <td><lightning-input type={row.type} value={row.lowTemp} onchange={handleInputChange} data-id={row.id} data-field="lowTemp"></lightning-input></td>
+                                    <td><lightning-input type="text" value={row.beerCool} onchange={handleInputChange} data-id={row.id} data-field="beerCool"></lightning-input></td>
+                                    <td><lightning-input type="text" value={row.photosTaken} onchange={handleInputChange} data-id={row.id} data-field="photosTaken"></lightning-input></td>
+                                    <td><lightning-textarea type="text" value={row.notes} onchange={handleInputChange} data-id={row.id} data-field="notes"></lightning-textarea></td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="slds-m-top_medium" style="text-align: center;">
+            <lightning-button label="Save" onclick={handleClick} variant="brand"></lightning-button>
+        </div> 
+    </lightning-card>
+</template>

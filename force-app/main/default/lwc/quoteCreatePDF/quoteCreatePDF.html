@@ -1,0 +1,19 @@
+<template>
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_large">
+        <div class="slds-modal__container">
+            <!--<lightning-button-icon icon-name="utility:close"  variant="bare" alternative-text="close" title="close" onclick={closeQuickActionDialog} class="slds-modal__close slds-button_icon-inverse"></lightning-button-icon>-->
+            <div class="slds-modal__header">
+                <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">PDF View</h1>
+            </div>
+            <div class="slds-modal__content" id="modal-content-id-1">
+                        <iframe src={url} height="200%" width="100%" id="theFrame"></iframe>
+    
+                        </div>
+            <div class="slds-modal__footer">
+                <!-- <lightning-button label="Send to Email" variant="brand" onclick={closeQuickActionDialog}></lightning-button> -->&nbsp;
+                        <lightning-button label="Save to Quote" variant="brand" onclick={savePDF}></lightning-button> &nbsp;
+                                    <lightning-button variant="brand" label="Close" onclick={closeQuickActionDialog}></lightning-button>
+            </div>
+        </div>
+    </section>
+</template>

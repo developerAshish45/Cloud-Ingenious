@@ -1,0 +1,311 @@
+.div {
+    margin-top: -40px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+.responsive {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.content {
+    max-width: 100%;
+    /* color: white; */
+    /* background-color:white; */
+    padding: 20px;
+    border-radius: 10px;
+    /*width: 50%;*/
+    overflow-y: auto;
+    /*Add overflow-y to enable vertical scrolling*/
+    max-height: 400px;
+    /*Set a max-height to enable scrolling*/
+    margin-top: 30px;
+}
+
+.sortbtn {
+    position: absolute;
+    top: 12px;
+    right: 22px;
+}
+
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.content th,
+.content td {
+    border-bottom: 1px solid black;
+    padding: 14px;
+    text-align: left;
+}
+
+.content th:last-child,
+.content td:last-child {
+    text-align: center;
+}
+
+.content th.sort-button {
+    cursor: pointer;
+}
+
+.content th.sort-button::after {
+    content: "\25B2";
+    padding-left: 5px;
+}
+
+.content th.sort-button.sorted-asc::after {
+    content: "\25B2";
+}
+
+.content th.sort-button.sorted-desc::after {
+    content: "\25BC";
+}
+
+.responsive {
+    flex-direction: column;
+}
+.img-fluid{
+    width: 30px;
+     height: 30px;
+}
+
+@media only screen and (min-device-width: 100px)
+and (max-device-width: 768px) {
+    .img-fluid{
+        width: 50px;
+         height: 50px;
+         margin:10px;
+    }
+ 
+    
+    .responsive {
+        
+        flex-direction: column;
+        /* margin-top: 264px; */
+        display: flex;
+        justify-content: center;
+        height: 60vh;
+    }
+    footer p{
+        font-size: x-large;
+    }
+    h1{
+        font-size: xx-large;
+    }
+
+    .content {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        overflow-y: hidden;
+        /*Remove vertical scrolling on smaller screens*/
+        max-height: none;
+        /*Remove max-height on smaller screens*/
+       
+    }
+
+    .sortbtn {
+        position: absolute;
+        top: 40%;
+       
+        right: 22px;
+    }
+}
+.span
+{
+    margin-top: 10px;
+    margin-right: 15px;
+    font-size: 15px;
+    color: white;
+}
+
+
+.flex-container {
+    display: flex;
+}
+
+.flex-container ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-container ul li {
+    margin-right: 20px;
+}
+
+.flex-container ul li:last-child {
+    margin-right: 0;
+}
+
+.flex-container ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+
+/*Icon CSS*/
+.flex-container {
+    display: flex;
+}
+
+.flex-container ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-container ul li {
+    margin-right: 20px;
+}
+
+.flex-container ul li:last-child {
+    margin-right: 0;
+}
+
+.flex-container ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+.custom-icon {
+    fill: #000000; 
+    transition: fill 0.3s ease; 
+}
+
+.custom-icon:hover {
+    fill: #000000; 
+}
+
+.custom-icon:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000000;
+}
+
+
+
+
+
+
+
+
+.flex-container {
+    display: flex;
+}
+
+.flex-container ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-container ul li {
+    margin-right: 20px;
+}
+
+.flex-container ul li:last-child {
+    margin-right: 0;
+}
+
+.flex-container ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    position: relative;
+    /* Added */
+}
+
+.flex-container ul li a img {
+    /* Added */
+    transition: transform 0.3s ease;
+    /* Added */
+}
+
+.flex-container ul li a span {
+    /* Added */
+    display: none;
+    position: absolute;
+    top: 224%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.flex-container ul li a:hover img {
+    /* Added */
+    transform: scale(1.2);
+    /* Added */
+}
+
+.flex-container ul li a:hover span {
+    /* Added */
+    display: block;
+    /* Added */
+}
+
+/*Css for Footer*/
+
+.site-footer {
+    background-color: transparent;
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+}
+
+.site-footer p {
+    margin-bottom: 10px;
+    width: max-content;
+}
+
+table
+{
+    overflow: hidden;
+  
+}
+.thead th {
+    padding: 10px; /* Adjust the top and bottom padding as needed */
+    font-size: 14px; /* Adjust the font size as needed */
+   text-align: center;
+}
+.tbody th,
+.tbody td {
+    padding: 2px; /* Adjust the top and bottom padding as needed */
+    font-size: 13px; /* Adjust the font size as needed */
+    height: 40px;
+
+}
+.first-header {
+    width: 5%; /* Adjust the width as needed */
+   
+}

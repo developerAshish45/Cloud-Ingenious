@@ -1,0 +1,12 @@
+<!--
+  @description       : 
+  @author            : 
+  @group             : 
+  @last modified on  : 02-02-2024
+  @last modified by  : 
+-->
+<apex:page showHeader="false" sidebar="false" controller="IPAddressController" action="{!getUserIPAddress}">
+    <apex:form id="myForm">
+        {!ip}
+    </apex:form>
+</apex:page>

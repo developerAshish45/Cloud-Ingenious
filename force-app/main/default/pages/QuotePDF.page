@@ -1,0 +1,176 @@
+<apex:page standardController="Quote" extensions="QuotePDFController1" renderAs="pdf" standardStylesheets="true">
+    
+    <apex:form >
+        <html>
+            <header>
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 50%; padding-left: 5pt; text-indent: 0pt; text-align: left;">
+                            <apex:image url="{!$Resource.RGS_logo}"/>
+                        </td>
+                        <td style="width: 50%; padding-left: 5pt; text-indent: 0pt; text-align: right;">
+                            <apex:image url="{!$Resource.Norlack_Logo}"/>
+                        </td>
+                    </tr>  
+                </table>
+            </header>
+            <body>
+                <p class="s3" style="padding-top: 2pt; padding-left: 5pt; text-indent: 0pt; text-align: center; font-family: Calibri;"><strong>QUOTATION</strong></p>
+                
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p style="padding-left: 9pt;text-indent: 0pt;text-align: left;"><span class="s1">Date:  </span><apex:outputText style="padding-left: 9pt;text-indent: 0pt;text-align: left;" value="{0,date,MM/dd/yyyy}"><apex:param value="{!TODAY()}" />
+                    </apex:outputText><br/>
+                    <span class="s1"> Attn:  </span><span class="s2" style="padding-left: 11pt;text-indent: 0pt;text-align: left;">{!Quote.Contact.Name}</span><br/>
+                    <span class="s1"> Email: </span><span class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">{!Quote.Contact.Email}</span><br/>
+                    <span class="s1">Quote: </span><span class="s2" style="padding-left: 5pt;text-indent: 0pt;text-align: left;">{!Quote.QuoteNumber}</span><br/>
+                    <span class="s1"> Project: </span><span class="s2" style="padding-left: 2pt;text-indent: 0pt;text-align: left;">{!Quote.Opportunity.Name}</span></p>
+                
+                <h4 style="padding-top: 7pt;padding-left: 5pt;text-indent: 0pt;text-align: left;">___________________________________________________________________________NET PRICE</h4>
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p style="text-indent: 0pt;text-align: left;"/>
+                <apex:repeat value="{!quoteLineItems}" var="qli">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 50%; padding-left: 5pt; text-indent: 0pt; text-align: left;">
+                                <p style="padding-top: 2pt; padding-left: 5pt; text-indent: 0pt; line-height: 15pt; text-align: left;">
+                                    <span class="h3">Dimensions </span>
+                                    <apex:outputText value="{!qli.WxL__c}" rendered="{!NOT(ISBLANK(qli.WxL__c))}" />
+                                    <span class="h3">, </span>
+                                    <apex:outputText value="{!qli.Height__c}" rendered="{!NOT(ISBLANK(qli.Height__c))}" />
+                                    <span class="h3"> high </span>
+                                    <apex:outputText value="{!qli.Floor_Application__c}" rendered="{!NOT(ISBLANK(qli.Floor_Application__c))}" />
+                                </p>
+                            </td>
+                            
+                            <apex:outputPanel layout="none" rendered="{!qli.TotalPrice != null && qli.TotalPrice != 0}">
+                                <td style="width: 50%; padding-left: 150pt; text-align: left;">
+                                    <span class="h2" style="padding-left: 50pt; text-indent: 0pt; text-align: right;">
+                                        ${!qli.TotalPrice}
+                                    </span>
+                                </td>
+                            </apex:outputPanel>
+                            
+                        </tr>
+                    </table>
+                    <span class="h3"> </span>
+                    
+                    <ul id="l1" rendered="{!NOT(ISNULL(Quote.QuoteLineItems))}">
+                        <li data-list-text="">
+                            <p style="padding-left: 41pt;text-indent: -18pt;line-height: 13pt;text-align: left;">
+                                <span class="s7" rendered="{!NOT(ISNULL(qli.Product2.Name))}">
+                                    {!qli.Product2.Name}
+                                </span>
+                            </p>
+                        </li>
+                        <li data-list-text="">
+                            <p style="padding-left: 41pt;text-indent: -18pt;text-align: left;">
+                                <span class="s7" rendered="{!NOT(ISNULL(qli.Temperature__c))}">
+                                    {!qli.Temperature__c}
+                                </span>
+                                <span class="p"> Cold Room with ceiling mount Sci-Pak</span>
+                            </p>
+                        </li>
+                        <li data-list-text="">
+                            <p style="padding-left: 41pt;text-indent: -18pt;text-align: left;"><span class="p"></span><span class="s8" rendered="{!NOT(ISNULL(qli.Floor_Application__c))}">{!qli.Floor_Application__c}</span><span class="s9"></span><span class="s8" rendered="{!NOT(ISNULL(qli.Cap_Pak_HP__c))}">{!qli.Cap_Pak_HP__c}</span><span class="p"> Horse Power Sci Pk</span></p>
+                        </li>
+                        <li data-list-text="">
+                            <p style="padding-left: 41pt;text-indent: -18pt;text-align: left;">26 GA. stucco embossed coated steel on all surfaces except floor</p>
+                        </li>
+                        <li data-list-text="" rendered="{!NOT(ISNULL(qli.Floor_Finish__c) || qli.Floor_Finish__c != '')}">
+                            <p style="padding-left: 41pt;text-indent: -18pt;text-align: left;"><span class="p"> </span><span class="s7" >{!qli.Floor_Finish__c} </span><span class="p"> </span></p>
+                        </li>
+                        <li data-list-text="">
+                            <p style="padding-left: 41pt;text-indent: -18pt;text-align: left;"><span class="p"> </span><span class="s7" rendered="{!NOT(ISNULL(qli.Control_Panel__c))}">{!qli.Control_Panel__c} </span><span class="p"> Touch Pad Control Panel</span></p>
+                        </li>
+                        <li data-list-text="">
+                            <p style="padding-left: 41pt;text-indent: -18pt;line-height: 13pt;text-align: left;">26” self-closing door complete with cam-lift hinges</p>
+                        </li>
+                        <li data-list-text="">
+                            <p style="padding-left: 41pt;text-indent: -18pt;line-height: 13pt;text-align: left;">Magnetic door gasket</p>
+                        </li>
+                        <li data-list-text="">
+                            <p style="padding-left: 41pt;text-indent: -18pt;text-align: left;">Deadbolt locking handle with independent key/padlock feature and inside safety release</p>
+                        </li>
+                        <li data-list-text="">
+                            <p style="padding-left: 41pt;text-indent: -18pt;text-align: left;">Low Profile LED light positioned above the door opening</p>
+                        </li>
+                        <li data-list-text="">
+                            <p style="padding-left: 41pt;text-indent: -18pt;text-align: left;">Warranty: <b>36 months parts and labor, </b>5-year compressor, 15 year panels.</p>
+                        </li>
+                        <li data-list-text="">
+                            <p style="padding-left: 41pt;text-indent: -18pt;text-align: left;"><span class="p">Shipping weight </span><span class="s7" rendered="{!NOT(ISNULL(qli.Ship_Weight__c))}">{!qli.Ship_Weight__c}</span><span class="p">  LBS</span></p>
+                        </li>
+                    </ul>
+                    <span class="p">_______________________________________________________________________________</span>
+                    
+                </apex:repeat>
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <p style="padding-left: 5pt;text-indent: 0pt;text-align: left;">Accessories –</p>
+                <p style="text-indent: 0pt;text-align: left;"/>
+                <apex:repeat value="{!accessories}" var="acc">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 50%; padding-left: 5pt; text-indent: 0pt; text-align: left;">
+                                <span class="h2" style="padding-left: 0pt;text-indent: 0pt;text-align: Right;" >{!acc.Product2.Name}</span>
+                                <!--<apex:outputText value="{!qlis.Product2.Name}" rendered="{!qlis.PricebookEntry.Product2.Accessory__c}"/>-->
+                            </td>
+                            
+                            <td style="width: 50%; padding-left: 150pt; text-align: left;">
+                                <span class="h2" style="padding-left: 50pt;text-indent: 0pt;text-align: Right;" >  {!acc.TotalPrice}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </apex:repeat>
+                <p style="text-indent: 0pt;text-align: left;"><br/></p>
+                <table style="width: 100%;">
+                    <apex:outputPanel rendered="{!NOT(ISBLANK(Quote.Additional_Discount__c)) && Quote.Additional_Discount__c != 0}">
+                        <tr>
+                            <td style="width: 50%; padding-left: 5pt; text-indent: 0pt; text-align: left;">ADDITIONAL DISCOUNT</td>
+                            <td style="width: 50%; padding-left: 200pt; text-align: left;">${!Quote.Additional_Discount__c}</td>
+                        </tr>
+                    </apex:outputPanel>
+                    
+                    <tr>
+                        <td style="width: 50%; padding-left: 5pt; text-indent: 0pt; text-align: left;">FREIGHT</td>
+                        <td style="width: 50%; padding-left: 200pt; text-align: left;">
+                            <apex:outputText value="{!IF(ISNULL(Quote.Freight_to_CITY_ST_ZIP_CODE_FOB_Hudso__c) || Quote.Freight_to_CITY_ST_ZIP_CODE_FOB_Hudso__c == 0, 'N/A', '$' & TEXT(Quote.Freight_to_CITY_ST_ZIP_CODE_FOB_Hudso__c))}" rendered="{!(NOT(ISNULL(Quote.Freight_to_CITY_ST_ZIP_CODE_FOB_Hudso__c) && Quote.Freight_to_CITY_ST_ZIP_CODE_FOB_Hudso__c == 0))}">
+                            </apex:outputText>
+                            
+                            
+                            
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td style="width: 50%; padding-left: 5pt; text-indent: 0pt; text-align: left;">INSTALLATION</td>
+                        <td style="width: 50%; padding-left: 200pt; text-align: left;">
+                            <apex:outputText value="{!IF(ISNULL(Quote.Installation_non_union_labor__c) || Quote.Installation_non_union_labor__c == 0, 'N/A', '$' & TEXT(Quote.Installation_non_union_labor__c))}" rendered="{!(NOT(ISNULL(Quote.Installation_non_union_labor__c) && Quote.Installation_non_union_labor__c == 0))}">
+                            </apex:outputText>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        
+                        <td style="width: 50%; padding-left: 5pt; text-indent: 0pt; text-align: left;"><strong>GRAND TOTAL</strong></td>
+                        <td style="width: 50%; padding-left: 200pt; text-align: left;"><strong>${!Quote.Grand_Total__c + totalPrice}</strong></td>
+                        
+                    </tr>
+                </table>
+                <br/><br/>
+                
+                <p><span class="s1">Price does not include inside delivery, duties, insurance, taxes and fees.</span></p>
+                <span class="s1">Subject to Nor-Lake, Inc. Standard Terms and Conditions</span><br/>
+                <span class="s1">Specification subject to change.</span><br/>
+                <p><span class="s1"> FOB Hudson, WI</span></p>
+                <p><span class="s1">Prices valid through </span> <apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!Quote.CreatedDate+60}"/> </apex:outputText></p><br/>
+                
+                <span class="s1">Sincerely,</span><br/><br/>
+                <span class="s1">RSG, Inc.</span><br/>
+                <span class="s1">891 County Road </span><br/>
+                <span class="s1">U Hudson, WI 54016-0248</span><br/>
+                <span class="s1">Phone: 800-477-5253</span><br/>
+                <span class="s1"><a href="http://www.norlake.com/">www.norlake.com</a></span>
+            </body>
+        </html>
+    </apex:form>
+</apex:page>

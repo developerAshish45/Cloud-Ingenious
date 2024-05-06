@@ -1,0 +1,40 @@
+<template>
+    <div style={backgroundImage} class="heading">
+        <div style="margin: 0; padding: 0; box-sizing: border-box;">
+            <div>
+                <div style="border-bottom: 1px solid white;"><img src={rsgLogoUrl} alt="" style="max-width: 200px;"></div>
+                    <br/>
+                <template if:true={data}>
+                    <div>
+                        <p>
+                        <span style="color: white; font-weight: bold; margin-top:15px; font-size:large">WELCOME </span>
+                        <span style="color: #3FAFFF; font-weight: bold; margin-top:15px; font-size:large">{data.Name}!</span>
+                        </p>
+                    </div>
+                </template>  
+            </div>
+            <div class="middle-box"><div style="text-align: center; font-size: 40px; ">
+                <h1 style="color: white;margin-bottom: 0; font-size:50px;padding-top: 50px">RSG Installation</h1>
+                <h1 style="color: #3FAFFF;margin-top:0 ; font-size:50px">Portal</h1>
+            </div>
+            <template if:true={showClnOrInstNameFlag}>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <div
+                        style="width: max-content;padding: 10px; border: 2px solid; text-align: center; font-size: 20px; color: white;margin-top: 120px;"
+                        onclick={handleNavigation}>
+                        View Cleaning & Maintenance Sites</div>
+                    <lightning-button variant="brand" label="View Installation Sites" onclick={handleNavigation}></lightning-button>
+                </div>
+            </template>
+            <template if:false={showClnOrInstNameFlag}>
+                <div class="slds-text-align_center slds-m-top_medium "> 
+            <lightning-button class="custom-button" variant="brand" label="View Installation Sites" onclick={handleNavigation}></lightning-button>
+            </div> 
+            </template>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <c-install-footer-component></c-install-footer-component>
+    </div>
+</template>
